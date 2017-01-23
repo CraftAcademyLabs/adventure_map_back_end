@@ -25,8 +25,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
