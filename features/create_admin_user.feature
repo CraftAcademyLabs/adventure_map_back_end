@@ -15,7 +15,6 @@ Feature: Admin can add AdminUsers
     And I click on "Create Admin user"
     Then there should be an admin user with email "another_admin@admin.com" in the system
 
-
   Scenario: attempts to create new AdminUser with invalid settings (existing user)
     And I click on "Administrators"
     And I click on "Create Admin user"

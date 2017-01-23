@@ -11,7 +11,6 @@ Given(/^I fill in the login form with my credentials$/) do
   fill_in 'Password', with: 'password'
 end
 
-
 Given(/^I access the application as an admin$/) do
   steps %q(
     Given an admin user exist
