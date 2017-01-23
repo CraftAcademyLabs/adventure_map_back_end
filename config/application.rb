@@ -21,5 +21,15 @@ module AdventureMap
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*' # We need to block this to only the known domains we are working with.
+        resource '*',
+                 headers: :any,
+                 expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+                 methods: [:get, :post, :options, :delete, :put]
+      end
+    end
   end
 end
