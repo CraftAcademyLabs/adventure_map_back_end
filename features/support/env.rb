@@ -1,3 +1,4 @@
+require 'simplecov'
 require 'cucumber/rails'
 
 ActionController::Base.allow_rescue = false
