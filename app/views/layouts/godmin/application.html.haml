@@ -1,0 +1,18 @@
+- content_for :body do
+  %nav.navbar.navbar-default.navbar-static-top{role: 'navigation'}
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{aria: {expanded: 'false'}, data: {target: '#godmin-navbar-collapse', toggle: 'collapse'}, type: 'button'}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'AdventureMap', root_path, class: 'navbar-brand'
+      #godmin-navbar-collapse.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          = render partial: File.join(engine_wrapper.namespaced_path, 'shared/navigation')
+        %ul.nav.navbar-nav.navbar-right
+          = render partial: File.join(engine_wrapper.namespaced_path, 'shared/navigation_aside')
+  .container
+    = render 'layouts/godmin/content'
+= render 'layouts/godmin/layout'
