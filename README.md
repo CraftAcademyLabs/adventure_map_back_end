@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   include Godmin::Authentication
   include Godmin::Authorization
   ...
-
+end
 ```
 
 The main Policy is created in `ApplicationPolicy` that inherits from `Godmin::Authorization::Policy`
@@ -62,7 +62,6 @@ And the policy class, like this:
 
 ```
 class UserPolicy < ApplicationPolicy
-
   def destroy?
     false
   end
