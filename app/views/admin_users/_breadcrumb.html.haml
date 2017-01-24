@@ -11,11 +11,11 @@
           = t('helpers.submit.create', model: @resource_class.model_name.human)
         - else
           %strong
-            = @resource.email
+            = @resource.try(:name) || @resource.email
       - if @resource.persisted?
         %li.dropdown.pull-right
           %a{data: {toggle: 'dropdown'}, href: '#', role: 'button'}
-            = translate_scoped("actions.label")
+            = translate_scoped('actions.label')
             %span.caret
           %ul.dropdown-menu
             - if policy(@resource).show? && action_name != 'show'

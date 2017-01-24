@@ -9,6 +9,8 @@ Feature: Admin can add AdminUsers
   Scenario: create new AdminUser with valid settings
     And I click on "Administrators"
     And I click on "Create Admin user"
+    And I fill in "First name" with "Admin"
+    And I fill in "Last name" with "McAnother"
     And I fill in "Email" with "another_admin@admin.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -18,6 +20,8 @@ Feature: Admin can add AdminUsers
   Scenario: attempts to create new AdminUser with invalid settings (existing user)
     And I click on "Administrators"
     And I click on "Create Admin user"
+    And I fill in "First name" with "Admin"
+    And I fill in "Last name" with "McAnother"
     And I fill in "Email" with "admin@admin.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -27,6 +31,8 @@ Feature: Admin can add AdminUsers
   Scenario: attempts to create new AdminUser with invalid settings (no password)
     And I click on "Administrators"
     And I click on "Create Admin user"
+    And I fill in "First name" with "Admin"
+    And I fill in "Last name" with "McAnother"
     And I fill in "Email" with "new_admin@admin.com"
     And I fill in "Password" with ""
     And I fill in "Password confirmation" with ""
