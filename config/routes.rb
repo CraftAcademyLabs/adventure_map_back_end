@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
   resources :admin_users
+  resources :users, except: [:destroy]
+
   resource :session, only: [:new, :create, :destroy]
   root to: 'application#welcome'
 
