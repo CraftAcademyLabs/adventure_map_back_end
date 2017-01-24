@@ -1,10 +1,11 @@
-Given(/^there's an activity titled "([^"]*)" in the system$/) do |title|
+Given(/^"([^"]*)" has an activity titled "([^"]*)" in the system$/) do |username, title|
   steps %Q(
     Given I click on "Create Activity"
     And I fill in "Title" with "#{title}"
     And I fill in "Body" with "#{title} is great fun!"
-    And I fill in "Difficulty" with "3"
+    And I select "3" from "Difficulty"
     And I fill in "Category" with "#{title.split[0]}"
+    And I select "#{username}" from "User"
     And I click on "Create Activity"
         )
 end

@@ -18,11 +18,19 @@ And(/^there should no be a user with email "([^"]*)" in the system$/) do |email|
 end
 
 And(/^there should be an activity titled "([^"]*)" in the system$/) do |title|
-  activity = Activity.find_by(title: title)
-  expect(activity.persisted?).to eq true
+  @activity = Activity.find_by(title: title)
+  expect(@activity.persisted?).to eq true
 end
 
 And(/^there should be no activity titled "([^"]*)" in the system$/) do |arg|
   activity = Activity.find_by(title: title)
   expect(activity).to eq nil
+end
+
+And(/^the activity should be associated with "([^"]*)"$/) do |name|
+  expect(@activity.user.name).to eq name
+end
+
+Then(/^I should not see "([^"]*)"$/) do |content|
+  expect(page).not_to have_content content
 end
