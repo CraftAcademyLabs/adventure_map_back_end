@@ -34,6 +34,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'launchy'
+  gem 'pundit-matchers'
+
 end
 
 group :development do

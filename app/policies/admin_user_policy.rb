@@ -1,21 +1,3 @@
-class AdminUserPolicy < Godmin::Authorization::Policy
-  def index?
-    true
-  end
+class AdminUserPolicy < ApplicationPolicy
 
-  def show?
-    true
-  end
-
-  def create?
-    true
-  end
-
-  def update?
-    true
-  end
-
-  def destroy?
-    true
-  end
 end
