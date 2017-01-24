@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Godmin::ApplicationController
   include Godmin::Authentication
+  include Godmin::Authorization
   include DeviseTokenAuth::Concerns::SetUserByToken
   if -> { request.format.json? }
     protect_from_forgery with: :null_session
