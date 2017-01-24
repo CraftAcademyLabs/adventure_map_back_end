@@ -17,7 +17,12 @@ And(/^there should no be a user with email "([^"]*)" in the system$/) do |email|
   expect(user).to eq nil
 end
 
-And(/^there should be a activity with titled "([^"]*)" in the system$/) do |title|
+And(/^there should be an activity titled "([^"]*)" in the system$/) do |title|
   activity = Activity.find_by(title: title)
   expect(activity.persisted?).to eq true
+end
+
+And(/^there should be no activity titled "([^"]*)" in the system$/) do |arg|
+  activity = Activity.find_by(title: title)
+  expect(activity).to eq nil
 end
