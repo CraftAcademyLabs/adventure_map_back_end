@@ -2,8 +2,13 @@ class ApplicationController < ActionController::Base
   include Godmin::ApplicationController
   include Godmin::Authentication
   include DeviseTokenAuth::Concerns::SetUserByToken
-  protect_from_forgery with: :null_session, if: -> { request.format.json? }
-  protect_from_forgery with: :exception
+  if -> { request.format.json? }
+    protect_from_forgery with: :null_session
+  else
+    protect_from_forgery with: :exception
+  end
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   def admin_user_class
     AdminUser
@@ -22,6 +27,12 @@ class ApplicationController < ActionController::Base
   def authenticate_user!(opts={})
     opts[:scope] = :user
     warden.authenticate!(opts) if !devise_controller? || opts.delete(:force)
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
   end
 
 end
