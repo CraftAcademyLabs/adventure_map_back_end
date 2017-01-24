@@ -1,3 +1,2 @@
 class AdminUserPolicy < ApplicationPolicy
-
 end
