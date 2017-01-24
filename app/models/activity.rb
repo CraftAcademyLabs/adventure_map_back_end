@@ -5,4 +5,6 @@ class Activity < ApplicationRecord
   validates :difficulty,
             inclusion: {in: VALID_DIFFICULTY_VALUES,
                         message: '%{value} is not a valid value'}
+
+  belongs_to :user
 end

@@ -4,5 +4,6 @@ FactoryGirl.define do
     body "MyText"
     difficulty 1
     category "MyString"
+    association :user
   end
 end
