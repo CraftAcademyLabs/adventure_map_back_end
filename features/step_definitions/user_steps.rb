@@ -9,3 +9,9 @@ And(/^I click on "([^"]*)" for user "([^"]*)"$/) do |element, email|
     click_link_or_button element
   end
 end
+
+Given(/^the following users exist$/) do |table|
+  table.hashes.each do |user|
+    FactoryGirl.create(:user, user)
+  end
+end
