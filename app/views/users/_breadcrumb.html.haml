@@ -2,10 +2,10 @@
   %ol.breadcrumb
     - if action_name == 'index'
       %li.active
-        = 'Administrators'
+        = @resource_class
     - else
       %li
-        = link_to 'Administrators', @resource_class
+        = link_to @resource_class, @resource_class
       %li.active
         - if @resource.new_record?
           = t('helpers.submit.create', model: @resource_class.model_name.human)
