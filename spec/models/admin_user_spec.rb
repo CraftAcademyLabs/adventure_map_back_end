@@ -28,10 +28,19 @@ describe AdminUser, type: :model do
   it { is_expected.to validate_length_of(:password).is_at_least(6) }
   it { is_expected.to validate_uniqueness_of(:email) }
   it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
 
   describe '#login_column' do
     it 'should return a email column' do
       expect(AdminUser.login_column).to eq :email
+    end
+  end
+
+  describe '#name' do
+    subject { create(:admin_user, first_name: 'Thomas', last_name: 'Ochman') }
+    it 'is combined of "first_name" & "last_name"' do
+      expect(subject.name).to eq 'Thomas Ochman'
     end
   end
 end
