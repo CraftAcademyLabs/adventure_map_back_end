@@ -3,7 +3,6 @@ Feature: Administrate users
   So that I can manage my application users
   I want to be able to view, edit, delete and create users through my admin dashboard
 
-
   Background:
     Given I access the application as an admin
 
