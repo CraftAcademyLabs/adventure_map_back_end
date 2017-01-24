@@ -5,9 +5,12 @@ RSpec.describe 'User Registration', type: :request do
 
   context 'with valid credentials' do
     it 'returns a user and token' do
-      post '/api/v1/auth', params: {
-          email: 'example@craftacademy.se', password: 'password',
-          password_confirmation: 'password', name: 'Bob', nickname: 'Bobby', image: 'image.png'
+      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
+                                     password: 'password',
+                                     password_confirmation: 'password',
+                                     name: 'Bob',
+                                     nickname: 'Bobby',
+                                     image: 'image.png'
       }, headers: headers
 
       expect(response_json['status']).to eq 'success'
@@ -15,9 +18,12 @@ RSpec.describe 'User Registration', type: :request do
     end
 
     it 'persists a user to the database' do
-      post '/api/v1/auth', params: {
-          email: 'example@example.se', password: 'password',
-          password_confirmation: 'password', name: 'Bob', nickname: 'Bobby', image: 'image.png'
+      post '/api/v1/auth', params: { email: 'example@example.se',
+                                     password: 'password',
+                                     password_confirmation: 'password',
+                                     name: 'Bob',
+                                     nickname: 'Bobby',
+                                     image: 'image.png'
       }, headers: headers
 
       expect(User.last.name).to eq 'Bob'
