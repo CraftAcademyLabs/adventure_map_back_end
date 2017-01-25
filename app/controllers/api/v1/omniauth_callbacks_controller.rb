@@ -22,8 +22,8 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
 
   def assign_provider_attrs(user, auth_hash)
     user.assign_attributes({
-                               nickname: 'Test',
-                               name: auth_hash['info']['name'],
+                               nickname: auth_hash['info']['first_name'],
+                               name: [auth_hash['info']['first_name'], auth_hash['info']['last_ame']].join(' '),
                                image: auth_hash['info']['image'],
                                email: auth_hash['info']['email']
                            })
