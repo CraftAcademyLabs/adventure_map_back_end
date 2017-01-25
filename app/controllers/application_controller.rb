@@ -31,7 +31,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,
+                                                       :nickname,
+                                                       :image,
+                                                       :date_of_birth,
+                                                       :gender,
+                                                       :city])
   end
 
   def json_request?

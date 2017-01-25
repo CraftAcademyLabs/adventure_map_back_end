@@ -6,12 +6,16 @@ Feature: Administrate users
   Background:
     Given I access the application as an admin
 
+  @javascript
   Scenario: Add a user
     Given I click on "Users"
     And I click on "Create User"
     And I fill in "Email" with "user@random.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
+    And I select "Male" from "Gender"
+    And I fill in "City" with "Gothenburg"
+    And I select date "1971-11-24" from Date of birth
     And I click on "Create User"
     Then I should see "User was successfully created"
     And there should be a user with email "user@random.com" in the system
