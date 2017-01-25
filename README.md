@@ -85,3 +85,13 @@ $ bundle exec rspec
 # if you're on a macOS the following command will open the coverage report in your browser
 $ open coverage/index.html
 ```
+
+To get merged coverage report of `RSpec` & `Cucumber` run either one of the following commands:
+
+```shell
+$ bundle exec rake
+
+# or
+
+$ bundle exec rails ci:tests
+```
