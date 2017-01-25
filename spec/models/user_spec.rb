@@ -28,6 +28,9 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :tokens }
     it { is_expected.to have_db_column :created_at }
     it { is_expected.to have_db_column :updated_at }
+    it { is_expected.to have_db_column :date_of_birth }
+    it { is_expected.to have_db_column :sex }
+    it { is_expected.to have_db_column :city }
   end
 
   describe 'Validations' do
@@ -35,22 +38,20 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_confirmation_of(:password) }
 
     context 'should not have an invalid email address' do
-      emails = ['asdf@ ds.com', '@example.com', 'test me @yahoo.com',
-                'asdf@example', 'ddd@.d. .d', 'ddd@.d']
-
+      emails = ['asdf@ ds.com', '@example.com', 'test me @yahoo.com', 'asdf@example', 'ddd@.d. .d', 'ddd@.d']
       emails.each do |email|
         it { is_expected.not_to allow_value(email).for(:email) }
       end
     end
 
     context 'should have a valid email address' do
-      emails = ['asdf@ds.com', 'hello@example.uk', 'test1234@yahoo.si',
-                'asdf@example.eu']
-
+      emails = %w(asdf@ds.com hello@example.uk test1234@yahoo.si asdf@example.eu)
       emails.each do |email|
         it { is_expected.to allow_value(email).for(:email) }
       end
     end
+
+    it { is_expected.to validate_inclusion_of(:sex).in_array(%w(Male Female)) }
   end
 
   describe 'Associations' do
