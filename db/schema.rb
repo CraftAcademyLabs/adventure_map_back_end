@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124055438) do
+ActiveRecord::Schema.define(version: 20170124213501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "difficulty"
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email"
@@ -53,4 +64,5 @@ ActiveRecord::Schema.define(version: 20170124055438) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
+  add_foreign_key "activities", "users"
 end

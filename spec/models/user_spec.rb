@@ -52,4 +52,8 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'Associations' do
+    it { is_expected.to have_many :activities}
+  end
 end
