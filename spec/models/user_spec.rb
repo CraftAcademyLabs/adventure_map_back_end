@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :created_at }
     it { is_expected.to have_db_column :updated_at }
     it { is_expected.to have_db_column :date_of_birth }
-    it { is_expected.to have_db_column :sex }
+    it { is_expected.to have_db_column :gender }
     it { is_expected.to have_db_column :city }
   end
 
@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    it { is_expected.to validate_inclusion_of(:sex).in_array(%w(Male Female)) }
+    it { is_expected.to validate_inclusion_of(:gender).in_array(%w(Male Female Other)) }
   end
 
   describe 'Associations' do

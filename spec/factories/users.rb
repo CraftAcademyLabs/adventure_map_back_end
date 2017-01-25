@@ -3,7 +3,7 @@ FactoryGirl.define do
     email 'email@random.com'
     password 'password'
     password_confirmation 'password'
-    sex %w(Male Female).sample
+    gender %w(Male Female Other).sample
     city 'Gothenburg'
     date_of_birth 20.years.ago.strftime('%Y-%m-%d')
   end

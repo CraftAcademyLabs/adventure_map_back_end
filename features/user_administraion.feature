@@ -13,7 +13,7 @@ Feature: Administrate users
     And I fill in "Email" with "user@random.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
-    And I select "Male" from "Sex"
+    And I select "Male" from "Gender"
     And I fill in "City" with "Gothenburg"
     And I select date "1971-11-24" from Date of birth
     And I click on "Create User"
