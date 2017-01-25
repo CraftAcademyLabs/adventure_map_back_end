@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :activity do
-    title "MyString"
-    body "MyText"
+    title 'Title'
+    body 'Lorem ipsum...'
     difficulty 1
-    category "MyString"
+    category 'Hiking'
     association :user
   end
 end
