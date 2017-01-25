@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
                                                        :nickname,
                                                        :image,
                                                        :date_of_birth,
-                                                       :sex,
+                                                       :gender,
                                                        :city])
   end
 
