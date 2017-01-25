@@ -5,9 +5,8 @@
 This project is tracked on https://www.pivotaltracker.com/n/projects/1938829
 
 ### Libraries used
-**Godmin** - for administrative interface
-**DeviseTokenAuth** - for user authentication
-
+- [**Godmin**](https://github.com/varvet/godmin) - for administrative interface
+- [**DeviseTokenAuth**](https://github.com/lynndylanhurley/devise_token_auth) - for user authentication
 
 ### Policies for Admin
 
