@@ -28,4 +28,6 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
                                email: auth_hash['info']['email']
                            })
   end
+
+
 end

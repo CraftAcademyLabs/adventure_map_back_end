@@ -12,8 +12,7 @@ Rails.application.routes.draw do
                                   controllers: {
                                       registrations: 'api/v1/registrations',
                                       omniauth_callbacks: 'api/v1/omniauth_callbacks'
-                                  },
-                                  defaults: {format: :json}
+                                  }
     end
   end
 end
