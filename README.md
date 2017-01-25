@@ -73,3 +73,15 @@ The rest of the rules are set in `ApplicationPolicy`. Also, as an extra measure 
 
 resources :users, except: [:destroy]
 ```
+
+### Code coverage
+
+[SimpleCov](https://github.com/colszowka/simplecov) is configured on this project to measure code test coverage. Everytime we run tests using either `RSpec` or `Cucumber` a coverage report is genarate in the `coverage` directory of the application, in html format that you can open with your favorite browser.
+
+```shell
+# Run your test suite. e.g: `RSpec`
+$ bundle exec rspec
+
+# if you're on a macOS the following command will open the coverage report in your browser
+$ open coverage/index.html
+```
