@@ -15,3 +15,9 @@ Given(/^the following users exist$/) do |table|
     FactoryGirl.create(:user, user)
   end
 end
+
+And(/^I select date "([^"]*)" from Date of birth$/) do |date|
+  page.execute_script(
+          "$('#user_date_of_birth').val('#{date}').trigger('keyup-change');"
+  )
+end

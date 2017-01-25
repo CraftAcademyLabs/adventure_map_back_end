@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
 
   validates :sex,
             inclusion: {in: VALID_SEX_VALUES,
-                        message: '%{value} is not a valid gender'}
+                        message: '%{value} is not a valid gender'},
+            allow_nil: true
 end

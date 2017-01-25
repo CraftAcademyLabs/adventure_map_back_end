@@ -1,0 +1,17 @@
+= form_for @resource do |f|
+  = f.text_field :name
+  = f.text_area :nickname
+  = f.text_field :email
+  = f.select :sex, User::VALID_SEX_VALUES, {}
+  = f.date_field :date_of_birth
+  = f.text_field :city
+  = f.password_field :password
+  = f.password_field :password_confirmation
+  = f.submit
+
+
+:javascript
+  Godmin.Datetimepickers.initializeDatepicker($('#user_date_of_birth'), {
+    format: 'YYYY-MM-DD',
+    defaultDate: '1990-01-01'
+  });
