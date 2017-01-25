@@ -3,11 +3,9 @@ class ApplicationController < ActionController::Base
   include Godmin::Authentication
   include Godmin::Authorization
   include DeviseTokenAuth::Concerns::SetUserByToken
-  if -> { request.format.json? }
-    protect_from_forgery with: :null_session
-  else
-    protect_from_forgery with: :exception
-  end
+
+  protect_from_forgery with: :exception, unless: :json_request?
+  protect_from_forgery with: :null_session, if: :json_request?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -34,6 +32,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
+  end
+
+  def json_request?
+    request.format.json?
   end
 
 end
