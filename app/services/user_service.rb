@@ -5,6 +5,10 @@ class UserService
   attrs_for_show :name, :nickname, :email, :date_of_birth, :gender, :city, :created_at, :updated_at
   attrs_for_form :name, :nickname, :email, :date_of_birth, :gender, :city, :password, :password_confirmation
 
+  def resource_class
+    ::User
+  end
+
   def update_resource(resource, params)
     if params[:password].blank?
       params.delete(:password)
