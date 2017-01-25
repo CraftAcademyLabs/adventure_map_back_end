@@ -13,7 +13,7 @@ This project is tracked on https://www.pivotaltracker.com/n/projects/1938829
 
 Godmins authorization modules are turned on in the `ApplicationController`
 
-```
+```ruby
 class ApplicationController < ActionController::Base
   include Godmin::ApplicationController
   include Godmin::Authentication
@@ -31,9 +31,8 @@ It allows an `AdminUser` to perform all CRUD actions on a `resource`. Policies f
 For the `User` resource, we want prevent Admins to be able to perform `:destroy`. This means that the spec for the policy can look something like this:
 
 
-```
+```ruby
 RSpec.describe UserPolicy do
-
   let(:admin) { create(:admin_user) }
   let(:resource) { create(:user, email: 'another_admin@admin.com') }
 
@@ -60,7 +59,7 @@ end
 
 And the policy class, like this:
 
-```
+```ruby
 class UserPolicy < ApplicationPolicy
   def destroy?
     false
@@ -70,7 +69,7 @@ end
 
 The rest of the rules are set in `ApplicationPolicy`. Also, as an extra measure of security, we choose **not** to generate a route for that resource
 
-```
+```ruby
 # config/routes.rb
 
 resources :users, except: [:destroy]
