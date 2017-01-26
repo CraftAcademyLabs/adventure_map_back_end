@@ -2,6 +2,12 @@ Given(/^the user "([^"]*)" has an account$/) do |email|
   FactoryGirl.create(:user, email: email)
 end
 
+Given(/^the user "([^"]*)" has an interest "([^"]*)"$/) do |email, interest|
+  user = User.find_by(email: email)
+  user.interest_list.add(interest)
+  user.save
+end
+
 And(/^I click on "([^"]*)" for user "([^"]*)"$/) do |element, email|
   user = User.find_by(email: email)
   row = find("tr[data-resource-id='#{user.id}']")

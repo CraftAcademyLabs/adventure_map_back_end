@@ -19,6 +19,9 @@ Feature: Administrate users
     And I set interest to "Cross country skiing"
     And I click on "Create User"
     Then I should see "User was successfully created"
+    Then show me the page
+    # line below works well on browser but fails on the test
+    Then I should see "Cross country skiing"
     And there should be a user with email "user@random.com" in the system
 
   Scenario: Edit User (with password update)
@@ -52,6 +55,8 @@ Feature: Administrate users
 
   Scenario: Show a user
     Given the user "user_2@ranom.com" has an account
+    Given the user "user_2@ranom.com" has an interest "Cross country skiing"
     And I click on "Users"
     And I click on "Show" for user "user_2@ranom.com"
     Then I should see "user_2@ranom.com"
+    And I should see "Cross country skiing"
