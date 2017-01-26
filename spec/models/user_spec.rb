@@ -57,4 +57,10 @@ RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many :activities}
   end
+
+  describe 'Interests' do
+    it 'should have predefined list of interests' do
+      expect(User::INTERESTS).not_to be_empty
+    end
+  end
 end
