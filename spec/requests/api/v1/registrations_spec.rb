@@ -17,7 +17,7 @@ RSpec.describe 'User Registration', type: :request do
     end
 
     it 'persists a user to the database' do
-      post '/api/v1/auth', params: {email: 'example@example.se',
+      request = lambda {post '/api/v1/auth', params: {email: 'example@example.se',
                                     password: 'password',
                                     password_confirmation: 'password',
                                     name: 'Bob',
@@ -27,8 +27,9 @@ RSpec.describe 'User Registration', type: :request do
                                     gender: 'Male',
                                     city: 'Sigtuna'
 
-      }, headers: headers
+      }, headers: headers}
 
+      expect { request.call }.to change(User, :count).by(1)
       expect(User.last.name).to eq 'Bob'
       expect(User.last.nickname).to eq 'Bobby'
       expect(User.last.image).to eq 'image.png'
@@ -76,16 +77,22 @@ RSpec.describe 'User Registration', type: :request do
   describe 'OmniAuth' do
     context 'Facebook' do
 
+      let(:params) { {omniauth_window_type: 'newWindow'} }
+      let(:request) { lambda do
+        get('/api/v1/auth/facebook/',
+            params: params,
+            headers: headers)
+        follow_redirect! until response.status == 200
+      end }
+
       it 'allows user to register with valid authorization' do
-        request_via_redirect(:get, '/api/v1/auth/facebook/', params: {omniauth_window_type: 'newWindow'}, headers: headers)
-        expect(response.status).to eq 200
+        # Uses default mock, set in support/oauth.rb
+        expect { request.call }.to change(User, :count).by(1)
       end
 
       it 'fails to register user with invalid authorization' do
         OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-        request_via_redirect :get, '/api/v1/auth/facebook/', params: {omniauth_window_type: 'newWindow'}, headers: headers
-        binding.pry
-        expect(response.status).to eq 401
+        expect { request.call }.to change(User, :count).by(0)
       end
     end
   end

@@ -20,7 +20,7 @@ gem 'haml-rails'
 
 # Functionality
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
-gem 'devise_token_auth'
+gem 'devise_token_auth' 
 gem 'omniauth-facebook'
 
 
