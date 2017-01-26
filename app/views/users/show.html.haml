@@ -1,0 +1,11 @@
+= render partial: 'breadcrumb'
+%table.table.table-striped
+  - @resource_service.attrs_for_show.each do |attr|
+    %tr
+      %th
+        - if attr == :image && @resource.image
+          = image_tag(@resource.image)
+          %td
+        - else
+          = @resource_class.human_attribute_name(attr)
+          %td= column_value(@resource, attr)
