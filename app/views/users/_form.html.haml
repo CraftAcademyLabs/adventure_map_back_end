@@ -7,6 +7,7 @@
   = f.text_field :city
   = f.password_field :password
   = f.password_field :password_confirmation
+  = f.tags_field :interest_list, label: 'Interests', data: { collection: User::VALID_INTERESTS}
   = f.submit
 
 
