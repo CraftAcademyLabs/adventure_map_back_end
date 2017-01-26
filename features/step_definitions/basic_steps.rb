@@ -27,3 +27,10 @@ And(/^I filter on "([^"]*)" from "([^"]*)"$/) do |value, element|
     end
   end
 end
+And(/^I set interest to "([^"]*)"$/) do |value|
+  fill_autocomplete(select: value)
+end
+
+def fill_autocomplete(options = {})
+  page.execute_script %Q{$('div.selectize-dropdown.multi.form-control div.selectize-dropdown-content div:contains("#{options[:select]}")').trigger('mouseenter').click();}
+end
