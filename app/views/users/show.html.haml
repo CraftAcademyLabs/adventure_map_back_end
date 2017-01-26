@@ -3,7 +3,7 @@
   - @resource_service.attrs_for_show.each do |attr|
     %tr
       %th
-        - if attr == :image
+        - if attr == :image && @resource.image
           = image_tag(@resource.image)
           %td
         - else
