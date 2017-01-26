@@ -28,4 +28,10 @@ class ApplicationController < ActionController::Base
     warden.authenticate!(opts) if !devise_controller? || opts.delete(:force)
   end
 
+  protected
+
+  def json_request?
+    request.format.json?
+  end
+
 end

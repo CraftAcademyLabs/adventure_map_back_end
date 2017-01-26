@@ -21,8 +21,4 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
   end
 
-  def json_request?
-    request.format.json?
-  end
-
 end
