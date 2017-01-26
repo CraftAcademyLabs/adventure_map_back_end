@@ -23,6 +23,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'godmin-tags'
 
 
 group :development, :test do

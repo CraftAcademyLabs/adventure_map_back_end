@@ -123,6 +123,8 @@ GEM
       rails (>= 4.0, < 6.0)
       sass-rails (>= 4.0, < 6.0)
       selectize-rails (~> 0.12)
+    godmin-tags (1.0.1)
+      godmin (>= 0.9.7, < 2.0)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -308,6 +310,7 @@ DEPENDENCIES
   devise_token_auth
   factory_girl_rails
   godmin
+  godmin-tags
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
