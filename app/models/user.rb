@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   VALID_GENDER_VALUES = %w(Male Female Other)
-  INTERESTS = %w{ Hiking Cross\ country\ skiing Back\ country\ skiing Paddling
+  VALID_INTERESTS = %w{ Hiking Cross\ country\ skiing Back\ country\ skiing Paddling
   Mountain\ biking Horse\ riding Climbing Snow\ mobiling Cross\ country\ ice\ skating
   Foraging }
 

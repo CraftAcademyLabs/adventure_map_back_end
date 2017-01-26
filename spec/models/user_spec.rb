@@ -60,7 +60,7 @@ RSpec.describe User, type: :model do
 
   describe 'Interests' do
     it 'should have predefined list of interests' do
-      expect(User::INTERESTS).not_to be_empty
+      expect(User::VALID_INTERESTS).not_to be_empty
     end
   end
 end
