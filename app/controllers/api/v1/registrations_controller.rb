@@ -2,16 +2,18 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
 
   # Defining params for APIs - exported into ApiPie docs at /apidocs
   def_param_group :user do
-    param :user, Hash, :required => true do
-      param :name, String, 'Name of the user'
-      param :nickname, String, 'Nickname of the user'
-      param :email, String, 'User email'
-      param :password, String, 'User password'
-      param :password_confirmation, String, 'User password confirmation'
-    end
+    param :name, String, 'Name of the user'
+    param :nickname, String, 'Nickname of the user'
+    param :email, String, 'User email'
+    param :password, String, 'User password'
+    param :password_confirmation, String, 'User password confirmation'
   end
   api :POST, '/auth/user', 'Create a user'
   param_group :user
+
+  def create
+    super
+  end
 
   protected
 
