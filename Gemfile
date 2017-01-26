@@ -24,7 +24,7 @@ gem 'godmin-tags'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem 'acts-as-taggable-on', '~> 4.0'
-
+gem 'omniauth-facebook'
 
 
 group :development, :test do
@@ -40,6 +40,7 @@ group :development, :test do
   gem 'pundit-matchers'
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'webmock'
 end
 
 group :development do

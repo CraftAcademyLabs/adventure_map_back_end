@@ -9,6 +9,7 @@ require 'pundit/rspec'
 require 'pundit/matchers'
 
 ActiveRecord::Migration.maintain_test_schema!
+WebMock.disable_net_connect!(allow_localhost: true)
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -17,4 +18,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+
+  config.before(:each) do
+    WebMock.stub_request(:get, /graph.facebook.com/).
+        to_return(status: 200)
+  end
 end
