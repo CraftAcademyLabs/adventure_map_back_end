@@ -28,14 +28,14 @@ class ApplicationController < ActionController::Base
     warden.authenticate!(opts) if !devise_controller? || opts.delete(:force)
   end
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
-  end
-
-  def json_request?
-    request.format.json?
-  end
+  # protected
+  #
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
+  # end
+  #
+  # def json_request?
+  #   request.format.json?
+  # end
 
 end
