@@ -42,5 +42,6 @@ module Api::V1::Docs::RegistrationsDoc
   )
 
   def create
+    super
   end
 end
