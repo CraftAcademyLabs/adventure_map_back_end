@@ -17,13 +17,14 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'rack-cors'
 gem 'haml-rails'
-gem 'acts-as-taggable-on', '~> 4.0'
 
 # Functionality
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
+gem 'godmin-tags'
 gem 'devise_token_auth'
 gem 'omniauth'
-gem 'godmin-tags'
+gem 'acts-as-taggable-on', '~> 4.0'
+
 
 
 group :development, :test do
