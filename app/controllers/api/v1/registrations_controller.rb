@@ -18,7 +18,12 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,
+                                                       :nickname,
+                                                       :image,
+                                                       :date_of_birth,
+                                                       :gender,
+                                                       :city])
   end
 
 end

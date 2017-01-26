@@ -22,7 +22,11 @@ RSpec.describe 'User Registration', type: :request do
                                     password_confirmation: 'password',
                                     name: 'Bob',
                                     nickname: 'Bobby',
-                                    image: 'image.png'
+                                    image: 'image.png',
+                                    date_of_birth: '1971-01-24',
+                                    gender: 'Male',
+                                    city: 'Sigtuna'
+
       }, headers: headers
 
       expect(User.last.name).to eq 'Bob'

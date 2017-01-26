@@ -36,6 +36,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'launchy'
   gem 'pundit-matchers'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :development do
