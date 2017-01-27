@@ -95,3 +95,6 @@ $ bundle exec rake
 
 $ bundle exec rails ci:tests
 ```
+
+### API Documentation
+API docs are located at `/apidocs`.
