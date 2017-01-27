@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   resources :activities
   resources :admin_users
   resources :users, except: [:destroy]

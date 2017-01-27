@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'rack-cors'
 gem 'haml-rails'
+gem 'apipie-rails'
 
 # Functionality
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
