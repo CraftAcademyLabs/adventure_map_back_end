@@ -24,7 +24,7 @@ RSpec.describe 'Edit User Registration', type: :request do
   end
 
   context 'with invalid headers' do
-    it 'rejects an email that is not in the system' do
+    it 'sends error message' do
       put '/api/v1/auth',
           params: {
               name: 'Another Name',
