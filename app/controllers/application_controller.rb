@@ -29,7 +29,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-
   def json_request?
     request.format.json?
   end
