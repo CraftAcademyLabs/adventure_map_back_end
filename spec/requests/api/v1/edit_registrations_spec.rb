@@ -5,16 +5,15 @@ RSpec.describe 'Edit User Registration', type: :request do
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
-    it 'returns a user and token' do
-      get '/api/v1/auth/edit', params: {email: 'email@email.com',
-                                    password: 'password',
-                                    password_confirmation: 'password',
-                                    name: 'Bob',
-                                    nickname: 'Bobby',
+    it 'returns a user with updates' do
+      get '/api/v1/auth/edit', params: {email: user.email,
+                                    password: user.password,
+                                    # password_confirmation: 'password',
+                                    name: user.name,
+                                    nickname: user.nickname,
                                     image: 'a_new_image.png'
       }, headers: headers
       expect(response_json['status']).to eq 'success'
-      expect(response.status).to eq 200
       expect(User.last.image).to eq 'a_new_image.png'
     end
   end
