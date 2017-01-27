@@ -7,6 +7,6 @@ FactoryGirl.define do
     password_confirmation 'password'
     gender %w(Male Female Other).sample
     city 'Gothenburg'
-    date_of_birth 20.years.ago.strftime('%Y-%m-%d')
+    date_of_birth 18.years.ago.strftime('%Y-%m-%d')
   end
 end
