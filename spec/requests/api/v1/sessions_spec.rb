@@ -10,6 +10,7 @@ RSpec.describe 'User Sign in', type: :request do
                                             password: user.password}, headers: headers
 
       expect(response_json['data']['email']).to eq user.email
+      expect(response.headers['access-token']).not_to be nil
       expect(response.status).to eq 200
     end
   end
