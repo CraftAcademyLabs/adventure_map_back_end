@@ -7,9 +7,6 @@ RSpec.describe 'Edit User Registration', type: :request do
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 
   context 'with valid headers' do
-    before do
-      user.confirm
-    end
     it 'returns a user with updates' do
       put '/api/v1/auth',
           params: {
