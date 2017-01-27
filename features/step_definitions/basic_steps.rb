@@ -32,5 +32,9 @@ And(/^I set interest to "([^"]*)"$/) do |value|
 end
 
 def fill_autocomplete(options = {})
-  page.execute_script %Q{$('div.selectize-dropdown.multi.form-control div.selectize-dropdown-content div:contains("#{options[:select]}")').trigger('mouseenter').click();}
+  page.execute_script %Q{
+  $("#interests-selectized").focus().val('#{options[:select]}');
+  $("#interests-selectized").focus().val('#{options[:select]}');
+  $('div.selectize-dropdown.multi.form-control div.selectize-dropdown-content div:contains("#{options[:select]}")').trigger('mouseenter').click();
+}
 end
