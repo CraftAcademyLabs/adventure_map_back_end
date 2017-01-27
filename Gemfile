@@ -17,11 +17,12 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'rack-cors'
 gem 'haml-rails'
+gem 'apipie-rails'
 
 # Functionality
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
-gem 'devise_token_auth'
-gem 'omniauth'
+gem 'devise_token_auth' 
+gem 'omniauth-facebook'
 
 
 group :development, :test do
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'pundit-matchers'
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'webmock'
 end
 
 group :development do

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   resources :activities
   resources :admin_users
   resources :users, except: [:destroy]
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+      mount_devise_token_auth_for 'User', at: 'auth',
+                                  controllers: {
+                                      registrations: 'api/v1/registrations',
+                                      omniauth_callbacks: 'api/v1/omniauth_callbacks'
+                                  }
     end
   end
 end
