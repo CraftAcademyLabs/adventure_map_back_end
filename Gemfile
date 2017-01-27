@@ -40,6 +40,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'webmock'
+
 end
 
 group :development do

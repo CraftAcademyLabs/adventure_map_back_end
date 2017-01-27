@@ -19,6 +19,10 @@ class UserService
     resource.save
   end
 
+  def resource_class
+    ::User
+  end
+
   def update_resource(resource, params)
     if params[:password].blank?
       params.delete(:password)
