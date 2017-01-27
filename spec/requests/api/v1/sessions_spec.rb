@@ -6,7 +6,8 @@ RSpec.describe 'User Sign in', type: :request do
 
   context 'with valid credentials' do
     it 'returns a user and token' do
-      post '/api/v1/auth/sign_in', params: {email: user.email, password: user.password}, headers: headers
+      post '/api/v1/auth/sign_in', params: {email: user.email,
+                                            password: user.password}, headers: headers
 
       expect(response_json['data']['email']).to eq user.email
       expect(response.status).to eq 200
@@ -15,7 +16,8 @@ RSpec.describe 'User Sign in', type: :request do
 
   context 'with invalid credentials' do
     it 'rejects an email that is not in the system' do
-      post '/api/v1/auth/sign_in', params: {email: 'wrong@email.com', password: user.password}, headers: headers
+      post '/api/v1/auth/sign_in', params: {email: 'wrong@email.com',
+                                            password: user.password}, headers: headers
 
       expect(response_json['errors'][0]).to eq 'Invalid login credentials. Please try again.'
       expect(response.status).to eq 401
@@ -23,7 +25,8 @@ RSpec.describe 'User Sign in', type: :request do
     end
 
     it 'rejects the wrong password' do
-      post '/api/v1/auth/sign_in', params: {email: user.email, password: 'wrong_password'}, headers: headers
+      post '/api/v1/auth/sign_in', params: {email: user.email,
+                                            password: 'wrong_password'}, headers: headers
 
       expect(response_json['errors'][0]).to eq 'Invalid login credentials. Please try again.'
       expect(response.status).to eq 401
