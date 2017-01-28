@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include DeviseTokenAuth::Concerns::User
   VALID_GENDER_VALUES = %w(Male Female Other)
   VALID_INTERESTS = %w{ Hiking Cross\ country\ skiing Back\ country\ skiing Paddling
   Mountain\ biking Horse\ riding Climbing Snow\ mobiling Cross\ country\ ice\ skating
@@ -8,7 +7,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
+
   acts_as_taggable_on :interests
+  include DeviseTokenAuth::Concerns::User
+
 
   has_many :activities
 
