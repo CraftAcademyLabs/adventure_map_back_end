@@ -15,6 +15,7 @@ Rails.application.routes.draw do
                                       sessions: 'api/v1/sessions',
                                       omniauth_callbacks: 'api/v1/omniauth_callbacks'
                                   }
+      post '/activity', controller: :activities, action: :create
     end
   end
 end
