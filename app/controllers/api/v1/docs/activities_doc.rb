@@ -35,8 +35,7 @@ module Api::V1::Docs::ActivitiesDoc
                               "title":"Wicked Hiking Trip",
                               "body":"So much fun at Delsjön",
                               "difficulty":1,
-                              "category":"Hiking",
-                              "user_id":5
+                              "category":"Hiking"
                             }
               }
   )
