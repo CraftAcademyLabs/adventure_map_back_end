@@ -4,23 +4,11 @@ class Api::V1::ActivitiesController < ActionController::API
 
 
   def create
-    activity = Activity.new(resource_params.merge(user: current_api_v1_user))
-    if activity.save
-      render json: {
-          status: 'success',
-          activity: {
-              title: activity.title,
-              body: activity.body,
-              difficulty: activity.difficulty,
-              category: activity.category,
-              user_id: activity.user.id
-          }
-      }
+    @activity = Activity.new(resource_params.merge(user: current_api_v1_user))
+    if @activity.save
+      render 'activities/show'
     else
-      render json: {
-          status: 'error',
-          message: activity.errors.full_messages
-      }
+      render 'activities/errors'
     end
 
   end
