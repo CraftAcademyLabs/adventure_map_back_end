@@ -3,8 +3,8 @@ class Api::V1::ActivitiesController < ActionController::API
   # before_action authenticate_api_v1_user!, only: [:create]
 
   def create
-    authenticate_api_v1_user!
-    activity = Activity.new(resource_params.merge(user_id: current_api_v1_user.id))
+    # authenticate_api_v1_user!
+    activity = Activity.new(resource_params.merge(user: current_api_v1_user))
     if activity.save
       render json: {
           status: 'success',
@@ -17,7 +17,6 @@ class Api::V1::ActivitiesController < ActionController::API
           }
       }
     else
-      # binding.pry
       render json: {
           status: 'error',
           message: activity.errors.full_messages
