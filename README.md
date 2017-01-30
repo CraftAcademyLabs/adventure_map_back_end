@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/CraftAcademyLabs/adventure_map_back_end.svg?style=svg&circle-token=2ed7f64b11a17957dcc552801fe0229c7f97562c)](https://circleci.com/gh/CraftAcademyLabs/adventure_map_back_end)
 # AdventureMap
 ### Administrative interface and API
 
@@ -79,7 +80,7 @@ resources :users, except: [:destroy]
 
 ### Code coverage
 
-[SimpleCov](https://github.com/colszowka/simplecov) is configured on this project to measure code test coverage. Everytime we run tests using either `RSpec` or `Cucumber` a coverage report is genarate in the `coverage` directory of the application, in html format that you can open with your favorite browser.
+[SimpleCov](https://github.com/colszowka/simplecov) is configured on this project to measure code test coverage. Everytime we run tests using either `RSpec` or `Cucumber` a coverage report is genarated in the `coverage` directory of the application, in html format that you can open with your favorite browser.
 
 ```shell
 # Run your test suite. e.g: `RSpec`
