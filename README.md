@@ -101,3 +101,5 @@ $ bundle exec rails ci:tests
 
 ### API Documentation
 API docs are located at `/apidocs`
+
+#### Brought to you by Craft Academy Labs
