@@ -1,9 +1,7 @@
 class Api::V1::ActivitiesController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
-  # before_action authenticate_api_v1_user!, only: [:create]
 
   def create
-    # authenticate_api_v1_user!
     activity = Activity.new(resource_params.merge(user: current_api_v1_user))
     if activity.save
       render json: {
@@ -28,6 +26,6 @@ class Api::V1::ActivitiesController < ActionController::API
   private
 
   def resource_params
-    params.require(:activity).permit(:title, :body, :user_id, :difficulty, :category)
+    params.permit(:title, :body, :user_id, :difficulty, :category)
   end
 end
