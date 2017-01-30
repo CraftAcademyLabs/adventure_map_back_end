@@ -7,6 +7,9 @@ module Api::V1::Docs::SessionsDoc
     param :email, String, 'User email'
     param :password, String, 'User password'
     param :password_confirmation, String, 'User password confirmation'
+    param :image, String, 'User profile picture'
+    param :date_of_birth, String, 'User birthday'
+    param :city, String, 'User city'
   end
   api :POST, '/auth/user/sign_in', 'Login a user'
   param_group :user

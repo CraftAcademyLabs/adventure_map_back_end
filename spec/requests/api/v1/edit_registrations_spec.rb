@@ -31,6 +31,7 @@ RSpec.describe 'Edit User Registration', type: :request do
               image: 'a_new_image.png'
           },
           headers: invalid_auth_headers
+
       expect(response_json['status']).to eq 'error'
       expect(response_json['errors']).to eq ['User not found.']
     end
