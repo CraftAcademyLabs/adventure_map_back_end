@@ -6,7 +6,6 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
   end
 
   def update
-    binding.pry
     super
   end
 end
