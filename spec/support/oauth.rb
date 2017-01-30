@@ -3,8 +3,7 @@ OmniAuth.config.test_mode = true
 user = {provider: 'facebook',
         uid: '123545',
         info: {
-            first_name: 'Thomas',
-            last_name: 'Ochman',
+            name: 'Thomas Ochman',
             email: 'thomas@craft.com'
         },
         credentials: {

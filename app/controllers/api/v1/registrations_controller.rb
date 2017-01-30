@@ -1,8 +1,11 @@
 class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsController
   include Api::V1::Docs::RegistrationsDoc
-  before_action :configure_permitted_parameters
 
   def create
+    super
+  end
+
+  def update
     super
   end
 
