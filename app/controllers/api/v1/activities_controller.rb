@@ -17,9 +17,10 @@ class Api::V1::ActivitiesController < ActionController::API
           }
       }
     else
+      # binding.pry
       render json: {
-          data: 'error',
-          message: activity.errors
+          status: 'error',
+          message: activity.errors.full_messages
       }
     end
 

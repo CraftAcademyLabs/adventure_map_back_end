@@ -27,13 +27,29 @@ RSpec.describe 'Edit User Registration', type: :request do
   it 'sends error message if there is no title' do
     post '/api/v1/activity',
         params: {
-            body: 'Wow, I skiied a five diamond or whatever.',
-            difficulty: 2,
-            Category: 'Skiing'
+            activity: {
+                body: 'Wow, I skiied a five diamond or whatever.',
+                difficulty: 2,
+                category: 'Skiing'
+            }
         },
         headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'error'
-    expect(response_json['errors']).to eq ['Title is required.']
+    expect(response_json['message'][0]).to eq "Title can't be blank"
+  end
+
+  it 'sends error message if there is no user signed in' do
+    post '/api/v1/activity',
+         params: {
+             title: 'An Amazing Time on the Slopes',
+             body: 'Wow, I skiied a five diamond or whatever.',
+             difficulty: 2,
+             category: 'Skiing'
+         },
+         headers: invalid_auth_headers
+
+    expect(response_json['status']).to eq 'error'
+    expect(response_json['errors']).to eq ['User is required.']
   end
 end
