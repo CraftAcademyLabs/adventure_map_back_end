@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/CraftAcademyLabs/adventure_map_back_end.svg?style=svg&circle-token=2ed7f64b11a17957dcc552801fe0229c7f97562c)](https://circleci.com/gh/CraftAcademyLabs/adventure_map_back_end)
 # AdventureMap
 ### Administrative interface and API
 
