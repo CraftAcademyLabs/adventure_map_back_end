@@ -1,5 +1,7 @@
 class Api::V1::ActivitiesController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
+  include Api::V1::Docs::ActivitiesDoc
+
 
   def create
     activity = Activity.new(resource_params.merge(user: current_api_v1_user))

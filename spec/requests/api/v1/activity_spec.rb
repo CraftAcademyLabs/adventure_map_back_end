@@ -8,15 +8,13 @@ RSpec.describe 'Edit User Registration', type: :request do
 
   it 'creates a new Activity associated with a User' do
     post '/api/v1/activity',
-        params: {
-
-                title: 'An Amazing Time on the Slopes',
-                body: 'Wow, I skiied a five diamond or whatever.',
-                difficulty: 2,
-                category: 'Skiing'
-
-        },
-        headers: valid_auth_headers
+         params: {
+             title: 'An Amazing Time on the Slopes',
+             body: 'Wow, I skiied a five diamond or whatever.',
+             difficulty: 2,
+             category: 'Skiing'
+         },
+         headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
     expect(response_json['activity']['title']).to eq 'An Amazing Time on the Slopes'
@@ -27,9 +25,9 @@ RSpec.describe 'Edit User Registration', type: :request do
   it 'sends error message if there is no title' do
     post '/api/v1/activity',
          params: {
-                 body: 'Wow, I skiied a five diamond or whatever.',
-                 difficulty: 2,
-                 category: 'Skiing'
+             body: 'Wow, I skiied a five diamond or whatever.',
+             difficulty: 2,
+             category: 'Skiing'
          },
          headers: valid_auth_headers
 
@@ -40,9 +38,9 @@ RSpec.describe 'Edit User Registration', type: :request do
   it 'sends error message if there is no body' do
     post '/api/v1/activity',
          params: {
-                 title: 'An Amazing Time on the Slopes',
-                 difficulty: 2,
-                 category: 'Skiing'
+             title: 'An Amazing Time on the Slopes',
+             difficulty: 2,
+             category: 'Skiing'
          },
          headers: valid_auth_headers
 
@@ -53,10 +51,10 @@ RSpec.describe 'Edit User Registration', type: :request do
   it 'sends error message if there is no user signed in' do
     post '/api/v1/activity',
          params: {
-                 title: 'An Amazing Time on the Slopes',
-                 body: 'Wow, I skiied a five diamond or whatever.',
-                 difficulty: 2,
-                 category: 'Skiing'
+             title: 'An Amazing Time on the Slopes',
+             body: 'Wow, I skiied a five diamond or whatever.',
+             difficulty: 2,
+             category: 'Skiing'
          },
          headers: invalid_auth_headers
 
