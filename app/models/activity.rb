@@ -6,5 +6,5 @@ class Activity < ApplicationRecord
             inclusion: {in: VALID_DIFFICULTY_VALUES,
                         message: '%{value} is not a valid value'}
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 end
