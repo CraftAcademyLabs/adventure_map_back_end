@@ -20,4 +20,9 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
                                                        :city,
                                                        :interest_list])
   end
+
+  def account_update_params
+    params.permit(:name, :nickname, :image, :date_of_birth,
+                               :gender, :city, :interest_list)
+  end
 end
