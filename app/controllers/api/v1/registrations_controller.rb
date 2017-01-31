@@ -2,9 +2,8 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
   include Api::V1::Docs::RegistrationsDoc
 
   def create
+    puts resource_data
     super
-    @resource = nil
-    puts @resource.inspect
   end
 
   def update
