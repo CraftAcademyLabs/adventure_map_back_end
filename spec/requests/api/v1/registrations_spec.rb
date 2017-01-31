@@ -4,19 +4,15 @@ RSpec.describe 'User Registration', type: :request do
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
-    interest_list = 'Snow mobiling, Mountain biking'
     it 'returns a user, tokens and interest_list' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
                                     password_confirmation: 'password',
                                     name: 'Bob',
                                     nickname: 'Bobby',
-                                    image: 'image.png',
-                                    interest_list: interest_list
+                                    image: 'image.png'
       }, headers: headers
       expect(response_json['status']).to eq 'success'
-      expect(response_json['data']['interest_list']).
-        to contain_exactly('Snow mobiling', 'Mountain biking')
       expect(response.status).to eq 200
     end
 
@@ -40,10 +36,10 @@ RSpec.describe 'User Registration', type: :request do
     end
   end
 
-  context 'returns an error message when user submits' do
-
+  describe 'returns interest list as response' do
     interest_list = 'Snow mobiling, Mountain biking'
-    it 'includes user interests on response' do
+
+    it 'on failture to create user' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
                                     password_confirmation: 'wrong_password',
@@ -51,6 +47,30 @@ RSpec.describe 'User Registration', type: :request do
       }, headers: headers
       expect(response_json['data']['interest_list']).
         to contain_exactly('Snow mobiling', 'Mountain biking')
+    end
+
+    it 'on successfull user creation ' do
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: interest_list
+      }, headers: headers
+      expect(response_json['data']['interest_list']).
+        to contain_exactly('Snow mobiling', 'Mountain biking')
+    end
+  end
+
+  context 'returns an error message when user submits' do
+
+    it 'interest not included in the list' do
+      expect {
+
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: 'wrong_interest'
+      }, headers: headers
+      }.to raise_error 'You need to pick one of the preset interests'
     end
 
     it 'non-matching password confirmation' do
