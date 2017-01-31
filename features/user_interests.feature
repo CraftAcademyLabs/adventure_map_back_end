@@ -3,19 +3,8 @@ Feature: User has interests
   in order to filter my feed
   I need to tag myself with pre-defined list of interest.
 
-
   Background:
     Given I access the application as an admin
-
-  @javascript
-  @allow-rescue
-  Scenario: Cannot add a user with an invalid interest
-    Given I click on "Users"
-    And I click on "Create User"
-    And I fill in the form with basic credentials
-    And I set interest to "Wrong interest list"
-    And I click on "Create User"
-    Then I should see an error
 
   @javascript
   Scenario: Add a user with an interest
@@ -35,6 +24,15 @@ Feature: User has interests
     And I click on "Update User"
     Then I should see "User was successfully updated"
     And I should see "Cross country skiing"
+
+  @javascript
+  Scenario: Cannot add a user with an invalid interest
+    Given I click on "Users"
+    And I click on "Create User"
+    And I fill in the form with basic credentials
+    And I set interest to "Being lazy"
+    And I click on "Create User"
+    Then I should see "Being lazy is not a valid selection"
 
   Scenario: Show a user
     Given the user "user_2@ranom.com" has an account

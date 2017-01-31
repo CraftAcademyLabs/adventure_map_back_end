@@ -10,12 +10,21 @@ class User < ActiveRecord::Base
 
   acts_as_taggable_on :interests
   include DeviseTokenAuth::Concerns::User
-
-
   has_many :activities
 
   validates :gender,
             inclusion: {in: VALID_GENDER_VALUES,
                         message: '%{value} is not a valid gender'},
             allow_nil: true
+
+  validate :valid_interests
+
+
+  def valid_interests
+    if self.interest_list.any?
+      self.interest_list.each do |interest|
+        self.errors[:interests] << "#{interest} is not a valid selection" unless VALID_INTERESTS.include?(interest)
+      end
+    end
+  end
 end

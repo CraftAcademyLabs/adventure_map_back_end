@@ -52,6 +52,15 @@ RSpec.describe User, type: :model do
     end
 
     it { is_expected.to validate_inclusion_of(:gender).in_array(%w(Male Female Other)) }
+
+    context 'should validate interest is included in list of interests' do
+      let(:user) { create(:user) }
+
+      it 'raising error on interest not included in list' do
+        user.interest_list.add('not-whitelisted')
+        expect(user.valid?).to eq false
+      end
+    end
   end
 
   describe 'Associations' do
