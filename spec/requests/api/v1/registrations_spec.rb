@@ -41,6 +41,18 @@ RSpec.describe 'User Registration', type: :request do
   end
 
   context 'returns an error message when user submits' do
+
+    interest_list = 'Snow mobiling, Mountain biking'
+    it 'includes user interests on response' do
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: interest_list
+      }, headers: headers
+      expect(response_json['data']['interest_list']).
+        to contain_exactly('Snow mobiling', 'Mountain biking')
+    end
+
     it 'non-matching password confirmation' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
