@@ -4,15 +4,19 @@ RSpec.describe 'User Registration', type: :request do
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
-    it 'returns a user and token' do
+    interest_list = 'Snow mobiling, Mountain biking'
+    it 'returns a user, tokens and interest_list' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
                                     password_confirmation: 'password',
                                     name: 'Bob',
                                     nickname: 'Bobby',
-                                    image: 'image.png'
+                                    image: 'image.png',
+                                    interest_list: interest_list
       }, headers: headers
       expect(response_json['status']).to eq 'success'
+      expect(response_json['data']['interest_list']).
+        to contain_exactly('Snow mobiling', 'Mountain biking')
       expect(response.status).to eq 200
     end
 

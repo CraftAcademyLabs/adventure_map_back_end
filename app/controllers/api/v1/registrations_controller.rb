@@ -3,6 +3,8 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
 
   def create
     super
+    @resource = nil
+    puts @resource.inspect
   end
 
   def update
@@ -10,6 +12,10 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
   end
 
   protected
+
+  def render_create_success
+    render 'api/v1/success'
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,
