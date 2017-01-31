@@ -27,8 +27,13 @@ And(/^I filter on "([^"]*)" from "([^"]*)"$/) do |value, element|
     end
   end
 end
+
 And(/^I set interest to "([^"]*)"$/) do |value|
   fill_autocomplete(select: value)
+end
+
+Then(/^I should see an error$/) do
+  expect(400..599).to include(page.status_code)
 end
 
 def fill_autocomplete(options = {})
