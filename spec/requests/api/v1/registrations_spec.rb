@@ -2,31 +2,31 @@
 require 'rails_helper'
 
 RSpec.describe 'User Registration', type: :request do
-  let(:headers) { { HTTP_ACCEPT: 'application/json' } }
+  let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
     it 'returns a user, tokens and interest_list' do
-      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                     password: 'password',
-                                     password_confirmation: 'password',
-                                     name: 'Bob',
-                                     nickname: 'Bobby',
-                                     image: 'image.png' }, headers: headers
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'password',
+                                    name: 'Bob',
+                                    nickname: 'Bobby',
+                                    image: 'image.png'}, headers: headers
       expect(response_json['status']).to eq 'success'
       expect(response.status).to eq 200
     end
 
     it 'persists a user to the database' do
       request = lambda do
-        post '/api/v1/auth', params: { email: 'example@example.se',
-                                       password: 'password',
-                                       password_confirmation: 'password',
-                                       name: 'Bob',
-                                       nickname: 'Bobby',
-                                       image: 'image.png',
-                                       date_of_birth: '1971-01-24',
-                                       gender: 'Male',
-                                       city: 'Sigtuna' }, headers: headers
+        post '/api/v1/auth', params: {email: 'example@example.se',
+                                      password: 'password',
+                                      password_confirmation: 'password',
+                                      name: 'Bob',
+                                      nickname: 'Bobby',
+                                      image: 'image.png',
+                                      date_of_birth: '1971-01-24',
+                                      gender: 'Male',
+                                      city: 'Sigtuna'}, headers: headers
       end
 
       expect { request.call }.to change(User, :count).by(1)
@@ -40,53 +40,53 @@ RSpec.describe 'User Registration', type: :request do
     interest_list = 'Snow mobiling, Mountain biking'
 
     it 'on failture to create user' do
-      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                     password: 'password',
-                                     password_confirmation: 'wrong_password',
-                                     interest_list: interest_list },
-                           headers: headers
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: interest_list},
+           headers: headers
       expect(response_json['data']['interest_list'])
-        .to contain_exactly('Snow mobiling', 'Mountain biking')
+          .to contain_exactly('Snow mobiling', 'Mountain biking')
     end
 
     it 'on successfull user creation ' do
-      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                     password: 'password',
-                                     password_confirmation: 'wrong_password',
-                                     interest_list: interest_list },
-                           headers: headers
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: interest_list},
+           headers: headers
       expect(response_json['data']['interest_list'])
-        .to contain_exactly('Snow mobiling', 'Mountain biking')
+          .to contain_exactly('Snow mobiling', 'Mountain biking')
     end
   end
 
   context 'returns an error message when user submits' do
     it 'interest not included in the list' do
-      expect do
-        post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                       password: 'password',
-                                       password_confirmation: 'wrong_password',
-                                       interest_list: 'wrong_interest' },
-                             headers: headers
-      end.to raise_error 'You need to pick one of the preset interests'
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password',
+                                    interest_list: 'wrong_interest'},
+           headers: headers
+      expect(response_json['errors']['interests'])
+          .to include 'wrong_interest is not a valid selection'
     end
 
     it 'non-matching password confirmation' do
-      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                     password: 'password',
-                                     password_confirmation: 'wrong_password' },
-                           headers: headers
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'wrong_password'},
+           headers: headers
 
       expect(response_json['errors']['password_confirmation'])
-        .to include 'doesn\'t match Password'
+          .to include 'doesn\'t match Password'
       expect(response.status).to eq 422
     end
 
     it 'an invalid email address' do
-      post '/api/v1/auth', params: { email: 'example@craft',
-                                     password: 'password',
-                                     password_confirmation: 'password' },
-                           headers: headers
+      post '/api/v1/auth', params: {email: 'example@craft',
+                                    password: 'password',
+                                    password_confirmation: 'password'},
+           headers: headers
 
       expect(response_json['errors']['email']).to eq ['is not an email']
       expect(response.status).to eq 422
@@ -98,10 +98,10 @@ RSpec.describe 'User Registration', type: :request do
              password: 'password',
              password_confirmation: 'password')
 
-      post '/api/v1/auth', params: { email: 'example@craftacademy.se',
-                                     password: 'password',
-                                     password_confirmation: 'password' },
-                           headers: headers
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'password'},
+           headers: headers
 
       expect(response_json['errors']['email']).to eq ['has already been taken']
       expect(response.status).to eq 422
@@ -110,7 +110,7 @@ RSpec.describe 'User Registration', type: :request do
 
   describe 'OmniAuth' do
     context 'Facebook' do
-      let(:params) { { omniauth_window_type: 'newWindow' } }
+      let(:params) { {omniauth_window_type: 'newWindow'} }
       let(:request) do
         lambda do
           get('/api/v1/auth/facebook/',

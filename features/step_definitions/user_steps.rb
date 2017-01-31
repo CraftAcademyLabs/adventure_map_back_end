@@ -5,9 +5,7 @@ end
 
 Given(/^the user "([^"]*)" has an interest "([^"]*)"$/) do |email, interest|
   user = User.find_by(email: email)
-  # user the custom parser defined by us just to make sure only whitelisted
-  # interests are added
-  user.interest_list.add(interest, parser: InterestParser)
+  user.interest_list.add(interest)
   user.save
 end
 
