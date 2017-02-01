@@ -12,19 +12,19 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
   protected
 
   def render_create_success
-    render 'api/v1/registration_success'
+    render 'success'
   end
 
   def render_create_error
-    render 'api/v1/registration_error', status: 422
+    render 'error', status: 422
   end
 
   def render_update_success
-    render 'api/v1/registration_success'
+    render 'success'
   end
 
   def render_update_error
-    render 'api/v1/registration_error', status: 422
+    render 'error', status: 422
   end
 
   def configure_permitted_parameters

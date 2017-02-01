@@ -32,7 +32,7 @@ RSpec.describe 'Edit User Registration', type: :request do
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'error'
-    expect(response_json['message'][0]).to eq "Title can't be blank"
+    expect(response_json['message'][0]).to eq 'Title can\'t be blank'
   end
 
   it 'sends error message if there is no body' do
@@ -45,7 +45,7 @@ RSpec.describe 'Edit User Registration', type: :request do
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'error'
-    expect(response_json['message'][0]).to eq "Body can't be blank"
+    expect(response_json['message'][0]).to eq 'Body can\'t be blank'
   end
 
   it 'sends error message if there is no user signed in' do
