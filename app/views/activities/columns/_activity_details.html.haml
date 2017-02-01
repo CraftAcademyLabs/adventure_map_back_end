@@ -2,4 +2,6 @@
 - resource.activity_details.each do |activity_detail|
   %li{data: { 'recording-id' => activity_detail.id }}
     = activity_detail.file_attachment
+    = link_to 'Delete', "/activity_details/#{activity_detail.id}",
+      class: 'btn btn-danger', data: {confirm: 'Are you sure?', method: 'delete'}
 

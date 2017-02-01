@@ -18,3 +18,9 @@ Feature: Activity has recordings
     Then I should see "Sigu"
     And I should see "Wow_skii.mp4"
 
+  Scenario: Delete recordings
+    Given "Sigu" has an activity titled "Skiing in Aspen" in the system
+    And "Skiing in Aspen" has a recording "Wow_skii.mp4"
+    And I click on "Recordings"
+    When I click on "Destroy" for recording "Wow_skii.mp4"
+    Then there should be no recording with filename "Wow_skii.mp4"
