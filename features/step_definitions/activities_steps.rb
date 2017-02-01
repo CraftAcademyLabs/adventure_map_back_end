@@ -17,3 +17,9 @@ And(/^I click on "([^"]*)" for activity "([^"]*)"$/) do |element, title|
     click_link_or_button element
   end
 end
+
+Given(/^"([^"]*)" has a recording "([^"]*)"$/) do |title, recording_title|
+  recording = FactoryGirl.create(:activity_detail, file_attachment: recording_title)
+  activity = Activity.find_by(title: title)
+  activity.activity_details << recording
+end
