@@ -10,6 +10,7 @@ module Api::V1::Docs::RegistrationsDoc
     param :image, String, 'User profile picture'
     param :date_of_birth, String, 'User birthday'
     param :city, String, 'User city'
+    param :interest_list, Array, 'User Interests'
   end
   api :POST, '/auth', 'Create a user'
   param_group :user
@@ -23,7 +24,7 @@ module Api::V1::Docs::RegistrationsDoc
               "password":"password",
               "password_confirmation":"password"
               "image":"image.png"
-
+              "interest_list":"Snow mobiling, Mountain biking"
             }
 
             Response:
@@ -38,8 +39,10 @@ module Api::V1::Docs::RegistrationsDoc
                   "nickname":"baller",
                   "image":"image.png",
                   "email":"amber5@email.com",
-                  "created_at":"2017-01-25T13:40:28.171Z",
-                  "updated_at":"2017-01-25T13:40:28.171Z"
+                  "interest_list":[
+                    "Mountain biking",
+                    "Snow mobiling"
+                  ]
                 }
             }
   )
@@ -80,9 +83,10 @@ module Api::V1::Docs::RegistrationsDoc
                   "image":"a_new_image.png",
                   "date_of_birth":null
                   "city":null,
-
-                  "created_at":"2017-01-25T13:40:28.171Z",
-                  "updated_at":"2017-01-25T13:40:28.171Z"
+                  "interest_list":[
+                    "Mountain biking",
+                    "Snow mobiling"
+                  ]
                 }
             }
             Headers:
