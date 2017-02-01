@@ -1,0 +1,3 @@
+class ActivityDetailPolicy < ApplicationPolicy
+  
+end
