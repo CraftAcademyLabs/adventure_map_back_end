@@ -13,4 +13,7 @@ RSpec.describe ActivityDetail, type: :model do
     it { is_expected.to have_db_column :updated_at }
   end
 
+  describe 'Associations ' do
+    it { is_expected.to belong_to(:activity).dependent(:destroy) }
+  end
 end

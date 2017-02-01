@@ -7,4 +7,5 @@ class Activity < ApplicationRecord
                         message: '%{value} is not a valid value'}
 
   belongs_to :user, dependent: :destroy
+  has_many :activity_details
 end
