@@ -6,3 +6,13 @@ And(/^I click on "([^"]*)" for recording "([^"]*)"$/) do |element, title|
   end
 end
 
+Given(/^the following recordings exist$/) do |table|
+  table.hashes.each do |hash|
+    activity_name = hash.delete 'activity'
+    activity = Activity.find_by(title: activity_name)
+    recording = ActivityDetail.new(hash)
+    recording.activity_id = activity.id
+    recording.save!
+  end
+end
+

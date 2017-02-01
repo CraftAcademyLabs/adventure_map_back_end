@@ -23,3 +23,13 @@ Given(/^"([^"]*)" has a recording "([^"]*)"$/) do |title, recording_title|
   activity = Activity.find_by(title: title)
   activity.activity_details << recording
 end
+
+Given(/^the following activities exist$/) do |table|
+  table.hashes.each do |hash|
+    user_email = hash.delete 'user'
+    user_id = User.find_by(email: user_email).id
+    activity = Activity.new(hash)
+    activity.user_id = user_id
+    activity.save!
+  end
+end
