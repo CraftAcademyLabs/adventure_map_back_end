@@ -21,9 +21,11 @@ gem 'apipie-rails'
 
 # Functionality
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
-gem 'devise_token_auth' 
+gem 'godmin-tags'
+gem 'devise_token_auth'
+gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'cucumber-rails', require: false
@@ -39,6 +41,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'webmock'
+
 end
 
 group :development do
