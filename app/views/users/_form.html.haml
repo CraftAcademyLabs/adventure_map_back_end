@@ -7,6 +7,7 @@
   = f.text_field :city
   = f.password_field :password
   = f.password_field :password_confirmation
+  = f.tags_field :interest_list, label: 'Interests', data: { collection: User::VALID_INTERESTS}, id: 'interests'
   = f.submit
 
 
@@ -14,4 +15,9 @@
   Godmin.Datetimepickers.initializeDatepicker($('#user_date_of_birth'), {
     format: 'YYYY-MM-DD',
     defaultDate: '1990-01-01'
+  });
+
+  Godmin.Tags.initializeTagger($('#interests'), {
+    // disables adding new interests
+    //create: false
   });

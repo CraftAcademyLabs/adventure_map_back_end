@@ -14,8 +14,8 @@ Feature: Administrate users
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I select "Male" from "Gender"
-    And I fill in "City" with "Gothenburg"
     And I select date "1971-11-24" from Date of birth
+    And I set interest to "Hiking"
     And I click on "Create User"
     Then I should see "User was successfully created"
     And there should be a user with email "user@random.com" in the system

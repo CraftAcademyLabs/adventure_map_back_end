@@ -37,4 +37,17 @@ RSpec.describe 'Edit User Registration', type: :request do
     end
   end
 
+  context 'with invalid selsction' do
+    it 'interest not included in the list' do
+      put '/api/v1/auth',
+          params: {
+              interest_list: 'wrong_interest'
+          },
+          headers: valid_auth_headers
+
+      expect(response_json['errors']['interests'])
+          .to include 'wrong_interest is not a valid selection'
+    end
+  end
+
 end
