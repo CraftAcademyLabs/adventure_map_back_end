@@ -18,8 +18,8 @@ Feature: Create Activity
     And I fill in "Title" with "Hiking in Grand Canyon"
     And I fill in "Body" with "Hiking in Grand Canyon is great fun!"
     And I select "1" from "Difficulty"
-    And I fill in "Category" with "Hiking"
     And I select "Thomas" from "User"
+    And I select "Climbing" from "Category"
     And I click on "Create Activity"
     Then I should see "Activity was successfully created"
     And there should be an activity titled "Hiking in Grand Canyon" in the system
