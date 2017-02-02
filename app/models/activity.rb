@@ -1,6 +1,8 @@
 class Activity < ApplicationRecord
   VALID_DIFFICULTY_VALUES = [1, 2, 3]
+  VALID_CATEGORIES = User::VALID_INTERESTS
   validates_presence_of :title, :body, :difficulty
+  validate :validate_category
 
   validates :difficulty,
             inclusion: {in: VALID_DIFFICULTY_VALUES,
@@ -8,4 +10,10 @@ class Activity < ApplicationRecord
 
   belongs_to :user, dependent: :destroy
   has_many :activity_details
+
+
+  def validate_category
+    errors.add(:category) unless VALID_CATEGORIES.include? category
+  end
+  
 end

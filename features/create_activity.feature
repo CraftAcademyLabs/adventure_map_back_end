@@ -18,17 +18,18 @@ Feature: Create Activity
     And I fill in "Title" with "Hiking in Grand Canyon"
     And I fill in "Body" with "Hiking in Grand Canyon is great fun!"
     And I select "1" from "Difficulty"
-    And I fill in "Category" with "Hiking"
     And I select "Thomas" from "User"
+    And I select "Climbing" from "Category"
     And I click on "Create Activity"
     Then I should see "Activity was successfully created"
     And there should be an activity titled "Hiking in Grand Canyon" in the system
     And the activity should be associated with "Thomas"
 
-  Scenario: Show a user
+  Scenario: Show an activity with user information
     Given "Thomas" has an activity titled "Skiing in Aspen" in the system
     And I click on "Show" for activity "Skiing in Aspen"
     Then I should see "Skiing in Aspen"
+    And I should see "Thomas"
 
   Scenario: Edit Activity
     Given "Thomas" has an activity titled "Skiing in Aspen" in the system

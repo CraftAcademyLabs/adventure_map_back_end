@@ -4,7 +4,7 @@ Given(/^"([^"]*)" has an activity titled "([^"]*)" in the system$/) do |username
     And I fill in "Title" with "#{title}"
     And I fill in "Body" with "#{title} is great fun!"
     And I select "3" from "Difficulty"
-    And I fill in "Category" with "#{title.split[0]}"
+    And I select "Climbing" from "Category"
     And I select "#{username}" from "User"
     And I click on "Create Activity"
         )
@@ -32,4 +32,5 @@ Given(/^the following activities exist$/) do |table|
     activity.user_id = user_id
     activity.save!
   end
+  
 end
