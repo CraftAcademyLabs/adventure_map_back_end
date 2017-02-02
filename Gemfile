@@ -6,42 +6,41 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'apipie-rails'
 gem 'coffee-rails', '~> 4.2'
+gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+gem 'rack-cors'
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'rack-cors'
-gem 'haml-rails'
-gem 'apipie-rails'
 
 # Functionality
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'devise_token_auth'
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'godmin-tags'
-gem 'devise_token_auth'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'poltergeist'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'launchy'
-  gem 'pundit-matchers'
-  gem 'poltergeist'
-  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'webmock'
-
 end
 
 group :development do
