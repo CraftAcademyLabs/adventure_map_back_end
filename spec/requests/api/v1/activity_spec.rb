@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Edit User Registration', type: :request do
+RSpec.describe 'Create Activity', type: :request do
   let!(:user) { FactoryGirl.create(:user, email: 'email@email.com', password: 'password') }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
   let!(:invalid_auth_headers) { headers }
