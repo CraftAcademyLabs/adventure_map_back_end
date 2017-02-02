@@ -10,8 +10,8 @@ Feature: Activity has recordings
 
     And the following activities exist
       | title                | body            | difficulty | category | user             |
-      | Skiing in Aspen      | it was awesome  | 3          | category | sigu@example.com |
-      | Second time in Aspen | time well spent | 1          | category | sigu@example.com |
+      | Skiing in Aspen      | it was awesome  | 3          | Climbing | sigu@example.com |
+      | Second time in Aspen | time well spent | 1          | Climbing | sigu@example.com |
 
     And the following recordings exist
       | file_attachment | activity             |
