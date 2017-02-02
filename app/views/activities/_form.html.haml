@@ -4,5 +4,4 @@
   = f.select :user_id, User.all.collect {|p| [ p.name, p.id ] }, {}, data: { behavior: 'select-box' }
   = f.select :difficulty, Activity::VALID_DIFFICULTY_VALUES, {}, data: { behavior: 'select-box' }
   = f.select :category, Activity::VALID_CATEGORIES, {}, data: { behavior: 'select-box' }
-  -# = f.text_field :category
   = f.submit
