@@ -29,9 +29,15 @@ Feature: Activity has recordings
 
   Scenario: Delete recordings
     When I click on "Recordings"
-    When I click on "Destroy" for recording "recording1.mp4"
+    When I click on "Destroy" for recording "recording1.mp4" in "table"
     Then there should be no recording with filename "recording1.mp4"
     And there should be an activity titled "Skiing in Aspen" in the system
+
+  Scenario: Delete recording from activity show page
+    When I click on "Show" for activity "Skiing in Aspen"
+    Then I should see "recording1.mp4"
+    When I click on "Delete" for recording "recording1.mp4" in "list"
+    Then there should be no recording with filename "recording1.mp4"
 
   Scenario: Filter by filename
     When I click on "Recordings"
