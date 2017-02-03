@@ -4,6 +4,11 @@ class Api::V1::ActivitiesController < ActionController::API
 
   before_action :set_default_response_format
 
+  def index
+    @activities = Activity.all
+    render 'index'
+  end
+
   def create
     @activity = Activity.new(resource_params.merge(user: current_api_v1_user))
     if @activity.save
