@@ -14,6 +14,6 @@ RSpec.describe ActivityDetail, type: :model do
   end
 
   describe 'Associations ' do
-    it { is_expected.to belong_to(:activity).dependent(:destroy) }
+    it { is_expected.to belong_to(:activity) }
   end
 end

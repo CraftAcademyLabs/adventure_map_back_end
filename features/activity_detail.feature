@@ -27,10 +27,11 @@ Feature: Activity has recordings
     Then I should see "Sigu"
     And I should see "recording1.mp4"
 
-  # Scenario: Delete recordings
-  #   When I click on "Recordings"
-  #   When I click on "Destroy" for recording "recording1.mp4"
-  #   Then there should be no recording with filename "recording1.mp4"
+  Scenario: Delete recordings
+    When I click on "Recordings"
+    When I click on "Destroy" for recording "recording1.mp4"
+    Then there should be no recording with filename "recording1.mp4"
+    And there should be an activity titled "Skiing in Aspen" in the system
 
   Scenario: Filter by filename
     When I click on "Recordings"
