@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_many :activities}
+    it { is_expected.to have_many(:activities).dependent(:destroy)}
   end
 
   describe 'Interests' do

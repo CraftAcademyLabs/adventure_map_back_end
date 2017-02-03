@@ -8,7 +8,7 @@ class Activity < ApplicationRecord
             inclusion: {in: VALID_DIFFICULTY_VALUES,
                         message: '%{value} is not a valid value'}
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   def validate_category
     errors.add(:category) unless VALID_CATEGORIES.include? category
