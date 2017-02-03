@@ -1,8 +1,13 @@
 json.status 'success'
 json.activities @activities.each do |activity|
   json.title activity.title
-  json.body activity.body
+  json.body activity.body.truncate_words(100)
   json.difficulty activity.difficulty
   json.category activity.category
-  json.user activity.user
+  json.created_at activity.created_at.strftime('%e %B, %Y')
+  json.user do
+    json.name activity.user.name
+    json.image activity.user.image
+    json.interests activity.user.interests
+    end
 end

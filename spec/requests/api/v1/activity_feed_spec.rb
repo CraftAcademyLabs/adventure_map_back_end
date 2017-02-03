@@ -4,7 +4,6 @@ RSpec.describe 'View Activity Feed', type: :request do
   let!(:user) { FactoryGirl.create(:user, email: 'email@email.com', password: 'password') }
   let!(:activity) { FactoryGirl.create(:activity, user_id: user.id, title: 'Sailing at Marstrand')}
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
-  # let!(:invalid_auth_headers) { headers }
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
   let(:valid_category) { Activity::VALID_CATEGORIES.first }
 
