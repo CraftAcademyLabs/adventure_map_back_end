@@ -1,5 +1,5 @@
 json.status 'success'
-@activities.each do |activity|
+json.activities @activities.each do |activity|
   json.title activity.title
   json.body activity.body
   json.difficulty activity.difficulty
