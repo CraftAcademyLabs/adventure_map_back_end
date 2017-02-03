@@ -10,12 +10,6 @@ RSpec.describe 'View Activity Feed', type: :request do
 
   it 'returns a list of activities' do
     get '/api/v1/activities',
-         # params: {
-         #     title: 'An Amazing Time on the Slopes',
-         #     body: 'Wow, I skiied a five diamond or whatever.',
-         #     difficulty: 2,
-         #     category: valid_category
-         # },
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
