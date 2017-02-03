@@ -22,9 +22,7 @@ And(/^I filter on "([^"]*)" from "([^"]*)"$/) do |value, element|
     case element
       when 'User'
         select value, from: "filter[#{element.downcase}]"
-      when 'Title'
-        fill_in "filter[#{element.downcase}]", with: value
-      when 'File_attachment'
+      when 'Title', 'File_attachment'
         fill_in "filter[#{element.downcase}]", with: value
     end
   end
