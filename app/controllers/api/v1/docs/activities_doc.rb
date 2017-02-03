@@ -32,20 +32,15 @@ module Api::V1::Docs::ActivitiesDoc
                               "body":"So much fun at Delsjön",
                               "difficulty":1,
                               "category":"Hiking"
+                              "created_at":"2017-02-03T09:23:53.367Z",
                               "user":
                                         {
                                            "id": 8,
-                                           "provider":"email",
-                                           "uid":"email@email.com",
                                            "name":"Email",
-                                           "nickname":"email",
                                            "image":nil,
-                                           "email":"email@email.com",
-                                           "created_at":"2017-02-03T09:23:53.367Z",
-                                           "updated_at":"2017-02-03T09:23:53.509Z",
-                                           "date_of_birth":"1999-02-03",
-                                           "gender":"Male",
-                                           "city":"Gothenburg"
+                                           "interests": [
+                                               "Hiking", "Mountain Biking"
+                                            ]
                                         }
                             }
                 ]

@@ -6,6 +6,7 @@ json.activities @activities.each do |activity|
   json.category activity.category
   json.created_at activity.created_at.strftime('%e %B, %Y')
   json.user do
+    json.id activity.user.id
     json.name activity.user.name
     json.image activity.user.image
     json.interests activity.user.interests
