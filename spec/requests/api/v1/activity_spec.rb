@@ -8,7 +8,7 @@ RSpec.describe 'Create Activity', type: :request do
   let(:valid_category) { Activity::VALID_CATEGORIES.first }
 
   it 'creates a new Activity associated with a User' do
-    post '/api/v1/activity',
+    post '/api/v1/activities',
          params: {
              title: 'An Amazing Time on the Slopes',
              body: 'Wow, I skiied a five diamond or whatever.',
@@ -24,7 +24,7 @@ RSpec.describe 'Create Activity', type: :request do
   end
 
   it 'sends error message if there is no title' do
-    post '/api/v1/activity',
+    post '/api/v1/activities',
          params: {
              body: 'Wow, I skiied a five diamond or whatever.',
              difficulty: 2,
@@ -37,7 +37,7 @@ RSpec.describe 'Create Activity', type: :request do
   end
 
   it 'sends error message if the category is not whitelisted' do
-    post '/api/v1/activity',
+    post '/api/v1/activities',
          params: {
              body: 'Wow, I skiied a five diamond or whatever.',
              title: 'Nice title',
@@ -51,7 +51,7 @@ RSpec.describe 'Create Activity', type: :request do
   end
 
   it 'sends error message if there is no body' do
-    post '/api/v1/activity',
+    post '/api/v1/activities',
          params: {
              title: 'An Amazing Time on the Slopes',
              difficulty: 2,
@@ -64,7 +64,7 @@ RSpec.describe 'Create Activity', type: :request do
   end
 
   it 'sends error message if there is no user signed in' do
-    post '/api/v1/activity',
+    post '/api/v1/activities',
          params: {
              title: 'An Amazing Time on the Slopes',
              body: 'Wow, I skiied a five diamond or whatever.',
