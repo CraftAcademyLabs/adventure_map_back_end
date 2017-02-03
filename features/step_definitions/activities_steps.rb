@@ -28,9 +28,7 @@ Given(/^the following activities exist$/) do |table|
   table.hashes.each do |hash|
     user_email = hash.delete 'user'
     user_id = User.find_by(email: user_email).id
-    activity = Activity.new(hash)
-    activity.user_id = user_id
-    activity.save!
+    hash.merge!(user_id: user_id )
+    FactoryGirl.create(:activity, hash)
   end
-  
 end

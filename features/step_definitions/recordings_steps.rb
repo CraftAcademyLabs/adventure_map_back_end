@@ -10,9 +10,8 @@ Given(/^the following recordings exist$/) do |table|
   table.hashes.each do |hash|
     activity_name = hash.delete 'activity'
     activity = Activity.find_by(title: activity_name)
-    recording = ActivityDetail.new(hash)
-    recording.activity_id = activity.id
-    recording.save!
+    hash.merge!(activity: activity)
+    FactoryGirl.create(:activity_detail, hash)
   end
 end
 
