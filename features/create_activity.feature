@@ -45,6 +45,7 @@ Feature: Create Activity
     And I click on "Destroy" for activity "Skiing in Aspen"
     Then I should see "Activity was successfully destroyed"
     And there should be no activity titled "Skiing in Snowmass" in the system
+    And there should be a user with email "thomas@random.com" in the system
 
   Scenario: Filter by Username
     Given "Viktor" has an activity titled "Skiing in Aspen" in the system
