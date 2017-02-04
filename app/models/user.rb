@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   acts_as_taggable_on :interests
   include DeviseTokenAuth::Concerns::User
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   validates :gender,
             inclusion: {in: VALID_GENDER_VALUES,
