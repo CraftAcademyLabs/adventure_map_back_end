@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170205090810) do
     t.string   "file_attachment"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "type"
+    t.string   "attachment_type"
     t.index ["activity_id"], name: "index_activity_details_on_activity_id", using: :btree
   end
 

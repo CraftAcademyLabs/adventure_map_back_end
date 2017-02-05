@@ -12,6 +12,13 @@ Development: [Heroku](http://adventuremap-dev.herokuapp.com)
 - [**Godmin**](https://github.com/varvet/godmin) - for administrative interface
 - [**DeviseTokenAuth**](https://github.com/lynndylanhurley/devise_token_auth) - for user authentication
 
+### Addning an AdminUser
+For manual testing you need to add an `AdminUser`. In `$rails c` execute the following command.
+
+```ruby
+AdminUser.create(email: 'admin@admin.com', password: 'password', first_name: 'Thomas', last_name: 'Ochman')
+```
+
 ### Policies for Admin
 
 Godmins authorization modules are turned on in the `ApplicationController`

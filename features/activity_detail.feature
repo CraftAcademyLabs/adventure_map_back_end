@@ -14,10 +14,10 @@ Feature: Activity has recordings
       | Second time in Aspen | time well spent | 1          | Climbing | sigu@example.com |
 
     And the following recordings exist
-      | file_attachment | activity             |
-      | recording1.mp4  | Skiing in Aspen      |
-      | recording2.mp4  | Skiing in Aspen      |
-      | recording3.mp4  | Second time in Aspen |
+      | file_attachment | activity             | attachment_type |
+      | recording1.mp4  | Skiing in Aspen      | Image           |
+      | recording2.mp4  | Skiing in Aspen      | Image           |
+      | recording3.mp4  | Second time in Aspen | Image           |
 
     And I access the application as an admin
     And I click on "Activities"
@@ -26,6 +26,7 @@ Feature: Activity has recordings
     Given I click on "Recordings"
     And I click on "Create Activity detail"
     And I select "Skiing in Aspen" from "Activity"
+    And I select "Image" from "Attachment type"
     And I fill in "File attachment" with "some-file.jpg"
     And I click on "Create Activity detail"
     Then I should see "some-file.jpg"
