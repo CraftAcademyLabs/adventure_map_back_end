@@ -5,8 +5,8 @@ Feature: Activity has recordings
 
   Background:
     Given the following users exist
-      | name  | email             |
-      | Sigu  | sigu@example.com  |
+      | name | email            |
+      | Sigu | sigu@example.com |
 
     And the following activities exist
       | title                | body            | difficulty | category | user             |
@@ -21,6 +21,16 @@ Feature: Activity has recordings
 
     And I access the application as an admin
     And I click on "Activities"
+
+  Scenario: Create an activity detail
+    Given I click on "Recordings"
+    And I click on "Create Activity detail"
+    And I select "Skiing in Aspen" from "Activity"
+    And I fill in "File attachment" with "some-file.jpg"
+    And I click on "Create Activity detail"
+    Then I should see "some-file.jpg"
+    And I should see "Skiing in Aspen"
+    
 
   Scenario: Show recordings on activity show page
     When I click on "Show" for activity "Skiing in Aspen"
