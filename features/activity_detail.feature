@@ -30,7 +30,7 @@ Feature: Activity has recordings
     And I click on "Create Activity detail"
     Then I should see "some-file.jpg"
     And I should see "Skiing in Aspen"
-    
+
 
   Scenario: Show recordings on activity show page
     When I click on "Show" for activity "Skiing in Aspen"

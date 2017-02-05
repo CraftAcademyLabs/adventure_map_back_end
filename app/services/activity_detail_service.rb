@@ -9,5 +9,5 @@ class ActivityDetailService
   def filter_file_attachment(resources, value)
     resources.where('file_attachment LIKE ?', "%#{value}%")
   end
-  
+
 end

@@ -1,4 +1,5 @@
 = form_for @resource do |f|
-  = f.text_field :file_attachment
   = f.select :activity_id, Activity.all.collect {|p| [ p.title, p.id ] }, {}, data: { behavior: 'select-box' }
+  = f.text_field :file_attachment
+  = f.select :category, ActivityDetail::VALID_TYPE_VALUES, {}, data: { behavior: 'select-box' }
   = f.submit
