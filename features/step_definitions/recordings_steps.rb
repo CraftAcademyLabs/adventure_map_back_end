@@ -1,7 +1,7 @@
 When(/^I click on "([^"]*)" for recording "([^"]*)" in "([^"]*)"$/) do |element, title, location|
   recording = ActivityDetail.find_by(file_attachment: title)
   if location == 'list'
-    row = find("li[data-recording-id='#{recording.id}']")
+    row = find("tr[data-recording-id='#{recording.id}']")
   else
     row = find("tr[data-resource-id='#{recording.id}']")
   end
