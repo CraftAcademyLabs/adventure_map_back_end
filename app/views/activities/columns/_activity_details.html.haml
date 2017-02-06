@@ -1,0 +1,29 @@
+- if resource.activity_details.any?
+  %table
+    %tr
+      %td{style: 'width: 40%;'}
+        Attachment
+      %td{style: 'width: 30%;'}
+        Attachment Type
+      %td
+        Actions
+    - resource.activity_details.each do |activity_detail|
+      %tr{data: {recording: {id: activity_detail.id }}}
+        %td
+          = activity_detail.file_attachment
+        %td
+          = activity_detail.attachment_type
+        %td
+          .btn-group.btn-group-sm.pull-right
+            = link_to 'View', activity_detail_path(activity_detail),
+            class: 'btn btn-default'
+            = link_to 'Edit', edit_activity_detail_path(activity_detail),
+            class: 'btn btn-default'
+            = link_to 'Delete', activity_detail_path(activity_detail),
+            class: 'btn btn-danger',
+            data: {confirm: 'Are you sure?', method: 'delete'}
+
+
+.btn-group.btn-group-sm.pull-right
+  = link_to 'Create Activity Detail', new_activity_detail_path,
+          class: 'btn btn-default'

@@ -2,7 +2,7 @@ class ActivityService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :title, :category, :difficulty, :user
-  attrs_for_show :title, :body, :difficulty, :category, :user
+  attrs_for_show :title, :body, :difficulty, :category, :user, :activity_details
   attrs_for_form :title, :body, :difficulty, :category, :user
 
   filter :user, as: :select, collection: -> { User.all }, option_text: 'name'

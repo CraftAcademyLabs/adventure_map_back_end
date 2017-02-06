@@ -17,3 +17,18 @@ And(/^I click on "([^"]*)" for activity "([^"]*)"$/) do |element, title|
     click_link_or_button element
   end
 end
+
+Given(/^"([^"]*)" has a recording "([^"]*)"$/) do |title, recording_title|
+  recording = FactoryGirl.create(:activity_detail, file_attachment: recording_title)
+  activity = Activity.find_by(title: title)
+  activity.activity_details << recording
+end
+
+Given(/^the following activities exist$/) do |table|
+  table.hashes.each do |hash|
+    user_email = hash.delete 'user'
+    user_id = User.find_by(email: user_email).id
+    hash.merge!(user_id: user_id )
+    FactoryGirl.create(:activity, hash)
+  end
+end

@@ -5,10 +5,11 @@ class Activity < ApplicationRecord
   validate :validate_category
 
   validates :difficulty,
-            inclusion: {in: VALID_DIFFICULTY_VALUES,
-                        message: '%{value} is not a valid value'}
+            inclusion: { in: VALID_DIFFICULTY_VALUES,
+                         message: '%{value} is not a valid value' }
 
   belongs_to :user
+  has_many :activity_details, dependent: :destroy
 
   def validate_category
     errors.add(:category) unless VALID_CATEGORIES.include? category
