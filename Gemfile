@@ -27,6 +27,9 @@ gem 'godmin-tags'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# App monitoring
+gem 'scout_apm'
+
 group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
