@@ -90,4 +90,24 @@ module Api::V1::Docs::ActivitiesDoc
     super
   end
 
+  api :GET, '/activities/:id', 'Gets a single activity by id'
+
+  example %q(
+            Response:
+            {
+              "status":"success",
+              "activity":
+                          {
+                            "title":"Wicked Hiking Trip",
+                            "body":"So much fun at Delsjön",
+                            "difficulty":1,
+                            "category":"Hiking"
+                          }
+            }
+  )
+
+  def show
+    self
+  end
+
 end
