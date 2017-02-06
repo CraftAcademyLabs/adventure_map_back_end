@@ -29,6 +29,8 @@ gem 'omniauth-facebook'
 
 # App monitoring
 gem 'scout_apm'
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
 
 group :development, :test do
   gem 'cucumber-rails', require: false
