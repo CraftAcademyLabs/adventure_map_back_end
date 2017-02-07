@@ -17,6 +17,7 @@ Rails.application.routes.draw do
                                       omniauth_callbacks: 'api/v1/omniauth_callbacks'
                                   }
       resources :activities, only: [:index, :create]
+      get '/follow/:id', to: 'follow#follow', as: 'follow'
     end
   end
 end
