@@ -1,9 +1,9 @@
-When(/^I click on "([^"]*)" for recording "([^"]*)" in "([^"]*)"$/) do |element, title, location|
-  recording = ActivityDetail.find_by(file_attachment: title)
+When(/^I click on "([^"]*)" for activity detail "([^"]*)" in "([^"]*)"$/) do |element, title, location|
+  activity_detail = ActivityDetail.find_by(file_attachment: title)
   if location == 'list'
-    row = find("tr[data-recording-id='#{recording.id}']")
+    row = find("tr[data-recording-id='#{activity_detail.id}']")
   else
-    row = find("tr[data-resource-id='#{recording.id}']")
+    row = find("tr[data-resource-id='#{activity_detail.id}']")
   end
   within row do
     click_link_or_button element
