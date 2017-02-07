@@ -8,6 +8,10 @@ class ActivitiesController < ApplicationController
   private
 
   def resource_params
-    params.require(:activity).permit(:title, :body, :user_id, :difficulty, :category)
+    params.require(:activity).permit(:title,
+                                     :body,
+                                     :user_id,
+                                     :difficulty,
+                                     :category)
   end
 end
