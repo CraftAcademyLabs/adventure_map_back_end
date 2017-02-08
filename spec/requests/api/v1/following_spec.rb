@@ -11,7 +11,7 @@ RSpec.describe 'Following users', type: :request do
   end
 
   it 'user can follow the other user' do
-    get "/api/v1/follow/#{other_user.id}",
+    post "/api/v1/follows/", params: { user_id: other_user.id },
       headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
