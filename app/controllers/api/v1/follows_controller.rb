@@ -1,4 +1,4 @@
-class Api::V1::FollowController < ActionController::API
+class Api::V1::FollowsController < ActionController::API
 
   include DeviseTokenAuth::Concerns::SetUserByToken
 
