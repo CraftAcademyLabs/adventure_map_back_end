@@ -1,4 +1,4 @@
-Feature: Activity has recordings
+Feature: Activity has activity details
   As a User
   in order to show where my Activity took place
   I need to be able to add one or many Recording(s) to an Activity
@@ -23,7 +23,7 @@ Feature: Activity has recordings
     And I click on "Activities"
 
   Scenario: Create an activity detail
-    Given I click on "Recordings"
+    Given I click on "Activity Details"
     And I click on "Create Activity detail"
     And I select "Skiing in Aspen" from "Activity"
     And I select "Image" from "Attachment type"
@@ -33,25 +33,25 @@ Feature: Activity has recordings
     And I should see "Skiing in Aspen"
 
 
-  Scenario: Show recordings on activity show page
+  Scenario: Show activity details on activity show page
     When I click on "Show" for activity "Skiing in Aspen"
     Then I should see "Sigu"
     And I should see "recording1.mp4"
 
-  Scenario: Delete recordings
-    When I click on "Recordings"
-    When I click on "Destroy" for recording "recording1.mp4" in "table"
-    Then there should be no recording with filename "recording1.mp4"
+  Scenario: Delete activity details
+    When I click on "Activity Details"
+    When I click on "Destroy" for activity detail "recording1.mp4" in "table"
+    Then there should be no activity detail with filename "recording1.mp4"
     And there should be an activity titled "Skiing in Aspen" in the system
 
-  Scenario: Delete recording from activity show page
+  Scenario: Delete activity detail from activity show page
     When I click on "Show" for activity "Skiing in Aspen"
     Then I should see "recording1.mp4"
-    When I click on "Delete" for recording "recording1.mp4" in "list"
-    Then there should be no recording with filename "recording1.mp4"
+    When I click on "Delete" for activity detail "recording1.mp4" in "list"
+    Then there should be no activity detail with filename "recording1.mp4"
 
   Scenario: Filter by filename
-    When I click on "Recordings"
+    When I click on "Activity Details"
     Then I should see "recording3.mp4"
     Then I filter on "recording1.mp4" from "File_attachment"
     And I click on "Filter"
