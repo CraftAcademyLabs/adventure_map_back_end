@@ -8,6 +8,7 @@ end
 
 gem 'apipie-rails'
 gem 'coffee-rails', '~> 4.2'
+gem 'figaro'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -21,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Functionality
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'aws-sdk-rails'
 gem 'devise_token_auth'
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'godmin-tags'
@@ -29,9 +31,9 @@ gem 'omniauth-facebook'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # App monitoring
-gem 'scout_apm'
-gem 'rollbar'
 gem 'oj', '~> 2.12.14'
+gem 'rollbar'
+gem 'scout_apm'
 
 group :development, :test do
   gem 'cucumber-rails', require: false

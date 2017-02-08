@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :activities, only: [:index, :create, :show] do
         resources :comments, only: [:create, :destroy, :update]
       end
-
+      post '/upload/:type', to: 'file_upload#upload'
     end
   end
 end

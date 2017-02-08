@@ -1,0 +1,4 @@
+# Get a copy of these keys from development team
+AWS_ACCESS_KEY_ID: 'get_access_key_from_aws'
+AWS_SECRET_ACCESS_KEY: 'get_secret_key_from_aws'
+AWS_REGION: 'aws_bucket_region'
