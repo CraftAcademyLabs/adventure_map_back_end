@@ -27,9 +27,9 @@ And(/^there should be no activity titled "([^"]*)" in the system$/) do |arg|
   expect(activity).to eq nil
 end
 
-Then(/^there should be no recording with filename "([^"]*)"$/) do |file_name|
-  recording = ActivityDetail.find_by(file_attachment: file_name)
-  expect(recording).to be_nil
+Then(/^there should be no activity detail with filename "([^"]*)"$/) do |file_name|
+  activity_detail = ActivityDetail.find_by(file_attachment: file_name)
+  expect(activity_detail).to be_nil
 end
 
 And(/^the activity should be associated with "([^"]*)"$/) do |name|
