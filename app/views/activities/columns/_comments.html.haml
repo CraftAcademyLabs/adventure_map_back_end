@@ -1,3 +1,14 @@
+- if resource.comments.any?
+  %table
+    -resource.comments.each do |comment|
+      %tr{data: {comment: {id: comment.id}}}
+        %td
+          = comment.body
+        %td
+          .btn-group.btn-group-sm.pull-right
+            = link_to 'Delete', comment_path(comment), class: 'btn btn-danger',
+              data: { confirm: 'Are you sure', method: 'delete' }
+
 .btn-group.btn-group-sm.pull-right
   = link_to 'New Comment', new_comment_path,
           class: 'btn btn-default'
