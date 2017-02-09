@@ -10,4 +10,13 @@ class Api::V1::FollowsController < ActionController::API
       render 'error'
     end
   end
+
+  def destroy
+    other_user = User.find(params[:id])
+    if current_api_v1_user.stop_following other_user
+      render 'success'
+    else
+      render 'error'
+    end
+  end
 end
