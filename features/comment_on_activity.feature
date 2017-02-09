@@ -37,3 +37,10 @@ Feature: As a User
     Then I should see "I loved this one :-)"
     And I should see "Sigu"
     And I should see "Skiing in Aspen"
+
+  Scenario: I can edit users comment from Activity page
+    When I click on "Show" for activity "Skiing in Aspen"
+    Then I click on "Edit" for comment "I loved this one :-)"
+    And I fill in "Comment" with "Lots of love"
+    And I click on "Update Comment"
+    Then I should see "Comment was successfully updated"
