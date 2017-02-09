@@ -26,6 +26,7 @@ gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'godmin-tags'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # App monitoring
 gem 'scout_apm'
