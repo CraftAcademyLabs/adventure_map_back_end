@@ -26,7 +26,7 @@ module Api::V1::Docs::ActivitiesDoc
               Response:
               {
                 "status":"success",
-                "activities": [
+                "data": [
                             {
                               "title":"Wicked Hiking Trip",
                               "body":"So much fun at Delsjön",
@@ -74,7 +74,7 @@ module Api::V1::Docs::ActivitiesDoc
               Response:
               {
                 "status":"success",
-                "activity":
+                "data":
                             {
                               "title":"Wicked Hiking Trip",
                               "body":"So much fun at Delsjön",
@@ -88,6 +88,26 @@ module Api::V1::Docs::ActivitiesDoc
 
   def create
     super
+  end
+
+  api :GET, '/activities/:id', 'Gets a single activity by id'
+
+  example %q(
+            Response:
+            {
+              "status":"success",
+              "data":
+                          {
+                            "title":"Wicked Hiking Trip",
+                            "body":"So much fun at Delsjön",
+                            "difficulty":1,
+                            "category":"Hiking"
+                          }
+            }
+  )
+
+  def show
+    self
   end
 
 end
