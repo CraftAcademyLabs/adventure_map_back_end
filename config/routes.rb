@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   apipie
   resources :activities
   resources :activity_details
