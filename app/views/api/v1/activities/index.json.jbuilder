@@ -1,5 +1,5 @@
 json.status 'success'
-json.activities @activities.each do |activity|
+json.data @activities.each do |activity|
   json.title activity.title
   json.body activity.body.truncate_words(75)
   json.difficulty activity.difficulty

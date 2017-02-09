@@ -18,7 +18,7 @@ RSpec.describe 'Create Activity', type: :request do
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
-    expect(response_json['activity']['title'])
+    expect(response_json['data']['title'])
       .to eq 'An Amazing Time on the Slopes'
     expect(Activity.last.title).to eq 'An Amazing Time on the Slopes'
     expect(Activity.last.category).to eq valid_category
