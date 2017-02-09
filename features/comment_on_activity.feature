@@ -32,3 +32,8 @@ Feature: As a User
     When I click on "Delete" for comment "I loved this one :-)"
     Then there should be no comment "I loved this one :-)" in the system
 
+  Scenario: I can see the comments list
+    When I click on "Comments"
+    Then I should see "I loved this one :-)"
+    And I should see "Sigu"
+    And I should see "Skiing in Aspen"
