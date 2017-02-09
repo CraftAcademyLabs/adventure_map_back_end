@@ -26,7 +26,7 @@ module Api::V1::Docs::ActivitiesDoc
               Response:
               {
                 "status":"success",
-                "activities": [
+                "data": [
                             {
                               "title":"Wicked Hiking Trip",
                               "body":"So much fun at Delsjön",
@@ -74,7 +74,7 @@ module Api::V1::Docs::ActivitiesDoc
               Response:
               {
                 "status":"success",
-                "activity":
+                "data":
                             {
                               "title":"Wicked Hiking Trip",
                               "body":"So much fun at Delsjön",
@@ -96,7 +96,7 @@ module Api::V1::Docs::ActivitiesDoc
             Response:
             {
               "status":"success",
-              "activity":
+              "data":
                           {
                             "title":"Wicked Hiking Trip",
                             "body":"So much fun at Delsjön",

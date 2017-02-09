@@ -12,6 +12,6 @@ RSpec.describe 'View Activity Feed', type: :request do
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
-    expect(response_json['activities'][0]['title']).to eq 'Sailing at Marstrand'
+    expect(response_json['data'][0]['title']).to eq 'Sailing at Marstrand'
   end
 end

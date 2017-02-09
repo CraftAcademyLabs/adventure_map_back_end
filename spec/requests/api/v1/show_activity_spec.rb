@@ -12,20 +12,19 @@ RSpec.describe 'Show Activity', type: :request do
 
   it 'Gets the correct activity' do
     expect(response_json['status']).to eq 'success'
-    expect(response_json['activity']['title'])
+    expect(response_json['data']['title'])
       .to eq 'An Amazing Time on the Slopes'
-    expect(response_json['activity']['body']).to eq activity.body
-    expect(response_json['activity']['difficulty']).to eq activity.difficulty
-    expect(response_json['activity']['category']).to eq activity.category
+    expect(response_json['data']['body']).to eq activity.body
+    expect(response_json['data']['difficulty']).to eq activity.difficulty
+    expect(response_json['data']['category']).to eq activity.category
   end
 
   it 'includes user in response' do
-    expect(response_json['activity']['user']['name']).to eq activity.user.name
+    expect(response_json['data']['user']['name']).to eq activity.user.name
   end
 
   it 'includes Activity details in response' do
-    binding.pry
-    expect(response_json['activity']['activityDetails'][0]['activity_id'])
+    expect(response_json['data']['activityDetails'][0]['activity_id'])
     .to eq activity.id
   end
 end
