@@ -20,7 +20,6 @@ RSpec.describe 'Following users', type: :request do
 
   it 'user can unfollow another user' do
     user.follow other_user
-    expect(user.following? other_user).to be true
     delete "/api/v1/follows/#{other_user.id}", headers: valid_auth_headers
     expect(user.following? other_user).to be false
   end
