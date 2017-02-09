@@ -9,6 +9,12 @@ class Api::V1::ActivitiesController < ActionController::API
     render 'index'
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+    @user = @activity.user
+    @activity_details = @activity.activity_details
+  end
+
   def create
     @activity = Activity.new(resource_params.merge(user: current_api_v1_user))
     if @activity.save
