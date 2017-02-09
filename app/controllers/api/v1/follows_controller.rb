@@ -1,5 +1,5 @@
 class Api::V1::FollowsController < ActionController::API
-
+  include Api::V1::Docs::FollowsDoc
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   def create
