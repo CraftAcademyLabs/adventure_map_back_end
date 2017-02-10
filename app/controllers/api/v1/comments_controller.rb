@@ -1,6 +1,7 @@
 class Api::V1::CommentsController < ActionController::API
 
   include DeviseTokenAuth::Concerns::SetUserByToken
+  include Api::V1::Docs::CommentsDoc
 
   before_action :set_default_response_format
   def create
