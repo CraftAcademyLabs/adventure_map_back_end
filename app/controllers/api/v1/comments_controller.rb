@@ -9,6 +9,7 @@ class Api::V1::CommentsController < ActionController::API
     if @comment.save
       render 'success'
     else
+      render 'error'
     end
   end
 

@@ -19,4 +19,16 @@ RSpec.describe 'Comment on Activity', type: :request do
     expect(response_json['data']['user']['name']).to eq user.name
     expect(response_json['data']['activity']['title']).to eq activity.title
   end
+
+  it 'returns an error when body is blank' do
+    post '/api/v1/comments',
+      params: {
+        body: ' ',
+        activity_id: activity.id
+    },
+    headers: valid_auth_headers
+
+    expect(response_json['status']).to eq 'error'
+    expect(response_json['message'][0]).to eq 'Body can\'t be blank'
+  end
 end
