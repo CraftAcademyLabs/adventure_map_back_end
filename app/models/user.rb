@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
          :omniauthable
 
   acts_as_taggable_on :interests
+  acts_as_followable
+  acts_as_follower
   include DeviseTokenAuth::Concerns::User
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
