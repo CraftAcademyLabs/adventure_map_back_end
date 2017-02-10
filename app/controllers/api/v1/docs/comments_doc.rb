@@ -52,4 +52,29 @@ module Api::V1::Docs::CommentsDoc
   def create
     super
   end
+
+  api :DELETE, '/activities/:activity_id/:id'
+  description 'Deletes comment with id :id that belongs to activity with id :activity_id'
+
+  example %q(
+            Headers:
+            {
+              "access-token"=>"xXIwMG3yBOzxUF5S5CLG23lj",
+              "token-type"=>"Bearer",
+              "client"=>"HcjE_K4u0TLWVQZ9UODHgw",
+              "expiry"=>"1486741920",
+              "uid"=>"email@email.com",
+            }
+
+            Response:
+            {
+              status: "success"
+            }
+
+  )
+
+  def destroy
+    super
+  end
+
 end
