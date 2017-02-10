@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :comments
   apipie
   resources :activities
   resources :activity_details
   resources :admin_users
+  resources :comments
   resources :users, except: [:destroy]
 
   resource :session, only: [:new, :create, :destroy]
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
                                   }
       resources :follows, only: [:create, :destroy]
       resources :activities, only: [:index, :create, :show]
+      resources :comments, only: [:create]
 
     end
   end
