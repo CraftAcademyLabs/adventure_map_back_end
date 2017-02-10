@@ -67,6 +67,35 @@ RSpec.describe 'Comment on Activity', type: :request do
     delete "/api/v1/activities/#{activity.id}/comments/#{comment.id}",
       headers: second_user_headers
     expect(response_json['status']).to eq 'error'
+    expect(response_json['message'])
+    .to eq 'You are not allowed to perform this action'
     expect(Comment.find_by_id(comment.id)).not_to be_nil
+  end
+
+  describe 'edit comment' do
+    it 'user can edit own comment' do
+      put "/api/v1/activities/#{activity.id}/comments/#{comment.id}",
+      params: {
+        body: 'New comment body'
+      },
+        headers: valid_auth_headers
+        expect(response_json['status']).to eq 'success'
+        expect(response_json['data']['body']).to eq 'New comment body'
+        comment.reload
+        expect(comment.body).to eq 'New comment body'
+    end
+
+    it 'user cannot edit other user comment' do
+      put "/api/v1/activities/#{activity.id}/comments/#{comment.id}",
+      params: {
+        body: 'New comment body'
+      },
+      headers: second_user_headers
+        expect(response_json['status']).to eq 'error'
+        expect(response_json['message'])
+        .to eq "You are not allowed to perform this action"
+        comment.reload
+        expect(comment.body).not_to eq 'New comment body'
+    end
   end
 end

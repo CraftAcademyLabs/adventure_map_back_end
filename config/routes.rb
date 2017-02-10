@@ -19,7 +19,7 @@ Rails.application.routes.draw do
                                   }
       resources :follows, only: [:create, :destroy]
       resources :activities, only: [:index, :create, :show] do
-        resources :comments, only: [:create, :destroy]
+        resources :comments, only: [:create, :destroy, :update]
       end
 
     end
