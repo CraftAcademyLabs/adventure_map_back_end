@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ActionController::API
   before_action :set_default_response_format
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_api_v1_user.id
+    @comment.user_id = current_api_v1_user.id if current_api_v1_user
     if @comment.save
       render 'success'
     else
