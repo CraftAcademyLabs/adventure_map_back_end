@@ -1,9 +1,18 @@
 - if resource.comments.any?
   %table
+    %tr
+      %td{style: 'width: 40%;'}
+        Comment
+      %td{style: 'width: 30%;'}
+        User
+      %td
+        Actions
     -resource.comments.each do |comment|
       %tr{data: {comment: {id: comment.id}}}
         %td
           = comment.body
+        %td
+          = link_to resource.user.name, user_path(resource.user)
         %td
           .btn-group.btn-group-sm.pull-right
             = link_to 'Edit', edit_comment_path(comment), class: 'btn btn-default'
