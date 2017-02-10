@@ -18,8 +18,9 @@ Rails.application.routes.draw do
                                       omniauth_callbacks: 'api/v1/omniauth_callbacks'
                                   }
       resources :follows, only: [:create, :destroy]
-      resources :activities, only: [:index, :create, :show]
-      resources :comments, only: [:create]
+      resources :activities, only: [:index, :create, :show] do
+        resources :comments, only: [:create]
+      end
 
     end
   end

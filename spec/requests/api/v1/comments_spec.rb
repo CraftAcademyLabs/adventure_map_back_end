@@ -8,10 +8,9 @@ RSpec.describe 'Comment on Activity', type: :request do
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 
   it 'create comment' do
-    post '/api/v1/comments',
+    post "/api/v1/activities/#{activity.id}/comments/",
       params: {
         body: 'looks like this was fun',
-        activity_id: activity.id
     },
     headers: valid_auth_headers
 
@@ -22,10 +21,9 @@ RSpec.describe 'Comment on Activity', type: :request do
   end
 
   it 'returns an error when body is blank' do
-    post '/api/v1/comments',
+    post "/api/v1/activities/#{activity.id}/comments/",
       params: {
         body: ' ',
-        activity_id: activity.id
     },
     headers: valid_auth_headers
 
@@ -34,10 +32,9 @@ RSpec.describe 'Comment on Activity', type: :request do
   end
 
   it 'sends error message if there is no user signed in' do
-    post '/api/v1/comments',
+    post "/api/v1/activities/#{activity.id}/comments/",
          params: {
            body: 'Body of comment',
-           activity_id: activity.id
          },
          headers: invalid_auth_headers
 
@@ -46,10 +43,9 @@ RSpec.describe 'Comment on Activity', type: :request do
   end
 
   it 'sends error message if there is no activity with given id' do
-    post '/api/v1/comments',
+    post "/api/v1/activities/r/comments/",
          params: {
            body: 'Body of comment',
-           activity_id: 'e'
          },
          headers: valid_auth_headers
 
