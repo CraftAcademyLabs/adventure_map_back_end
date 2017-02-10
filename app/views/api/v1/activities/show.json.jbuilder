@@ -6,6 +6,5 @@ json.data do
   json.category @activity.category
 
   json.user @activity.user
-
-  json.activityDetails @activity.activity_details :id
+  json.images @activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Image' }
 end
