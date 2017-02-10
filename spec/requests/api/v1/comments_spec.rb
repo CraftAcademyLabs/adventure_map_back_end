@@ -2,10 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Comment on Activity', type: :request do
   let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
+  let!(:second_user) { create(:user) }
   let!(:activity) { create(:activity, user: user) }
+  let!(:comment) { create(:comment, user: user, activity: activity) }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
   let!(:invalid_auth_headers) { headers }
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
+  let!(:second_user_headers) { headers.merge(second_user.create_new_auth_token) }
 
   it 'create comment' do
     post "/api/v1/activities/#{activity.id}/comments/",
@@ -51,5 +54,19 @@ RSpec.describe 'Comment on Activity', type: :request do
 
     expect(response_json['status']).to eq 'error'
     expect(response_json['message'][0]).to eq 'Activity must exist'
+  end
+
+  it 'can delete comment' do
+    delete "/api/v1/activities/#{activity.id}/comments/#{comment.id}",
+      headers: valid_auth_headers
+    expect(response_json['status']).to eq 'success'
+    expect(Comment.find_by_id(comment.id)).to be_nil
+  end
+
+  it 'cannot delete other users comment' do
+    delete "/api/v1/activities/#{activity.id}/comments/#{comment.id}",
+      headers: second_user_headers
+    expect(response_json['status']).to eq 'error'
+    expect(Comment.find_by_id(comment.id)).not_to be_nil
   end
 end

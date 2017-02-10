@@ -14,7 +14,21 @@ class Api::V1::CommentsController < ActionController::API
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    if correct_user && @comment.destroy
+      render  json: {status: 'success'}, status: 200
+    else
+      render  json: {status: 'error'}, status: 409
+    end
+  end
+
   private
+
+  def correct_user
+    current_api_v1_user.id == @comment.user_id
+  end
 
   def comment_params
     params.permit(:body, :activity_id)
