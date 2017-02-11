@@ -10,6 +10,7 @@ class Activity < ApplicationRecord
 
   belongs_to :user
   has_many :activity_details, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def validate_category
     errors.add(:category) unless VALID_CATEGORIES.include? category
