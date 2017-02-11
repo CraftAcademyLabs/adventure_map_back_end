@@ -1,6 +1,10 @@
 module Api::V1::Docs::CommentsDoc
   extend Apipie::DSL::Concern
-  api :POST, '/activities/:activity_id/comments'
+  api :POST, '/activities/:activity_id/comments', 'Creates a comment for a specific Activity'
+  description <<-EOF
+    Creates a Comment for a specific Activity. \n
+    Comment belong to a User and Activity. Headers must include access tokens.
+  EOF
 
   example %q(
             Request:
@@ -53,8 +57,8 @@ module Api::V1::Docs::CommentsDoc
     super
   end
 
-  api :DELETE, '/activities/:activity_id/:id'
-  description 'Deletes comment with id :id that belongs to activity with id :activity_id'
+  api :DELETE, '/activities/:activity_id/:id', 'Deletes a comment'
+  description 'Deletes a comment with id :id that belongs to activity with id :activity_id'
 
   example %q(
             Headers:

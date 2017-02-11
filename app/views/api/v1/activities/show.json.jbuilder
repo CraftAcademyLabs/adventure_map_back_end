@@ -1,5 +1,6 @@
 json.status 'success'
 json.data do
+  json.id @activity.id
   json.title @activity.title
   json.body @activity.body
   json.difficulty @activity.difficulty
