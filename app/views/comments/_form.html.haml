@@ -1,0 +1,5 @@
+= form_for @resource do |f|
+  = f.text_area :body, label: 'Comment'
+  = f.select :user_id, User.all.collect {|p| [ p.name, p.id ] }, {}, data: { behavior: 'select-box' }
+  = f.select :activity_id, Activity.all.collect {|p| [ p.title, p.id ] }, {}, data: { behavior: 'select-box' }
+  = f.submit

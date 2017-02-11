@@ -39,3 +39,8 @@ end
 Then(/^I should not see "([^"]*)"$/) do |content|
   expect(page).not_to have_content content
 end
+
+Then(/^there should be no comment "([^"]*)" in the system$/) do |comment|
+  comment = Comment.find_by(body: comment)
+  expect(comment).to be_nil
+end
