@@ -12,6 +12,10 @@ module Api::V1::Docs::SessionsDoc
     param :city, String, 'User city'
   end
   api :POST, '/auth/user/sign_in', 'Login a user'
+  description <<-EOF
+    Logs in a User. \n
+    Authenticates a User and returns credentials in headers.
+  EOF
   param_group :user
 
   example %q(
@@ -42,25 +46,42 @@ module Api::V1::Docs::SessionsDoc
 
             Headers:
             {
-              "X-Frame-Options"=>"SAMEORIGIN",
-              "X-XSS-Protection"=>"1; mode=block",
-              "X-Content-Type-Options"=>"nosniff",
-              "Content-Type"=>"application/json; charset=utf-8",
               "access-token"=>"xXIwMG3yBOzxUF5S5CLGgg",
               "token-type"=>"Bearer",
               "client"=>"HcjE_K4u0TLWVQZ9UODHgw",
               "expiry"=>"1486741920",
-              "uid"=>"email@email.com",
-              "Vary"=>"Origin",
-              "ETag"=>"W/\"3b5861d8ca94de88953745ad7e17e502\"",
-              "Cache-Control"=>"max-age=0, private, must-revalidate",
-              "X-Request-Id"=>"9de4307d-ddec-45b2-a387-55848662e38a",
-              "X-Runtime"=>"0.273076",
-              "Content-Length"=>"194"
+              "uid"=>"email@email.com"
             }
   )
 
   def create
+    super
+  end
+
+  api :DELETE, '/auth/user/sign_out', 'Logout a user'
+  description <<-EOF
+    Logs out a User. \n
+  EOF
+
+  example %q(
+              Request:
+               {
+                }
+              Response:
+              {
+                "success": true
+              }
+              Headers:
+              {
+                "access-token"=>"xXIwMG3yBOzxUF5S5CLGgg",
+                "token-type"=>"Bearer",
+                "client"=>"HcjE_K4u0TLWVQZ9UODHgw",
+                "expiry"=>"1486741920",
+                "uid"=>"email@email.com"
+              }
+
+          )
+  def destroy
     super
   end
 end

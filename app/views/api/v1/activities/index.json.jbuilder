@@ -11,5 +11,7 @@ json.data @activities.each do |activity|
     json.name activity.user.name
     json.image activity.user.image
     json.interests activity.user.interests
-    end
+  end
+  json.images activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Image' }
+
 end
