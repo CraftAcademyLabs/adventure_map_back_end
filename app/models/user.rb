@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :email, uniqueness: true
   validates :gender,
             inclusion: {in: VALID_GENDER_VALUES,
                         message: '%{value} is not a valid gender'},
