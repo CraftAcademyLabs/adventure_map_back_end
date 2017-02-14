@@ -3,6 +3,12 @@ Given(/^the user "([^"]*)" has an account$/) do |email|
   FactoryGirl.create(:user, email: email)
 end
 
+Given(/^the user "([^"]*)" is already registered through facebook$/) do |email|
+  user = User.find_by(email: email)
+  user.provider = 'facebook'
+  user.save
+end
+
 Given(/^the user "([^"]*)" has an interest "([^"]*)"$/) do |email, interest|
   user = User.find_by(email: email)
   user.interest_list.add(interest)
