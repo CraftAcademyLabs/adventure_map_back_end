@@ -54,3 +54,14 @@ Feature: Administrate users
     And I click on "Users"
     And I click on "Show" for user "user_2@ranom.com"
     Then I should see "user_2@ranom.com"
+
+  Scenario: Create user with same email address
+    Given the user "user@random.com" has an account
+    And the user "user@random.com" is already registered through facebook
+    When I click on "Users"
+    And I click on "Create User"
+    And I fill in "Email" with "user@random.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I click on "Create User"
+    Then I should see "Email has already been taken"
