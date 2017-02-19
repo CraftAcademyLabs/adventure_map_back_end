@@ -22,13 +22,13 @@ gem 'uglifier', '>= 1.3.0'
 
 # Functionality
 gem 'acts-as-taggable-on', '~> 4.0'
-gem 'aws-sdk-rails'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+gem 'aws-sdk', '~> 2'
 gem 'devise_token_auth'
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'godmin-tags'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # App monitoring
 gem 'oj', '~> 2.12.14'
