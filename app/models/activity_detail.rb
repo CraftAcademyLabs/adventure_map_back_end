@@ -1,5 +1,5 @@
 class ActivityDetail < ApplicationRecord
-  VALID_TYPE_VALUES = %w(Recording Waypoint Image)
+  VALID_TYPE_VALUES = %w(Route Waypoint Image)
 
   belongs_to :activity
 
