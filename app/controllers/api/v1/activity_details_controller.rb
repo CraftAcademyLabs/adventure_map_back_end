@@ -1,9 +1,13 @@
 class Api::V1::ActivityDetailsController < ActionController::API
 
   def create
-    detail = ActivityDetail.new(activity_params)
-    binding.pry
-    detail.save
+    @detail = ActivityDetail.new(activity_params)
+    if @detail.save
+      render 'show'
+    else
+      render 'errors'
+    end
+
   end
 
   private
