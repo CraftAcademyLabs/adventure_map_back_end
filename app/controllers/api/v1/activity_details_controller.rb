@@ -3,7 +3,7 @@ class Api::V1::ActivityDetailsController < ActionController::API
   def create
     @detail = ActivityDetail.new(activity_params)
     if @detail.save
-      render 'show'
+      render 'success'
     else
       render 'errors'
     end

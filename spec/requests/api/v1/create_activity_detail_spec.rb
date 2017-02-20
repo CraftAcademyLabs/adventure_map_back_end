@@ -17,6 +17,11 @@ RSpec.describe 'Create Activity Detail', type: :request do
       headers: valid_auth_headers
 
       expect(ActivityDetail.last.activity_id).to eq activity.id
+      expect(response_json['status']).to eq 'success'
+      expect(response_json['data']['file_attachment'])
+        .to eq 'https://valid.url.com'
+      expect(response_json['data']['activity']['id'])
+      .to eq activity.id
     end
 
     it 'returns an error without file attachment' do
