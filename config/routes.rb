@@ -20,9 +20,9 @@ Rails.application.routes.draw do
       resources :follows, only: [:create, :destroy]
       resources :activities, only: [:index, :create, :show] do
         resources :comments, only: [:create, :destroy, :update]
+        resources :activity_details, only: [:create], shallow: true
       end
 
-      resources :activity_details, only: [:create]
       post '/upload/:type', to: 'file_upload#upload'
     end
   end

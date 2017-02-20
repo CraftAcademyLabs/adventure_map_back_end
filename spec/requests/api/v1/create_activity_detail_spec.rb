@@ -9,6 +9,14 @@ RSpec.describe 'Create Activity Detail', type: :request do
 
   describe 'Create an Image' do
     it 'generates an upload URL and accepts an image' do
+      post "/api/v1/activities/#{activity.id}/activity_details",
+      params: {
+        file_attachment: 'https://valid.url.com',
+        attachment_type: 'Image'
+      },
+      headers: valid_auth_headers
+
+      expect(ActivityDetail.last.activity_id).to eq activity.id
 
     end
 
