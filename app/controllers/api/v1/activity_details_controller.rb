@@ -1,4 +1,5 @@
 class Api::V1::ActivityDetailsController < ActionController::API
+  include Api::V1::Docs::ActivityDetailsDoc
 
   def create
     @detail = ActivityDetail.new(activity_params)
