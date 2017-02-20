@@ -7,6 +7,7 @@ This project is tracked on https://www.pivotaltracker.com/n/projects/1938829
 
 ### Deployed
 Development: [Heroku](http://adventuremap-dev.herokuapp.com)
+Stagind: [Heroku](http://adventuremap-staging.herokuapp.com)
 
 ### Libraries used
 - [**Godmin**](https://github.com/varvet/godmin) - for administrative interface
