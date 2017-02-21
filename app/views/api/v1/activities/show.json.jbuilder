@@ -8,4 +8,6 @@ json.data do
 
   json.user @activity.user
   json.images @activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Image' }
+  json.waypoints @activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Waypoint' }
+  json.routes @activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Route' }
 end
