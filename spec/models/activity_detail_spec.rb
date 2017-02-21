@@ -21,7 +21,6 @@ RSpec.describe ActivityDetail, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of(:file_attachment) }
     it { is_expected.to validate_presence_of(:attachment_type) }
-
-    it { is_expected.to validate_inclusion_of(:attachment_type).in_array(%w(Recording Waypoint Image)) }
+    it { is_expected.to validate_inclusion_of(:attachment_type).in_array(ActivityDetail::VALID_TYPE_VALUES) }
   end
 end
