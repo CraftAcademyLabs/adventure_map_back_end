@@ -2,3 +2,8 @@
 AWS_ACCESS_KEY_ID: 'get_access_key_from_aws'
 AWS_SECRET_ACCESS_KEY: 'get_secret_key_from_aws'
 AWS_REGION: 'aws_bucket_region'
+
+SMTP_ADDRESS: 'get_from_smtp_provider'
+SMTP_DOMAIN: 'get_from_smtp_provider'
+SMTP_PASSWORD: 'get_from_smtp_provider'
+SMTP_USERNAME: 'get_from_smtp_provider'
