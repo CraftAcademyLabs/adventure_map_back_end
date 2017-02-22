@@ -14,4 +14,12 @@ RSpec.describe 'View Activity Feed', type: :request do
     expect(response_json['status']).to eq 'success'
     expect(response_json['data'][0]['title']).to eq 'Sailing at Marstrand'
   end
+
+  it 'returns the number of comments' do
+    5.times { create(:comment, activity: activity, user: user) }
+
+    get '/api/v1/activities',
+         headers: valid_auth_headers
+    expect(response_json['data'][0]['comments_count']).to eq 5
+  end
 end
