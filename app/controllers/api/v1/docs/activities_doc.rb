@@ -42,7 +42,8 @@ module Api::V1::Docs::ActivitiesDoc
                       "id": 1,
                       "name": "Tompa Thopmsson",
                       "image": null,
-                      "interests": []
+                      "interests": [],
+                      "followers_count": 2
                     },
                     "comments_count": 3,
                     "images": [
@@ -167,6 +168,7 @@ module Api::V1::Docs::ActivitiesDoc
                   "gender": "Male",
                   "city": ""
                 },
+                 "followers_count": 2,
                  "comments": [
                     {
                       "id": 1,
