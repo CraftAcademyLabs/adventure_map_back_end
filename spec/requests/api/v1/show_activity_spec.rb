@@ -25,9 +25,23 @@ RSpec.describe 'Show Activity', type: :request do
     expect(response_json['data']['user']['name']).to eq activity.user.name
   end
 
-  it 'returns comments on response' do
-    expect(response_json['data']['comments'][0]['user_id']).to eq user.id
+  describe 'Comment' do
+    it 'returns comments on response' do
+      expect(response_json['data']['comments'][0]['activity_id'])
+        .to eq activity.id
+    end
+
+    it 'includes comment user details' do
+      expect(response_json['data']['comments'][0]['user']['image'])
+      .to eq user.image
+      expect(response_json['data']['comments'][0]['user']['nickname'])
+      .to eq user.nickname
+      expect(response_json['data']['comments'][0]['user']['name'])
+      .to eq user.name
+    end
+
   end
+
   describe 'Images' do
 
     it 'included in response' do

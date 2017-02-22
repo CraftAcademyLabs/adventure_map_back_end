@@ -44,7 +44,7 @@ module Api::V1::Docs::ActivitiesDoc
                       "image": null,
                       "interests": []
                     },
-	                "comments": [
+                  "comments": [
                       {
                           "id": 1,
                           "body": "This is the first comment.",
@@ -69,7 +69,7 @@ module Api::V1::Docs::ActivitiesDoc
                           "created_at": "2017-02-22T11:27:22.738Z",
                           "updated_at": "2017-02-22T11:27:22.738Z"
                       }
-					          ],
+                    ],
                     "comments_count": "3",
                     "images": [
                       {
@@ -191,6 +191,47 @@ module Api::V1::Docs::ActivitiesDoc
                   "gender": "Male",
                   "city": ""
                 },
+                 "comments": [
+                    {
+                      "id": 1,
+                      "body": "This is the first comment.",
+                      "activity_id": 1,
+                      "created_at": "2017-02-09T12:18:04.742Z",
+                      "updated_at": "2017-02-09T13:09:47.159Z",
+                      "user": {
+                        "id": 4
+                        "name": "Aha'kn n",
+                        "nickname": "nick",
+                        "image": null
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "body": "that was awesome again and again",
+                      "activity_id": 1,
+                      "created_at": "2017-02-10T09:35:31.754Z",
+                      "updated_at": "2017-02-10T09:35:31.754Z",
+                      "user": {
+                        "id": 1
+                        "name": "setesting",
+                        "nickname": null,
+                        "image": null
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "body": "Yet another comment to make them 3",
+                      "activity_id": 1,
+                      "created_at": "2017-02-22T11:27:22.738Z",
+                      "updated_at": "2017-02-22T11:27:22.738Z",
+                      "user": {
+                        "id": 1
+                        "name": "Aha'kn n",
+                        "nickname": "nick",
+                        "image": null
+                      }
+                    }
+                ],
                 "images": [
                   {
                     "id": 2,
