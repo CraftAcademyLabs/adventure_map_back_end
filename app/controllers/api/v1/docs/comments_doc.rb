@@ -2,7 +2,6 @@ module Api::V1::Docs::CommentsDoc
   extend Apipie::DSL::Concern
 
   def_param_group :comment do
-    param :user_id, Integer, 'Id of the commenting user', required: true
     param :activity_id, Integer, 'Id of the activity comment belongs to',
       required: true
     param :body, String, 'The comment content', required: true
@@ -20,7 +19,6 @@ module Api::V1::Docs::CommentsDoc
   example %q(
             Request:
             {
-              "user_id":"12",
               "activity_id": "2",
               "body": "this is a comment body"
             }
