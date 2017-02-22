@@ -44,6 +44,7 @@ module Api::V1::Docs::ActivitiesDoc
                       "image": null,
                       "interests": []
                     },
+                    "comments_count": "3",
                     "images": [
                       {
                         "id": 2,
