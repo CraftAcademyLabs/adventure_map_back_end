@@ -5,6 +5,8 @@ RSpec.describe 'Show Activity', type: :request do
 
   let!(:activity) { create(:activity, title: 'An Amazing Time on the Slopes') }
   let!(:activity_detail) { create(:activity_detail, activity: activity, attachment_type: "Image" ) }
+  let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
+  let!(:comment) { create(:comment, user: user, activity: activity) }
 
   before(:each) do
     get "/api/v1/activities/#{activity.id}"
@@ -23,6 +25,9 @@ RSpec.describe 'Show Activity', type: :request do
     expect(response_json['data']['user']['name']).to eq activity.user.name
   end
 
+  it 'returns comments on response' do
+    expect(response_json['data']['comments'][0]['user_id']).to eq user.id
+  end
   describe 'Images' do
 
     it 'included in response' do

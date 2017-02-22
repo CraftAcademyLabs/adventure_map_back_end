@@ -44,6 +44,32 @@ module Api::V1::Docs::ActivitiesDoc
                       "image": null,
                       "interests": []
                     },
+	                "comments": [
+						{
+						    "id": 1,
+						    "body": "This is the first comment.",
+						    "user_id": 1,
+						    "activity_id": 1,
+						    "created_at": "2017-02-09T12:18:04.742Z",
+						    "updated_at": "2017-02-09T13:09:47.159Z"
+						},
+						{
+						    "id": 2,
+						    "body": "that was awesome again and again",
+						    "user_id": 2,
+						    "activity_id": 1,
+						    "created_at": "2017-02-10T09:35:31.754Z",
+						    "updated_at": "2017-02-10T09:35:31.754Z"
+						},
+						{
+						    "id": 3,
+						    "body": "Yet another comment to make them 3",
+						    "user_id": 1,
+						    "activity_id": 1,
+						    "created_at": "2017-02-22T11:27:22.738Z",
+						    "updated_at": "2017-02-22T11:27:22.738Z"
+						}
+					],
                     "images": [
                       {
                         "id": 2,
