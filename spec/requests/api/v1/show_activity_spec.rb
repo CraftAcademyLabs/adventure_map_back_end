@@ -6,6 +6,7 @@ RSpec.describe 'Show Activity', type: :request do
   let!(:activity) { create(:activity, title: 'An Amazing Time on the Slopes') }
   let!(:activity_detail) { create(:activity_detail, activity: activity, attachment_type: "Image" ) }
   let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
+  let!(:user2) { create(:user, email: 'email@another.com', password: 'password') }
   let!(:comment) { create(:comment, user: user, activity: activity) }
 
   before(:each) do
@@ -40,6 +41,13 @@ RSpec.describe 'Show Activity', type: :request do
       .to eq user.name
     end
 
+  end
+
+  describe 'Followers' do
+    it 'shows a follower count' do
+      user.follow user2
+      expect(response_json['data']['follower_count']).to eq user.followers.count
+    end
   end
 
   describe 'Images' do

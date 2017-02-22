@@ -6,6 +6,7 @@ json.data do
   json.difficulty @activity.difficulty
   json.category @activity.category
   json.user @activity.user
+  json.follower_count @activity.user.followers.count
 
   json.comments @activity.comments do |comment|
     json.id comment.id

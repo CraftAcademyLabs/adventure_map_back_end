@@ -25,9 +25,9 @@ RSpec.describe 'View Activity Feed', type: :request do
   end
 
   it 'returns the number of followers' do
-    user2.follow user
+    user.follow user2
     get '/api/v1/activities',
         headers: valid_auth_headers
-    expect(response_json['data'][0]['user']['followers_count']).to eq 1
+    expect(response_json['data'][0]['user']['followers_count']).to eq user.followers.count
   end
 end
