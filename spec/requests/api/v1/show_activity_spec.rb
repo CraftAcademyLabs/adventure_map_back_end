@@ -46,7 +46,7 @@ RSpec.describe 'Show Activity', type: :request do
   describe 'Followers' do
     it 'shows a follower count' do
       user.follow user2
-      expect(response_json['data']['follower_count']).to eq user.followers.count
+      expect(response_json['data']['user']['follower_count']).to eq user.followers.count
     end
   end
 
