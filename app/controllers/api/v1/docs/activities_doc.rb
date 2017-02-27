@@ -42,7 +42,8 @@ module Api::V1::Docs::ActivitiesDoc
                       "id": 1,
                       "name": "Tompa Thopmsson",
                       "image": null,
-                      "interests": []
+                      "interests": [],
+                      "followers_count": 2
                     },
                     "comments_count": 3,
                     "images": [
@@ -163,9 +164,7 @@ module Api::V1::Docs::ActivitiesDoc
                   "email": "thomas2@random.se",
                   "created_at": "2017-02-05T09:39:36.472Z",
                   "updated_at": "2017-02-06T05:56:16.478Z",
-                  "date_of_birth": "1990-01-01",
-                  "gender": "Male",
-                  "city": ""
+                  "followers_count": 2,
                 },
                  "comments": [
                     {

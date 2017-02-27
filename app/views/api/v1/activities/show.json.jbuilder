@@ -5,7 +5,13 @@ json.data do
   json.body @activity.body
   json.difficulty @activity.difficulty
   json.category @activity.category
-  json.user @activity.user
+  json.user do
+    json.id @activity.user.id
+    json.name @activity.user.name
+    json.image @activity.user.image
+    json.interests @activity.user.interests
+    json.follower_count @activity.user.followers.count
+  end
 
   json.comments @activity.comments do |comment|
     json.id comment.id
