@@ -11,6 +11,7 @@ json.data do
     json.image @activity.user.image
     json.interests @activity.user.interests
     json.follower_count @activity.user.followers.count
+    json.following current_api_v1_user.following? @activity.user
   end
 
   json.comments @activity.comments do |comment|

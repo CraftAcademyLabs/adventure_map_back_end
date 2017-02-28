@@ -44,6 +44,7 @@ module Api::V1::Docs::ActivitiesDoc
                       "image": null,
                       "interests": [],
                       "followers_count": 2
+                      "following": false
                     },
                     "comments_count": 3,
                     "images": [
@@ -70,6 +71,8 @@ module Api::V1::Docs::ActivitiesDoc
                       "name": "Rand Guy",
                       "image": "http://graph.facebook.com/v2.6/102963366889840/picture",
                       "interests": []
+                      "followers_count": 5
+                      "following": false
                     },
                     "comments_count": 5,
                     "images": []
@@ -165,6 +168,7 @@ module Api::V1::Docs::ActivitiesDoc
                   "created_at": "2017-02-05T09:39:36.472Z",
                   "updated_at": "2017-02-06T05:56:16.478Z",
                   "followers_count": 2,
+                  "following": true
                 },
                  "comments": [
                     {
