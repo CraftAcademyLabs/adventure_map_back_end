@@ -53,7 +53,7 @@ RSpec.describe 'Show Activity', type: :request do
     end
 
     it 'shows a follower count' do
-      expect(response_json['data']['user']['follower_count']).to eq user.followers.count
+      expect(response_json['data']['user']['followers_count']).to eq user.followers.count
     end
 
     it 'shows if current user is following this Activity owner' do
