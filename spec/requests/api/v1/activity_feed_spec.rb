@@ -5,7 +5,7 @@ RSpec.describe 'View Activity Feed', type: :request do
   let!(:user2) { create(:user, email: 'email@another.com', password: 'password') }
   let!(:activity) { create(:activity, user_id: user.id, title: 'Sailing at Marstrand')}
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
-  let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
+  let!(:valid_auth_headers) { headers.merge(user2.create_new_auth_token) }
   let(:valid_category) { Activity::VALID_CATEGORIES.first }
 
   it 'returns a list of activities' do
@@ -26,7 +26,7 @@ RSpec.describe 'View Activity Feed', type: :request do
 
   describe 'followers' do
     before :each do
-      user.follow user2
+      user2.follow user
       get '/api/v1/activities',
         headers: valid_auth_headers
     end
@@ -35,8 +35,6 @@ RSpec.describe 'View Activity Feed', type: :request do
     end
 
     it 'true if current user is following activity owner' do
-      pending 'how do we include the current_api_v1_user in this tests'
-      current_api_v1_user.follow user
       expect(response_json['data'][0]['user']['following']).to be true
     end
   end
