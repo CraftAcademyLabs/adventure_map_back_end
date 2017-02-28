@@ -24,10 +24,20 @@ RSpec.describe 'View Activity Feed', type: :request do
     expect(response_json['data'][0]['comments_count']).to eq 5
   end
 
-  it 'returns the number of followers' do
-    user.follow user2
-    get '/api/v1/activities',
+  describe 'followers' do
+    before :each do
+      user.follow user2
+      get '/api/v1/activities',
         headers: valid_auth_headers
-    expect(response_json['data'][0]['user']['followers_count']).to eq user.followers.count
+    end
+    it 'returns the number of followers' do
+      expect(response_json['data'][0]['user']['followers_count']).to eq user.followers.count
+    end
+
+    it 'true if current user is following activity owner' do
+      pending 'how do we include the current_api_v1_user in this tests'
+      current_api_v1_user.follow user
+      expect(response_json['data'][0]['user']['following']).to be true
+    end
   end
 end
