@@ -8,9 +8,11 @@ RSpec.describe 'Show Activity', type: :request do
   let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
   let!(:user2) { create(:user, email: 'email@another.com', password: 'password') }
   let!(:comment) { create(:comment, user: user, activity: activity) }
+  let(:headers) { {HTTP_ACCEPT: 'application/json'} }
+  let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 
   before(:each) do
-    get "/api/v1/activities/#{activity.id}"
+    get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
   end
 
   it 'Gets the correct activity' do
@@ -44,23 +46,33 @@ RSpec.describe 'Show Activity', type: :request do
   end
 
   describe 'Followers' do
-    it 'shows a follower count' do
+    let!(:activity) { create(:activity, user_id: user2.id, title: 'Sailing at Marstrand')}
+
+    before :each do
       user.follow user2
-      expect(response_json['data']['user']['follower_count']).to eq user.followers.count
+    end
+
+    it 'shows a follower count' do
+      expect(response_json['data']['user']['followers_count']).to eq user.followers.count
+    end
+
+    it 'shows if current user is following this Activity owner' do
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
+      expect(response_json['data']['user']['following']).to be true
     end
   end
 
   describe 'Images' do
 
     it 'included in response' do
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["images"][0]['activity_id'])
       .to eq activity.id
     end
 
     it 'not include in response if none exist' do
       activity_detail.update_attribute(:attachment_type, "Waypoint")
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']['images'][0]).to be_nil
     end
   end
@@ -68,13 +80,13 @@ RSpec.describe 'Show Activity', type: :request do
   describe 'WayPoints' do
     it 'included in response' do
       activity_detail.update_attribute(:attachment_type, "Waypoint")
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["waypoints"][0]['activity_id'])
       .to eq activity.id
     end
 
     it 'not included in response if none exists' do
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']['waypoints'][0]).to be_nil
     end
   end
@@ -82,13 +94,13 @@ RSpec.describe 'Show Activity', type: :request do
   describe 'Routes' do
     it 'included in response' do
       activity_detail.update_attribute(:attachment_type, "Route")
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["routes"][0]['activity_id'])
       .to eq activity.id
     end
 
     it 'not included in response if none exists' do
-      get "/api/v1/activities/#{activity.id}"
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']['routes'][0]).to be_nil
     end
   end
