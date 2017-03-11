@@ -9,7 +9,7 @@ class Api::V1::ActivitiesController < ActionController::API
       @activities = Activity.all
       render 'index'
     rescue => e
-      render json: { errors: e }
+      render json: { errors: e }, status: 422
     end
 
   end
