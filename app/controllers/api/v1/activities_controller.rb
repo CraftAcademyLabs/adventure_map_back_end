@@ -35,5 +35,6 @@ class Api::V1::ActivitiesController < ActionController::API
 
   def set_default_response_format
     request.format = :json
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 end
