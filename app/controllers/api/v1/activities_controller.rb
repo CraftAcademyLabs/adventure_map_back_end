@@ -5,8 +5,13 @@ class Api::V1::ActivitiesController < ActionController::API
   before_action :set_default_response_format
 
   def index
-    @activities = Activity.all
-    render 'index'
+    begin
+      @activities = Activity.all
+      render 'index'
+    rescue => e
+      render json: { errors: e }
+    end
+
   end
 
   def show
