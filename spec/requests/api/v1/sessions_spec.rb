@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Sign in', type: :request do
-  let(:user) { FactoryGirl.create(:user, email: 'email@email.com') }
+  let(:user) { create(:user, email: 'email@email.com') }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
