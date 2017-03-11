@@ -20,7 +20,7 @@ class Api::V1::ActivitiesController < ActionController::API
     if @activity.save
       render 'show'
     else
-      render 'errors'
+      render 'errors', status: 422
     end
 
   end
