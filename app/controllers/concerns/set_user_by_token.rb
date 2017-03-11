@@ -29,9 +29,9 @@ module SetUserByToken
     client_name = DeviseTokenAuth.headers_names[:'client']
 
     # parse header for values necessary for authentication
-    uid        = request.headers[uid_name] || params[uid_name]
-    @token     ||= request.headers[access_token_name] || params[access_token_name]
-    @client_id ||= request.headers[client_name] || params[client_name]
+    uid = request.headers[uid_name] || params[uid_name] || request.headers['HTTP_UID']
+    @token ||= request.headers[access_token_name] || params[access_token_name] || request.headers['HTTP_ACCESS_TOKEN']
+    @client_id ||= request.headers[client_name] || params[client_name]|| request.headers['HTTP_CLIENT']
 
     # client_id isn't required, set to 'default' if absent
     @client_id ||= 'default'
