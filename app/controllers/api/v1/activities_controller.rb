@@ -1,5 +1,5 @@
 class Api::V1::ActivitiesController < ActionController::API
-  include Api::V1::SetUserByToken
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include Api::V1::Docs::ActivitiesDoc
 
   before_action :set_default_response_format

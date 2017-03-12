@@ -24,8 +24,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'aws-sdk', '~> 2'
-gem 'active_model_serializers'
-gem 'devise'
 gem 'devise_token_auth'
 gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'godmin-tags'

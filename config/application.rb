@@ -27,7 +27,7 @@ module AdventureMap
         origins '*' # We need to block this to only the known domains we are working with.
         resource '*',
                  headers: :any,
-                 expose: %w(access-token expiry token-type uid client),
+                 expose: %w(access-token expiry token-type uid client HTTP_UID HTTP_ACCESS_TOKEN HTTP_CLIENT HTTP_EXPIRY HTTP_TOKEN_TYPE ),
                  methods: [:get, :post, :options, :delete, :put],
                  max_age: 3600
       end
