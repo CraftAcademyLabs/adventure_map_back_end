@@ -27,7 +27,6 @@ module SetUserByToken
     uid_name = 'HTTP_UID'
     access_token_name = 'HTTP_ACCESS_TOKEN'
     client_name = 'HTTP_CLIENT'
-    binding.pry
     puts request.headers[uid_name]
     puts request.headers[access_token_name]
     puts request.headers[client_name]
