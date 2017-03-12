@@ -27,6 +27,7 @@ module SetUserByToken
     uid_name = 'HTTP_UID'
     access_token_name = 'HTTP_ACCESS_TOKEN'
     client_name = 'HTTP_CLIENT'
+    binding.pry
     puts request.headers[uid_name]
     puts request.headers[access_token_name]
     puts request.headers[client_name]
@@ -34,9 +35,12 @@ module SetUserByToken
     uid = request.headers[uid_name] || params[uid_name]
     @token ||= request.headers[access_token_name] || params[access_token_name]
     @client_id ||= request.headers[client_name] || params[client_name]
+    puts 'Token' + @token
+    puts 'UID' + uid
 
     # client_id isn't required, set to 'default' if absent
     @client_id ||= 'default'
+    puts 'Client' + @client
 
     # check for an existing user, authenticated via warden/devise, if enabled
     if DeviseTokenAuth.enable_standard_devise_support
@@ -61,6 +65,7 @@ module SetUserByToken
 
     # mitigate timing attacks by finding by uid instead of auth token
     user = uid && rc.find_by_uid(uid)
+    puts user
 
     if user && user.valid_token?(@token, @client_id)
       # sign_in with bypass: true will be deprecated in the next version of Devise
