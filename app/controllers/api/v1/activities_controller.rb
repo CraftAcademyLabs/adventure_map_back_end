@@ -23,7 +23,6 @@ class Api::V1::ActivitiesController < ActionController::API
   end
 
   def create
-    binding.pry
     @activity = Activity.new(resource_params.merge(user: current_api_v1_user))
     if @activity.save
       render 'show'
