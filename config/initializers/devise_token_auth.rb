@@ -52,6 +52,11 @@ DeviseTokenAuth.setup do |config|
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
   config.enable_standard_devise_support = false
-  config.default_confirm_success_url = 'http://localhost'
+  if Rails.env.production?
+    config.default_confirm_success_url = ENV['HOST']
+  else
+    config.default_confirm_success_url = 'http://localhost'
+
+  end
 
 end
