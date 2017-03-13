@@ -36,11 +36,11 @@ DeviseTokenAuth.setup do |config|
   # config.default_callbacks = true
 
   #Makes it possible to change the headers names
-  config.headers_names = {:'access-token' => 'HTTP_ACCESS_TOKEN',
-                         :'client' => 'HTTP_CLIENT',
-                         :'expiry' => 'HTTP_EXPIRY',
-                         :'uid' => 'HTTP_UID',
-                         :'token-type' => 'HTTP_TOKEN_TYPE' }
+  # config.headers_names = {:'access-token' => 'HTTP_ACCESS_TOKEN',
+  #                        :'client' => 'HTTP_CLIENT',
+  #                        :'expiry' => 'HTTP_EXPIRY',
+  #                        :'uid' => 'HTTP_UID',
+  #                        :'token-type' => 'HTTP_TOKEN_TYPE' }
 
   # config.headers_names = {:'HTTP_ACCESS_TOKEN' => 'access-token',
   #                         :'HTTP_CLIENT' => 'client',
