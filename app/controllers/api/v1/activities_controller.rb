@@ -26,10 +26,6 @@ class Api::V1::ActivitiesController < ActionController::API
 
   end
 
-  def user_activities
-    @activities = Activity.where(user: current_api_v1_user)
-  end
-
   private
 
   def resource_params
