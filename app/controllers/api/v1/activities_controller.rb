@@ -3,6 +3,7 @@ class Api::V1::ActivitiesController < ActionController::API
   include Api::V1::Docs::ActivitiesDoc
 
   before_action :set_default_response_format
+  # before_action :authenticate_api_v1_user!, only: :user_activities
 
   def index
     @activities = Activity.all
@@ -23,6 +24,10 @@ class Api::V1::ActivitiesController < ActionController::API
       render 'errors'
     end
 
+  end
+
+  def user_activities
+    @activities = Activity.where(user: current_api_v1_user)
   end
 
   private
