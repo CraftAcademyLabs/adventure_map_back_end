@@ -59,4 +59,6 @@ DeviseTokenAuth.setup do |config|
 
   end
 
+  config.change_headers_on_each_request = false
+
 end
