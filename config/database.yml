@@ -13,9 +13,10 @@ test: &test
 
 production:
   <<: *default
-  database: adventure_map_production
-  username: adventure_map
-  password: <%= ENV['ADVENTURE_MAP_DATABASE_PASSWORD'] %>
+  database: adventure_map_development
+#  database: adventure_map_production
+#  username: adventure_map
+#  password: <%= ENV['ADVENTURE_MAP_DATABASE_PASSWORD'] %>
 
 cucumber:
   <<: *test

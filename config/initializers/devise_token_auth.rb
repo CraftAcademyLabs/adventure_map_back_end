@@ -35,16 +35,30 @@ DeviseTokenAuth.setup do |config|
   # It depends on fields like email, provider and uid.
   # config.default_callbacks = true
 
-  # Makes it possible to change the headers names
-  # config.headers_names = {:'access-token' => 'access-token',
-  #                        :'client' => 'client',
-  #                        :'expiry' => 'expiry',
-  #                        :'uid' => 'uid',
-  #                        :'token-type' => 'token-type' }
+  #Makes it possible to change the headers names
+  # config.headers_names = {:'access-token' => 'HTTP_ACCESS_TOKEN',
+  #                        :'client' => 'HTTP_CLIENT',
+  #                        :'expiry' => 'HTTP_EXPIRY',
+  #                        :'uid' => 'HTTP_UID',
+  #                        :'token-type' => 'HTTP_TOKEN_TYPE' }
+
+  # config.headers_names = {:'HTTP_ACCESS_TOKEN' => 'access-token',
+  #                         :'HTTP_CLIENT' => 'client',
+  #                         :'HTTP_EXPIRY' => 'expiry',
+  #                         :'HTTP_UID' => 'uid',
+  #                         :'HTTP_TOKEN_TYPE' => 'token-type' }
 
   # By default, only Bearer Token authentication is implemented out of the box.
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
-  # config.enable_standard_devise_support = false
-  config.default_confirm_success_url = 'http://localhost'
+  config.enable_standard_devise_support = false
+  if Rails.env.production?
+    config.default_confirm_success_url = ENV['HOST']
+  else
+    config.default_confirm_success_url = 'http://localhost'
+
+  end
+
+  config.change_headers_on_each_request = false
+
 end

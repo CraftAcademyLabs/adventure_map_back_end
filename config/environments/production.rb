@@ -1,6 +1,11 @@
 require Rails.root.join('config/smtp')
 
 Rails.application.configure do
+
+  # WIP replicating developemnt env to solve OAuth issue
+  config.consider_all_requests_local = true
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
