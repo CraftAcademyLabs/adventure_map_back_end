@@ -1,4 +1,5 @@
 class Api::V1::ActivityDetailsController < ActionController::API
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include Api::V1::Docs::ActivityDetailsDoc
 
   def create
