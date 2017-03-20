@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       end
 
       resources :users, only: [] do
-        get 'activities', controller: :users, action: :activities
+        resources :activities, only: [:index]
       end
 
       post '/upload/:type', to: 'file_upload#upload'

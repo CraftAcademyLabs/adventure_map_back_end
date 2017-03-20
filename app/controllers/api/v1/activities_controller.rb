@@ -6,8 +6,11 @@ class Api::V1::ActivitiesController < ActionController::API
 
   def index
     begin
-      @activities = Activity.all
-      render 'index'
+      if params[:user_id]
+        @activities = Activity.where(user: current_api_v1_user)
+      else
+        @activities = Activity.all
+      end
     rescue => e
       render json: { errors: e }, status: 422
     end
