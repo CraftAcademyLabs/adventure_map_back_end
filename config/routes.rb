@@ -23,6 +23,10 @@ Rails.application.routes.draw do
         resources :activity_details, only: [:create], shallow: true
       end
 
+      resources :users, only: [] do
+        resources :activities, only: [:index]
+      end
+
       post '/upload/:type', to: 'file_upload#upload'
     end
   end
