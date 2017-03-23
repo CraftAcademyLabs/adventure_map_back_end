@@ -121,4 +121,18 @@ $ bundle exec cap <environment> deploy
 
 Replace `<environment>` with either `production` or `staging` depending on what server you're deploying to.
 
+### Database Seed
+
+If you have a fresh DB to seed with data run the following command
+
+```shell
+$ bundle exec rails db:seed
+```
+
+The following command will reset the DB and re-seed
+
+```shell
+$ DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:reset
+```
+
 #### Brought to you by Craft Academy Labs
