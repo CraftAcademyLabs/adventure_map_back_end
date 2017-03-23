@@ -1,0 +1,70 @@
+---
+- provider: email
+  uid: thomas@random.se
+  name: Tompa Thopmsson
+  nickname: thompa
+  image:
+  email: thomas@random.se
+  date_of_birth: '1990-01-01'
+  gender: Male
+  city: Gothenburg
+
+- provider: email
+  uid: a@a.se
+  name: Shortest Email Possible
+  nickname: shorty
+  image:
+  email: a@a.se
+  date_of_birth: '1990-01-01'
+  gender: Female
+  city: Gothenburg
+
+- provider: email
+  uid: morgan@2tides.com
+  name: Morgan
+  nickname: morgan
+  image:
+  email: morgan@2tides.com
+  date_of_birth: '1990-01-01'
+  gender: Male
+  city: TJORNARP
+
+- provider: email
+  uid: vi.gro@hotmail.com
+  name: Victor
+  nickname: Victor
+  image:
+  email: vi.gro@hotmail.com
+  date_of_birth: '1990-01-01'
+  gender: Male
+  city: Hasselby
+
+- provider: email
+  uid: thomas2@random.se
+  name: Cucumber Test User
+  nickname: cucumber
+  image:
+  email: thomas2@random.se
+  date_of_birth: '1990-01-01'
+  gender: Male
+  city: Upsala
+
+- provider: email
+  uid: raoul@random.se
+  name: Raoul
+  nickname: diraul
+  image:
+  email: raoul@random.se
+  date_of_birth: '1990-01-01'
+  gender: Male
+  city: Pretoria
+
+- provider: email
+  uid: demo@random.se
+  name: Demo User
+  nickname: demouser
+  image:
+  email: demo@ransom.se
+  date_of_birth: '1990-01-01'
+  gender: Female
+  city: Malmo

@@ -36,6 +36,13 @@ gem 'rollbar'
 gem 'scout_apm'
 
 group :development, :test do
+  gem 'awesome_print'
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-env-config'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rbenv', '~> 2.1'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
@@ -44,6 +51,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
