@@ -111,4 +111,14 @@ $ bundle exec rails ci:tests
 ### API Documentation
 API docs are located at `/apidocs`
 
+### Deployment
+
+This application can be deployed to `production` or `staging` using Capistrano. Get the `.env` with configuration variables from a someone in the team and run the following command to deployed
+
+```shell
+$ bundle exec cap <environment> deploy
+```
+
+Replace `<environment>` with either `production` or `staging` depending on what server you're deploying to.
+
 #### Brought to you by Craft Academy Labs
