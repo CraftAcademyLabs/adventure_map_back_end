@@ -1,6 +1,5 @@
 ---
-- id: 1
-  provider: email
+- provider: email
   uid: thomas@random.se
   name: Tompa Thopmsson
   nickname: thompa
@@ -10,8 +9,7 @@
   gender: Male
   city: Gothenburg
 
-- id: 2
-  provider: email
+- provider: email
   uid: a@a.se
   name: Shortest Email Possible
   nickname: shorty
@@ -21,8 +19,7 @@
   gender: Female
   city: Gothenburg
 
-- id: 3
-  provider: email
+- provider: email
   uid: morgan@2tides.com
   name: Morgan
   nickname: morgan
@@ -32,8 +29,7 @@
   gender: Male
   city: TJORNARP
 
-- id: 4
-  provider: email
+- provider: email
   uid: vi.gro@hotmail.com
   name: Victor
   nickname: Victor
@@ -43,8 +39,7 @@
   gender: Male
   city: Hasselby
 
-- id: 5
-  provider: email
+- provider: email
   uid: thomas2@random.se
   name: Cucumber Test User
   nickname: cucumber
@@ -54,8 +49,7 @@
   gender: Male
   city: Upsala
 
-- id: 6
-  provider: email
+- provider: email
   uid: raoul@random.se
   name: Raoul
   nickname: diraul
@@ -65,8 +59,7 @@
   gender: Male
   city: Pretoria
 
-- id: 7
-  provider: email
+- provider: email
   uid: demo@random.se
   name: Demo User
   nickname: demouser

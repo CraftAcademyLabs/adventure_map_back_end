@@ -1,41 +1,35 @@
 ---
-- id: 1
-  title: Another try
+- title: Another try
   body: testing
   difficulty: 2
   category: Paddling
   user_id: 1
 
-- id: 2
-  title: Lets see how it sorts
+- title: Lets see how it sorts
   body: Testing testing
   difficulty: 3
   category: Climbing
   user_id: 1
 
-- id: 3
-  title: Heather
+- title: Heather
   body: Heather is an incredible iceskater!!!!
   difficulty: 3
   category: Cross country ice skating
   user_id: 3
 
-- id: 4
-  title: England
+- title: England
   body: Ola balldollanajjamakjanna
   difficulty: 2
   category: Foraging
   user_id: 3
 
-- id: 5
-  title: 19 Feb
+- title: 19 Feb
   body: Another day in paradise
   difficulty: 3
   category: Foraging
   user_id: 5
 
-- id: 6
-  title: Long text.....
+- title: Long text.....
   body: "2Tides provide well organized, enjoyable and fun trips to breath taking “wilderness”
     locations in Scandinavia. We are aware that attention to detail is key. We try
     and choose routes that are not only beautiful, but also have remoteness feel
@@ -69,8 +63,7 @@
   category: Horse riding
   user_id: 5
 
-- id: 7
-  title: Long text3
+- title: Long text3
   body: "They stopped growing because they let rivals take customers. Their intense
     focus on their own products led to strategy myopia: they saw themselves in the
     railroad business rather than the transportation business. \n\nThe insight that
@@ -83,171 +76,147 @@
   category: Horse riding
   user_id: 5
 
-- id: 8
-  title: Jättekul
+- title: Jättekul
   body: Så himla roligt
   difficulty: 2
   category: Horse riding
   user_id: 1
 
-- id: 9
-  title: Victors Favorit
+- title: Victors Favorit
   body: "Riktiga kanonisar förra veckan, Mälaren låg som en spegel och virre pirre kunde
     se grundet som man oftast kan stå på."
   difficulty: 2
   category: Cross country ice skating
   user_id: 4
 
-- id: 10
-  title: A super great hiking activity
+- title: A super great hiking activity
   body: "We walked forever and our legs were tired but we breathed the mountain air and
     ate our sandwiches by the stream."
   difficulty: 1
   category: Hiking
   user_id: 2
 
-- id: 11
-  title: New test
+- title: New test
   body: 3rd Of March
   difficulty: 3
   category: Hiking
   user_id: 3
 
-- id: 12
-  title: New TEST
+- title: New TEST
   body: 3rd Of March
   difficulty: 3
   category: Climbing
   user_id: 3
 
-- id: 13
-  title: Jag vill prova också
+- title: Jag vill prova också
   body: Tjo ho dubba dubba
   difficulty: 3
   category: Snow mobiling
   user_id: 6
 
-- id: 14
-  title: emulator test
+- title: emulator test
   body: Testing
   difficulty: 3
   category: Mountain biking
   user_id: 2
 
-- id: 15
-  title: Test3
+- title: Test3
   body: Hej å hååå
   difficulty: 2
   category: Horse riding
   user_id: 4
 
-- id: 16
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 17
-  title: Hiking in Angered
+- title: Hiking in Angered
   body: Had a great time in Angered and so can you!
   difficulty: 3
   category: Back country skiing
   user_id: 1
 
-- id: 18
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 19
-  title: Hiking in Angered
+- title: Hiking in Angered
   body: Had a great time in Angered and so can you!
   difficulty: 3
   category: Back country skiing
   user_id: 1
 
-- id: 20
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 21
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 22
-  title: Hiking in Angered
+- title: Hiking in Angered
   body: Had a great time in Angered and so can you!
   difficulty: 3
   category: Back country skiing
   user_id: 1
 
-- id: 23
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 24
-  title: Hiking in Angered
+- title: Hiking in Angered
   body: Had a great time in Angered and so can you!
   difficulty: 3
   category: Back country skiing
   user_id: 1
 
-- id: 25
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 26
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 27
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 28
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 29
-  title: My Super Cool Activity
+- title: My Super Cool Activity
   body: This is the body
   difficulty: 2
   category: Hiking
   user_id: 1
 
-- id: 30
-  title: Hiking in Angered
+- title: Hiking in Angered
   body: Had a great time in Angered and so can you!
   difficulty: 2
   category: Back country skiing
   user_id: 1
 
-- id: 31
-  title: Random Guy's Great Adventure
+- title: Random Guy's Great Adventure
   body: Had a great time in Angered and so can you!
   difficulty: 3
   category: Back country skiing

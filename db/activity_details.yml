@@ -1,45 +1,36 @@
 ---
-- id:              1
-  activity_id:     1
+- activity_id:     1
   file_attachment: https://helpx.adobe.com/photoshop/how-to/make-animated-gif/_jcr_content/main-pars/image.img.gif/Step-1.gif
   attachment_type: Image
 
-- id:              2
-  activity_id:     2
+- activity_id:     2
   file_attachment: http://www.thecanyon.com/assets/css/images/grandcanyon1.jpg
   attachment_type: Image
 
-- id:              3
-  activity_id:     4
+- activity_id:     4
   file_attachment: http://2tides.com/wp-content/uploads/2015/07/Kayak_Stockholm_me.png
   attachment_type: Image
 
-- id:              4
-  activity_id:     3
+- activity_id:     3
   file_attachment: http://cdn1.animhut.com/wp-content/uploads//2013/03/Gif-Images-for-Pinterest-From-animhut-25.gif
   attachment_type: Image
 
-- id:              5
-  activity_id:     10
+- activity_id:     10
   file_attachment: https://adventurejunkies-theadventurejunk.netdna-ssl.com/wp-content/uploads/hiking-1.jpg
   attachment_type: Image
 
-- id:              6
-  activity_id:     10
+- activity_id:     10
   file_attachment: http://www.greenland.com/media/4913/hiking-along-the-edge-near-tiniteqilaaq-visit-greenland.jpg?width=1920&height=1280&mode=crop&format=jpg&quality=60
   attachment_type: Image
 
-- id:              7
-  activity_id:     10
+- activity_id:     10
   file_attachment: https://ftmmagazine.com/wp-content/uploads/2016/11/2187773984.jpg
   attachment_type: Image
 
-- id:              8
-  activity_id:     9
+- activity_id:     9
   file_attachment: http://bit.ly/2ndK4Ko
   attachment_type: Image
 
-- id:              9
-  activity_id:     9
+- activity_id:     9
   file_attachment: http://bit.ly/2ndNCfI
   attachment_type: Image

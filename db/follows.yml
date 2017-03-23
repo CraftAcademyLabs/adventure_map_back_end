@@ -1,76 +1,65 @@
 ---
-- id: 1
-  followable_type: User
+- followable_type: User
   followable_id: 4
   follower_type: User
   follower_id: 2
   blocked: false
 
-- id: 2
-  followable_type: User
+- followable_type: User
   followable_id: 2
   follower_type: User
   follower_id: 1
   blocked: false
 
-- id: 3
-  followable_type: User
+- followable_type: User
   followable_id: 3
   follower_type: User
   follower_id: 2
   blocked: false
 
-- id: 4
-  followable_type: User
+- followable_type: User
   followable_id: 4
   follower_type: User
   follower_id: 3
   blocked: false
 
-- id: 5
-  followable_type: User
+- followable_type: User
   followable_id: 2
   follower_type: User
   follower_id: 3
   blocked: false
 
-- id: 6
-  followable_type: User
+- followable_type: User
   followable_id: 3
   follower_type: User
   follower_id: 4
   blocked: false
 
-- id: 7
-  followable_type: User
+- followable_type: User
   followable_id: 2
   follower_type: User
   follower_id: 4
   blocked: false
 
-- id: 8
-  followable_type: User
+- followable_type: User
   followable_id: 3
   follower_type: User
   follower_id: 6
   blocked: false
 
-- id: 9
-  followable_type: User
+- followable_type: User
   followable_id: 6
   follower_type: User
   follower_id: 3
   blocked: false
 
-- id: 10
-  followable_type: User
+- followable_type: User
   followable_id: 6
   follower_type: User
   follower_id: 4
   blocked: false
 
-- id: 11
-  followable_type: User
+- followable_type: User
   followable_id: 2
   follower_type: User
   follower_id: 6
