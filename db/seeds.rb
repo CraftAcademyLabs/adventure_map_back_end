@@ -1,7 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+seeds_root_path = "#{Rails.root}/db"
+
+passwords = {
+  password: 'password',
+  password_confirmation: 'password'
+}
+
+activities = YAML.load_file("#{seeds_root_path}/activities.yml")
+admin_users = YAML.load_file("#{seeds_root_path}/admin_users.yml")
+activity_details = YAML.load_file("#{seeds_root_path}/activity_details.yml")
+comments = YAML.load_file("#{seeds_root_path}/comments.yml")
+follows = YAML.load_file("#{seeds_root_path}/follows.yml")
+users = YAML.load_file("#{seeds_root_path}/users.yml")
+
+puts '== Seeding Database   ==================================================='
+# Users
+admin_users.each { |au| AdminUser.create(au.merge(passwords)) }
+puts "#{AdminUser.count} Admin users created."
+
+abort 'Only seeding Admin users' if Rails.env.production?
+
+puts '-- Generating other resources for demo server   -------------------------'
+users.each { |u| User.create(u.merge(passwords)) }
+puts "#{User.count} Users created."
+
+Activity.create(activities)
+puts "#{Activity.count} Activities created."
+
+ActivityDetail.create(activity_details)
+puts "#{ActivityDetail.count} Activities created."
+
+Comment.create(comments)
+puts "#{Comment.count} Activities created"
+
+Follow.create(follows)
+puts "#{Follow.count} Follows created."
+
+puts '== Database Seed complete  =============================================='
