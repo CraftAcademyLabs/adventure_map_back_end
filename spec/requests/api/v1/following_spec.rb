@@ -5,6 +5,7 @@ RSpec.describe 'Following users', type: :request do
   let!(:other_user) { create(:user, email: 'new@email.com', password: 'password') }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
+  let!(:other_user_auth_headers) { headers.merge(other_user.create_new_auth_token) }
 
   it 'user does not follow another user by default' do
     expect(user.following? other_user).to be false
@@ -36,10 +37,10 @@ RSpec.describe 'Following users', type: :request do
   it 'can view a list of users following him' do
     other_user.follow user
     get '/api/v1/follows', params: { request: 'followers' },
-        headers: valid_auth_headers
+        headers: other_user_auth_headers
 
     expect(response_json['status']).to eq 'success'
-    expect(response_json['users'].first).to eq user
+    expect(response_json['users'].first['id']).to eq user.id
   end
 
 
