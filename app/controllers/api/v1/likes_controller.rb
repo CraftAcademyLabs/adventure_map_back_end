@@ -1,5 +1,5 @@
 class Api::V1::LikesController < ActionController::API
-  # include Api::V1::Docs::LikesDoc
+  include Api::V1::Docs::LikesDoc
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   # Here "follow" means "like" - we are reusing gem functionality.
