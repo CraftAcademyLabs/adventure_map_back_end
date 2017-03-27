@@ -10,6 +10,7 @@ module Api::V1::Docs::RegistrationsDoc
     param :image, String, 'User profile picture'
     param :date_of_birth, String, 'User birthday'
     param :city, String, 'User city'
+    param :description, Text, 'User description'
     param :interest_list, Array, 'User Interests'
   end
   api :POST, '/auth', 'Create a user'
@@ -24,6 +25,7 @@ module Api::V1::Docs::RegistrationsDoc
               "password":"password",
               "password_confirmation":"password"
               "image":"image.png"
+              "description":"My description"
               "interest_list":"Snow mobiling, Mountain biking"
             }
 
@@ -39,6 +41,7 @@ module Api::V1::Docs::RegistrationsDoc
                   "nickname":"baller",
                   "image":"image.png",
                   "email":"amber5@email.com",
+                  "description":"My description",
                   "interest_list":[
                     "Mountain biking",
                     "Snow mobiling"
