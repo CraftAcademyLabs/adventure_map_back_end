@@ -1,7 +1,7 @@
 module Api::V1::Docs::FollowsDoc
   extend Apipie::DSL::Concern
 
-  api :GET, 'follows', 'Get a list of users following me or that I follow'
+  api :GET, '/follows', 'Get a list of users following me or that I follow'
   description "You need to provide a request: either 'followings' or 'followers'"
   example %q(
             Request:
@@ -23,6 +23,10 @@ module Api::V1::Docs::FollowsDoc
               "interests": []
             }],
             )
+
+  def index
+    super
+  end
 
   api :POST, '/follows', 'Follow a user '
   description 'You need to provide \'user_id\' for the user to be followed in the params with the request'

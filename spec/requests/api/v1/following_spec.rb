@@ -35,7 +35,7 @@ RSpec.describe 'Following users', type: :request do
   end
 
   it 'can view a list of users following him' do
-    other_user.follow user
+    user.follow other_user
     get '/api/v1/follows', params: { request: 'followers' },
         headers: other_user_auth_headers
 
