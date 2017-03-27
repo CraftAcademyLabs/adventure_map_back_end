@@ -38,13 +38,6 @@ RSpec.describe 'User Registration', type: :request do
 
   describe 'returns interest list as response' do
     interest_list = 'Snow mobiling, Mountain biking'
-    before do
-      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
-                                    password: 'password',
-                                    password_confirmation: 'password',
-                                    interest_list: interest_list},
-           headers: headers
-    end
 
     it 'on failure to create user' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
@@ -57,16 +50,16 @@ RSpec.describe 'User Registration', type: :request do
     end
 
     it 'on successful user creation ' do
+      post '/api/v1/auth', params: {email: 'example@craftacademy.se',
+                                    password: 'password',
+                                    password_confirmation: 'password',
+                                    interest_list: interest_list},
+           headers: headers
+
       expect(response_json['data']['interest_list'])
           .to contain_exactly('Snow mobiling', 'Mountain biking')
     end
 
-    it 'provides counts for profile page' do
-      expect(response_json['data']['counts']['followers']).to eq 0
-      expect(response_json['data']['counts']['followings']).to eq 0
-      expect(response_json['data']['counts']['my_activities']).to eq 0
-      # Need to include saved activities when available
-    end
   end
 
   context 'returns an error message when user submits' do

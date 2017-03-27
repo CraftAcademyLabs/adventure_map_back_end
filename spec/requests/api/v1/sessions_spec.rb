@@ -5,13 +5,22 @@ RSpec.describe 'User Sign in', type: :request do
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
-    it 'returns a user and token' do
+    before do
       post '/api/v1/auth/sign_in', params: {email: user.email,
                                             password: user.password}, headers: headers
+    end
 
+    it 'returns a user and token' do
       expect(response_json['data']['email']).to eq user.email
       expect(response.headers['access-token']).not_to be nil
       expect(response.status).to eq 200
+    end
+
+    it 'provides counts for profile page' do
+      expect(response_json['data']['counts']['followers']).to eq 0
+      expect(response_json['data']['counts']['followings']).to eq 0
+      expect(response_json['data']['counts']['my_activities']).to eq 0
+      # Need to include saved activities when available
     end
   end
 
