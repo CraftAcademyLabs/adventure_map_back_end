@@ -26,13 +26,16 @@ RSpec.describe 'User Registration', type: :request do
                                       image: 'image.png',
                                       date_of_birth: '1971-01-24',
                                       gender: 'Male',
-                                      city: 'Sigtuna'}, headers: headers
+                                      city: 'Sigtuna',
+                                      description: 'Skiing is just the best'
+                                      }, headers: headers
       end
 
       expect { request.call }.to change(User, :count).by(1)
       expect(User.last.name).to eq 'Bob'
       expect(User.last.nickname).to eq 'Bobby'
       expect(User.last.image).to eq 'image.png'
+      expect(User.last.description).to eq 'Skiing is just the best'
     end
   end
 

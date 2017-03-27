@@ -9,6 +9,7 @@ json.data do |json|
       :gender,
       :date_of_birth,
       :provider,
-      :city)
+      :city,
+      :description)
   json.interest_list  @resource.interest_list
 end

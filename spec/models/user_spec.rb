@@ -31,6 +31,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :date_of_birth }
     it { is_expected.to have_db_column :gender }
     it { is_expected.to have_db_column :city }
+    it { is_expected.to have_db_column :description }
+
   end
 
   describe 'Validations' do
