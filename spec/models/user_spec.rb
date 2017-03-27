@@ -74,7 +74,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'Following' do
+  describe 'Following and Likes' do
     let!(:user) { create(:user) }
     let!(:user2) { create(:user) }
     let!(:activity) { create(:activity, user: user) }
@@ -84,6 +84,13 @@ RSpec.describe User, type: :model do
       user.follow user2
       expect(user.following?(user2)).to eq true
       expect(user2.followings.count).to eq 1
+    end
+
+    it 'should be able to unfollow another user' do
+      user.follow user2
+      expect(user.following?(user2)).to eq true
+      user.stop_following user2
+      expect(user.following?(user2)).to eq false
     end
   end
 end
