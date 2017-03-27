@@ -14,7 +14,7 @@ class Api::V1::LikesController < ActionController::API
   end
 
   def destroy
-    activity = Activity.find(params[:activity_id])
+    activity = Activity.find(params[:id])
     if current_api_v1_user.stop_following activity
       render 'success'
     else
