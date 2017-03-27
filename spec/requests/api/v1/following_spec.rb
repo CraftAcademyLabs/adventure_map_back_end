@@ -24,4 +24,24 @@ RSpec.describe 'Following users', type: :request do
     expect(user.following? other_user).to be false
   end
 
+  it 'can view a list of people he follows' do
+    user.follow other_user
+    get '/api/v1/follows', params: { request: 'followings' },
+        headers: valid_auth_headers
+
+    expect(response_json['status']).to eq 'success'
+    expect(response_json['users'].first['id']).to eq other_user.id
+  end
+
+  it 'can view a list of users following him' do
+    other_user.follow user
+    get '/api/v1/follows', params: { request: 'followers' },
+        headers: valid_auth_headers
+
+    expect(response_json['status']).to eq 'success'
+    expect(response_json['users'].first).to eq user
+  end
+
+
+
 end
