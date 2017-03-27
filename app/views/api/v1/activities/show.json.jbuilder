@@ -5,6 +5,7 @@ json.data do
   json.body @activity.body
   json.difficulty @activity.difficulty
   json.category @activity.category
+  json.created_at @activity.created_at.strftime('%e %B, %Y')
   json.user do
     json.id @activity.user.id
     json.name @activity.user.name
