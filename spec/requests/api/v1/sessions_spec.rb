@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Sign in', type: :request do
   let(:user) { create(:user, email: 'email@email.com') }
+  let(:user2) { create(:user, email: 'email@random.com') }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   context 'with valid credentials' do
@@ -17,8 +18,9 @@ RSpec.describe 'User Sign in', type: :request do
     end
 
     it 'provides counts for profile page' do
+      user.follow user2
       expect(response_json['data']['counts']['followers']).to eq 0
-      expect(response_json['data']['counts']['followings']).to eq 0
+      expect(response_json['data']['counts']['followings']).to eq 1
       expect(response_json['data']['counts']['my_activities']).to eq 0
       # Need to include saved activities when available
     end
