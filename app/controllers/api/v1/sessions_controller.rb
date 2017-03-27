@@ -9,4 +9,8 @@ class Api::V1::SessionsController < DeviseTokenAuth::SessionsController
     super
   end
 
+  def render_create_success
+    render 'success'
+  end
+
 end

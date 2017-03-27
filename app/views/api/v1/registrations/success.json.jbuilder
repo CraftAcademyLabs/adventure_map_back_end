@@ -1,6 +1,6 @@
 json.status 'success'
 json.data do |json|
-  json.(@resource,
+  json.(current_api_v1_user,
       :name,
       :nickname,
       :image,
@@ -9,7 +9,7 @@ json.data do |json|
       :gender,
       :date_of_birth,
       :provider,
-      :city,
-      :description)
-  json.interest_list  @resource.interest_list
+      :description,
+      :city)
+  json.interest_list  current_api_v1_user.interest_list
 end
