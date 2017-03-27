@@ -64,13 +64,27 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_many(:activities).dependent(:destroy)}
-    it { is_expected.to have_many(:comments).dependent(:destroy)}
+    it { is_expected.to have_many(:activities).dependent(:destroy) }
+    it { is_expected.to have_many(:comments).dependent(:destroy) }
   end
 
   describe 'Interests' do
     it 'should have predefined list of interests' do
       expect(User::VALID_INTERESTS).not_to be_empty
+    end
+  end
+
+  describe 'Following' do
+    let!(:user) { create(:user) }
+    let!(:user2) { create(:user) }
+    let!(:activity) { create(:activity, user: user) }
+    let!(:activity2) { create(:activity, user: user2) }
+
+
+    it 'should be able to follow another user' do
+      user.follow user2
+      expect(user.following?(user2)).to eq true
+      expect(user2.follows.count).to eq 1
     end
   end
 end
