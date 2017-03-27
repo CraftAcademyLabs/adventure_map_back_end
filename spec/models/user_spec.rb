@@ -80,11 +80,10 @@ RSpec.describe User, type: :model do
     let!(:activity) { create(:activity, user: user) }
     let!(:activity2) { create(:activity, user: user2) }
 
-
     it 'should be able to follow another user' do
       user.follow user2
       expect(user.following?(user2)).to eq true
-      expect(user2.follows.count).to eq 1
+      expect(user2.followings.count).to eq 1
     end
   end
 end
