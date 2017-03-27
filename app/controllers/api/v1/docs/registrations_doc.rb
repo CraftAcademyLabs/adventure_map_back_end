@@ -10,7 +10,7 @@ module Api::V1::Docs::RegistrationsDoc
     param :image, String, 'User profile picture'
     param :date_of_birth, String, 'User birthday'
     param :city, String, 'User city'
-    param :description, Text, 'User description'
+    param :description, String, 'User description'
     param :interest_list, Array, 'User Interests'
   end
   api :POST, '/auth', 'Create a user'
