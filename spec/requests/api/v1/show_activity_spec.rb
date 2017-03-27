@@ -22,6 +22,7 @@ RSpec.describe 'Show Activity', type: :request do
     expect(response_json['data']['body']).to eq activity.body
     expect(response_json['data']['difficulty']).to eq activity.difficulty
     expect(response_json['data']['category']).to eq activity.category
+    expect(response_json['data']['created_at']).to eq activity.created_at.strftime('%e %B, %Y')
   end
 
   it 'includes user in response' do
