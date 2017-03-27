@@ -92,5 +92,18 @@ RSpec.describe User, type: :model do
       user.stop_following user2
       expect(user.following?(user2)).to eq false
     end
+
+    it 'should be able to like an activity' do
+      user.follow activity2
+      expect(user.following?(activity2)).to eq true
+      expect(activity2.followings.count).to eq 1
+    end
+
+    it 'should be able to unlike an activity' do
+      user.follow activity2
+      expect(user.following?(activity2)).to eq true
+      user.stop_following activity2
+      expect(user.following?(activity2)).to eq false
+    end
   end
 end
