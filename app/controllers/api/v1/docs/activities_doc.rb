@@ -218,6 +218,7 @@ module Api::V1::Docs::ActivitiesDoc
                 "body": "Had a great time in Angered and so can you!",
                 "difficulty": 3,
                 "category": "Back country skiing",
+                "created_at":"27 March, 2017",
                 "user": {
                   "id": 1,
                   "provider": "email",
