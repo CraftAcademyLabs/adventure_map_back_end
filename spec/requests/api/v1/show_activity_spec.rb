@@ -78,7 +78,7 @@ RSpec.describe 'Show Activity', type: :request do
     end
 
     it 'returns the total number of likes' do
-      expect(response_json['data'][0]['likes_count']).to eq activity.followers_count
+      expect(response_json['data']['likes_count']).to eq activity.followers_count
     end
   end
 
