@@ -41,6 +41,12 @@ module Api::V1::Docs::SessionsDoc
                   "image":"image.png",
                   "date_of_birth":null,
                   "city":null
+                  "counts":
+                    {
+                      "followers": 12,
+                      "followings": 5,
+                      "my_activities": 3
+                    }
                 }
             }
 

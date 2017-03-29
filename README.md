@@ -13,7 +13,7 @@ Stagind: [Heroku](http://adventuremap-staging.herokuapp.com)
 - [**Godmin**](https://github.com/varvet/godmin) - for administrative interface
 - [**DeviseTokenAuth**](https://github.com/lynndylanhurley/devise_token_auth) - for user authentication
 
-### Addning an AdminUser
+### Adding an AdminUser
 For manual testing you need to add an `AdminUser`. In `$rails c` execute the following command.
 
 ```ruby
@@ -133,6 +133,16 @@ The following command will reset the DB and re-seed
 
 ```shell
 $ DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:reset
+```
+
+### Other
+Users "like" an activity by "following" it. This is the code for a user to follow another:
+```ruby
+user.follow user2
+```
+For a user to "like" an activity, it is:
+```ruby
+user.follow activity
 ```
 
 #### Brought to you by Craft Academy Labs
