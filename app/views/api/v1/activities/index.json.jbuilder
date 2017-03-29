@@ -16,7 +16,7 @@ json.data @activities.each do |activity|
     json.likes current_api_v1_user.following? activity
   end
   json.comments_count  activity.comments.count
-  json.likes_count activity.following_count
+  json.likes_count activity.followers_count
   json.images activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Image' }
 
 end
