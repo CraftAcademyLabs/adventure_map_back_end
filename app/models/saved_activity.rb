@@ -1,4 +1,4 @@
-class Save < ApplicationRecord
+class SavedActivity < ApplicationRecord
   belongs_to :user
   belongs_to :activity
 end

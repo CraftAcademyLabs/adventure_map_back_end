@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :saved_activities, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :gender,
