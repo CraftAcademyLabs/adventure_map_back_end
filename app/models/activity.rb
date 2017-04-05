@@ -11,6 +11,7 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :activity_details, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :saved_activities, dependent: :destroy
   acts_as_followable
 
   def validate_category
