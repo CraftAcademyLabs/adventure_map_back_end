@@ -3,7 +3,7 @@ class Api::V1::SavedActivitiesController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   def index
-
+    @activities = current_api_v1_user.my_saved_activities
   end
 
   def create

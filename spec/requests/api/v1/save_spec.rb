@@ -12,12 +12,19 @@ RSpec.describe 'Saving activities', type: :request do
     expect(user.saved_activities.include?(other_user_activity)).to be false
   end
 
-  it 'user can save an activity' do
+  xit 'user can save an activity and only save it once' do
     post "/api/v1/saved_activities", params: { activity_id: other_user_activity.id },
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
     expect(user.my_saved_activities.include?(other_user_activity)).to be true
+
+    post "/api/v1/saved_activities", params: { activity_id: other_user_activity.id },
+         headers: valid_auth_headers
+
+    expect(response_json['status']).to eq 'error'
+    expect(user.my_saved_activities.include?(other_user_activity)).to be true
+    expect(user.my_saved_activities.count).to eq 1
   end
 
   it 'user can unsave an activity' do
@@ -28,11 +35,12 @@ RSpec.describe 'Saving activities', type: :request do
 
   it 'can return a list of activities the user has saved' do
     SavedActivity.create(user: user, activity: other_user_activity)
-    get '/api/v1/saves', headers: valid_auth_headers
+    get '/api/v1/saved_activities', headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
     expect(response_json['data'].count).to eq 1
     expect(response_json['data'][0]['title']).to eq other_user_activity.title
+    expect(response_json['data'][0]['saves_count']).to eq other_user_activity.saved_activities.count
   end
 
 end

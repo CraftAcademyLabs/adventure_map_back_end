@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
   def my_saved_activities
     activities = []
     self.saved_activities.each do |activity|
+      # Only add activities the user has not un-saved
       activities << activity.activity if activity.active == true
     end
     activities
