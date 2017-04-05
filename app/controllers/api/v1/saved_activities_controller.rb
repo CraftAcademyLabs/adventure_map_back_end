@@ -8,7 +8,9 @@ class Api::V1::SavedActivitiesController < ActionController::API
 
   def create
     activity = Activity.find(params[:activity_id])
-    if SavedActivity.create(user: current_api_v1_user, activity: activity)
+    if SavedActivity.find_by(user: current_api_v1_user, activity: activity)
+      render 'api/v1/blank/error'
+    elsif SavedActivity.create(user: current_api_v1_user, activity: activity)
       render 'api/v1/blank/success'
     else
       render 'api/v1/blank/error'

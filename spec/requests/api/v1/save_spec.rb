@@ -12,7 +12,7 @@ RSpec.describe 'Saving activities', type: :request do
     expect(user.saved_activities.include?(other_user_activity)).to be false
   end
 
-  xit 'user can save an activity and only save it once' do
+  it 'user can save an activity and only save it once' do
     post "/api/v1/saved_activities", params: { activity_id: other_user_activity.id },
          headers: valid_auth_headers
 
