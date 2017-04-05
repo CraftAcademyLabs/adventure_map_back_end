@@ -21,13 +21,13 @@ RSpec.describe 'Saving activities', type: :request do
   end
 
   it 'user can unsave an activity' do
-    other_user_activity.save_by(saver: user)
-    delete "/api/v1/saves/#{other_user_activity.id}", headers: valid_auth_headers
-    expect(user.saved_activities.include?(other_user_activity)).to be false
+    SavedActivity.create(user: user, activity: other_user_activity)
+    delete "/api/v1/saved_activities/#{other_user_activity.id}", headers: valid_auth_headers
+    expect(user.my_saved_activities.include?(other_user_activity)).to be false
   end
 
   it 'can return a list of activities the user has saved' do
-    other_user_activity.save_by(saver: user)
+    SavedActivity.create(user: user, activity: other_user_activity)
     get '/api/v1/saves', headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
