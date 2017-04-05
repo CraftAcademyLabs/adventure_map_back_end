@@ -32,4 +32,12 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def my_saved_activities
+    activities = []
+    self.saved_activities.each do |activity|
+      activities << activity.activity
+    end
+    activities
+  end
 end

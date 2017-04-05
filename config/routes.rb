@@ -19,6 +19,7 @@ Rails.application.routes.draw do
                                   }
       resources :follows, only: [:index, :create, :destroy]
       resources :likes, only: [:create, :destroy]
+      resources :saved_activities, only: [:index, :create, :destroy]
       resources :activities, only: [:index, :create, :show] do
         resources :comments, only: [:create, :destroy, :update]
         resources :activity_details, only: [:create], shallow: true

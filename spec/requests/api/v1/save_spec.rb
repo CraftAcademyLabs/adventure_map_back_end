@@ -9,21 +9,21 @@ RSpec.describe 'Saving activities', type: :request do
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 
   it 'user does not save an activity by default' do
-    expect(user.saved_for? other_user_activity).to be false
+    expect(user.saved_activities.include?(other_user_activity)).to be false
   end
 
   it 'user can save an activity' do
-    post "/api/v1/saves", params: { activity_id: other_user_activity.id },
+    post "/api/v1/saved_activities", params: { activity_id: other_user_activity.id },
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
-    expect(user.saved_for? other_user_activity).to be true
+    expect(user.my_saved_activities.include?(other_user_activity)).to be true
   end
 
   it 'user can unsave an activity' do
     other_user_activity.save_by(saver: user)
     delete "/api/v1/saves/#{other_user_activity.id}", headers: valid_auth_headers
-    expect(user.saved_for? other_user_activity).to be false
+    expect(user.saved_activities.include?(other_user_activity)).to be false
   end
 
   it 'can return a list of activities the user has saved' do
