@@ -8,6 +8,7 @@ json.data do
   json.created_at @activity.created_at.strftime('%e %B, %Y')
   json.comments_count @activity.comments.count
   json.likes_count @activity.followers_count
+  json.saves_count @activity.saved_activities.where(active: true).count
   json.user do
     json.id @activity.user.id
     json.name @activity.user.name
@@ -16,6 +17,7 @@ json.data do
     json.followers_count @activity.user.followers.count
     json.following current_api_v1_user.following? @activity.user
     json.likes current_api_v1_user.following? @activity
+    json.saves current_api_v1_user.my_saved_activities.include?(@activity)
   end
 
   json.comments @activity.comments do |comment|
