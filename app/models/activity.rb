@@ -23,5 +23,6 @@ class Activity < ApplicationRecord
     self.saved_activities.each do |save|
       saves << save if save.active == true
     end
+    saves
   end
 end
