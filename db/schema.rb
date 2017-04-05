@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404140229) do
+ActiveRecord::Schema.define(version: 20170405092802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,17 +67,12 @@ ActiveRecord::Schema.define(version: 20170404140229) do
   end
 
   create_table "saves", force: :cascade do |t|
-    t.string   "saveable_type"
-    t.integer  "saveable_id"
-    t.string   "saver_type"
-    t.integer  "saver_id"
-    t.boolean  "save_flag"
-    t.string   "save_scope"
-    t.integer  "save_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["saveable_id", "saveable_type", "save_scope"], name: "index_saves_on_saveable_id_and_saveable_type_and_save_scope", using: :btree
-    t.index ["saver_id", "saver_type", "save_scope"], name: "index_saves_on_saver_id_and_saver_type_and_save_scope", using: :btree
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_saves_on_activity_id", using: :btree
+    t.index ["user_id"], name: "index_saves_on_user_id", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -142,4 +137,6 @@ ActiveRecord::Schema.define(version: 20170404140229) do
   add_foreign_key "activity_details", "activities"
   add_foreign_key "comments", "activities"
   add_foreign_key "comments", "users"
+  add_foreign_key "saves", "activities"
+  add_foreign_key "saves", "users"
 end
