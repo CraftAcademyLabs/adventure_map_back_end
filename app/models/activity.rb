@@ -17,4 +17,11 @@ class Activity < ApplicationRecord
   def validate_category
     errors.add(:category) unless VALID_CATEGORIES.include? category
   end
+
+  def active_saves
+    saves = []
+    self.saved_activities.each do |save|
+      saves << save if save.active == true
+    end
+  end
 end
