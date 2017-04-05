@@ -1,5 +1,5 @@
 class Api::V1::SavedActivitiesController < ActionController::API
-  # include Api::V1::Docs::SavedActivitiesDoc
+  include Api::V1::Docs::SavedActivitiesDoc
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   def index

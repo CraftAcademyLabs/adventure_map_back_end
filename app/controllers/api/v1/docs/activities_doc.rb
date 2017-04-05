@@ -39,6 +39,7 @@ module Api::V1::Docs::ActivitiesDoc
                     "category": "Back country skiing",
                     "comments_count": 12,
                     "likes_count": 42,
+                    "saves_count": 3,
                     "created_at": " 5 February, 2017",
                     "user": {
                       "id": 1,
@@ -47,7 +48,8 @@ module Api::V1::Docs::ActivitiesDoc
                       "interests": [],
                       "followers_count": 2,
                       "following": false,
-                      "likes": true
+                      "likes": true,
+                      "saves": true
                     }
                     "images": [
                       {
@@ -74,7 +76,8 @@ module Api::V1::Docs::ActivitiesDoc
                       "image": "http://graph.facebook.com/v2.6/102963366889840/picture",
                       "interests": []
                       "followers_count": 5
-                      "following": false
+                      "following": false,
+                      "saves": false
                     },
                     "comments_count": 5,
                     "images": []
@@ -118,6 +121,7 @@ module Api::V1::Docs::ActivitiesDoc
                     "category": "Back country skiing",
                     "created_at": " 5 February, 2017",
                     "comments_count": 3,
+                    "saves_count": 3,
                     "images": [
                       {
                         "id": 2,
@@ -138,6 +142,7 @@ module Api::V1::Docs::ActivitiesDoc
                     "category": "Hiking",
                     "created_at": " 9 February, 2017",
                     "comments_count": 5,
+                    "saves_count": 3,
                     "images": []
                   }
                 ]
@@ -184,6 +189,7 @@ module Api::V1::Docs::ActivitiesDoc
                   "category": "Hiking",
                   "comments_count": 12,
                   "likes_count": 42,
+                  "saves_count": 3,
                   "user": {
                     "id": 3,
                     "provider": "email",
@@ -237,7 +243,8 @@ module Api::V1::Docs::ActivitiesDoc
                   "updated_at": "2017-02-06T05:56:16.478Z",
                   "followers_count": 2,
                   "following": true,
-                  "likes": false
+                  "likes": false,
+                  "saves": false
                 },
                  "comments": [
                     {
