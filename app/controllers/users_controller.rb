@@ -18,6 +18,7 @@ class UsersController < ApplicationController
                                  :gender,
                                  :date_of_birth,
                                  :interest_list,
+                                 :description,
                                  :city)
   end
 end

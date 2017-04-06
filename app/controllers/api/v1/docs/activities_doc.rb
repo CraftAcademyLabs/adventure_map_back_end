@@ -37,16 +37,18 @@ module Api::V1::Docs::ActivitiesDoc
                     "body": "Had a great time in Angered and so can you!",
                     "difficulty": 3,
                     "category": "Back country skiing",
+                    "comments_count": 12,
+                    "likes_count": 42,
                     "created_at": " 5 February, 2017",
                     "user": {
                       "id": 1,
                       "name": "Tompa Thopmsson",
                       "image": null,
                       "interests": [],
-                      "followers_count": 2
-                      "following": false
-                    },
-                    "comments_count": 3,
+                      "followers_count": 2,
+                      "following": false,
+                      "likes": true
+                    }
                     "images": [
                       {
                         "id": 2,
@@ -180,6 +182,8 @@ module Api::V1::Docs::ActivitiesDoc
                   "body": "Just a description",
                   "difficulty": 2,
                   "category": "Hiking",
+                  "comments_count": 12,
+                  "likes_count": 42,
                   "user": {
                     "id": 3,
                     "provider": "email",
@@ -218,6 +222,9 @@ module Api::V1::Docs::ActivitiesDoc
                 "body": "Had a great time in Angered and so can you!",
                 "difficulty": 3,
                 "category": "Back country skiing",
+                "comments_count": 12,
+                "likes_count": 42,
+                "created_at":"27 March, 2017",
                 "user": {
                   "id": 1,
                   "provider": "email",
@@ -229,7 +236,8 @@ module Api::V1::Docs::ActivitiesDoc
                   "created_at": "2017-02-05T09:39:36.472Z",
                   "updated_at": "2017-02-06T05:56:16.478Z",
                   "followers_count": 2,
-                  "following": true
+                  "following": true,
+                  "likes": false
                 },
                  "comments": [
                     {

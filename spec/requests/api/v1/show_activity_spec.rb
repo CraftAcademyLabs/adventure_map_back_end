@@ -22,6 +22,7 @@ RSpec.describe 'Show Activity', type: :request do
     expect(response_json['data']['body']).to eq activity.body
     expect(response_json['data']['difficulty']).to eq activity.difficulty
     expect(response_json['data']['category']).to eq activity.category
+    expect(response_json['data']['created_at']).to eq activity.created_at.strftime('%e %B, %Y')
   end
 
   it 'includes user in response' do
@@ -43,6 +44,10 @@ RSpec.describe 'Show Activity', type: :request do
       .to eq user.name
     end
 
+    it 'returns the total number of comments' do
+      expect(response_json['data']['comments_count']).to eq 1
+    end
+
   end
 
   describe 'Followers' do
@@ -59,6 +64,21 @@ RSpec.describe 'Show Activity', type: :request do
     it 'shows if current user is following this Activity owner' do
       get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']['user']['following']).to be true
+    end
+  end
+
+  describe 'Likes' do
+    before :each do
+      user.follow activity
+      get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
+    end
+
+    it 'returns true if the user likes the activity' do
+      expect(response_json['data']['user']['likes']).to be true
+    end
+
+    it 'returns the total number of likes' do
+      expect(response_json['data']['likes_count']).to eq activity.followers_count
     end
   end
 

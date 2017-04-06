@@ -26,20 +26,23 @@ RSpec.describe 'User Registration', type: :request do
                                       image: 'image.png',
                                       date_of_birth: '1971-01-24',
                                       gender: 'Male',
-                                      city: 'Sigtuna'}, headers: headers
+                                      city: 'Sigtuna',
+                                      description: 'Skiing is just the best'
+                                      }, headers: headers
       end
 
       expect { request.call }.to change(User, :count).by(1)
       expect(User.last.name).to eq 'Bob'
       expect(User.last.nickname).to eq 'Bobby'
       expect(User.last.image).to eq 'image.png'
+      expect(User.last.description).to eq 'Skiing is just the best'
     end
   end
 
   describe 'returns interest list as response' do
     interest_list = 'Snow mobiling, Mountain biking'
 
-    it 'on failture to create user' do
+    it 'on failure to create user' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
                                     password_confirmation: 'wrong_password',
@@ -49,15 +52,17 @@ RSpec.describe 'User Registration', type: :request do
           .to contain_exactly('Snow mobiling', 'Mountain biking')
     end
 
-    it 'on successfull user creation ' do
+    it 'on successful user creation ' do
       post '/api/v1/auth', params: {email: 'example@craftacademy.se',
                                     password: 'password',
-                                    password_confirmation: 'wrong_password',
+                                    password_confirmation: 'password',
                                     interest_list: interest_list},
            headers: headers
+
       expect(response_json['data']['interest_list'])
           .to contain_exactly('Snow mobiling', 'Mountain biking')
     end
+
   end
 
   context 'returns an error message when user submits' do

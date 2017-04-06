@@ -34,6 +34,7 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
                                                        :date_of_birth,
                                                        :gender,
                                                        :city,
+                                                       :description,
                                                        :interest_list])
   end
 
@@ -44,6 +45,7 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
                   :date_of_birth,
                   :gender,
                   :city,
+                  :description,
                   :interest_list)
   end
 end
