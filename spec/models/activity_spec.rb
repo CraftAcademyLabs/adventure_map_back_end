@@ -26,6 +26,7 @@ RSpec.describe Activity, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many(:activity_details).dependent(:destroy) }
     it { is_expected.to have_many(:comments).dependent(:destroy) }
+    it { is_expected.to have_many(:saved_activities).dependent(:destroy) }
     it { is_expected.to belong_to(:user) }
   end
 end

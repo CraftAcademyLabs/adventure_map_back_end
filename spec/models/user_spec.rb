@@ -68,6 +68,8 @@ RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many(:activities).dependent(:destroy) }
     it { is_expected.to have_many(:comments).dependent(:destroy) }
+    it { is_expected.to have_many(:saved_activities).dependent(:destroy) }
+
   end
 
   describe 'Interests' do

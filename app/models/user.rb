@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :saved_activities, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :gender,
@@ -30,5 +31,14 @@ class User < ActiveRecord::Base
         self.errors[:interests] << "#{interest} is not a valid selection" unless VALID_INTERESTS.include?(interest)
       end
     end
+  end
+
+  def my_saved_activities
+    activities = []
+    self.saved_activities.each do |activity|
+      # Only add activities the user has not un-saved
+      activities << activity.activity if activity.active == true
+    end
+    activities
   end
 end
