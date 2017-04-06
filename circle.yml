@@ -5,10 +5,12 @@ deployment:
   development:
     branch: develop
     commands:
-      - git push -f git@heroku.com:adventuremap-dev.git $CIRCLE_SHA1:master
-      - heroku run rails db:migrate --app adventuremap-dev
+      - bundle exec cap development deploy
   staging:
     branch: staging
     commands:
-      - git push -f git@heroku.com:adventuremap-staging.git $CIRCLE_SHA1:master
-      - heroku run rails db:migrate --app adventuremap-staging
+      - bundle exec cap staging deploy
+  production:
+    branch: master
+    commands:
+      - bundle exec cap production deploy
