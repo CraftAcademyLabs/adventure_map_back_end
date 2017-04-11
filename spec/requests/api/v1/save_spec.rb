@@ -22,7 +22,7 @@ RSpec.describe 'Saving activities', type: :request do
     post "/api/v1/saved_activities", params: { activity_id: other_user_activity.id },
          headers: valid_auth_headers
 
-    expect(response_json['status']).to eq 'error'
+    expect(response_json['status']).to eq 'success'
     expect(user.my_saved_activities.include?(other_user_activity)).to be true
     expect(user.my_saved_activities.count).to eq 1
   end
