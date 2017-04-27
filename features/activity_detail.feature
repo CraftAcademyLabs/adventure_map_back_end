@@ -14,10 +14,10 @@ Feature: Activity has activity details
       | Second time in Aspen | time well spent | 1          | Climbing | sigu@example.com |
 
     And the following recordings exist
-      | file_attachment | activity             | attachment_type |
-      | recording1.mp4  | Skiing in Aspen      | Image           |
-      | recording2.mp4  | Skiing in Aspen      | Image           |
-      | recording3.mp4  | Second time in Aspen | Image           |
+      | file_attachment                   | activity             | attachment_type |
+      | http://good_url.se/recording1.mp4 | Skiing in Aspen      | Image           |
+      | http://good_url.se/recording2.mp4 | Skiing in Aspen      | Image           |
+      | http://good_url.se/recording3.mp4 | Second time in Aspen | Image           |
 
     And I access the application as an admin
     And I click on "Activities"
@@ -27,9 +27,9 @@ Feature: Activity has activity details
     And I click on "Create Activity detail"
     And I select "Skiing in Aspen" from "Activity"
     And I select "Image" from "Attachment type"
-    And I fill in "File attachment" with "some-file.jpg"
+    And I fill in "File attachment" with "http://good_url.se/some-file.jpg"
     And I click on "Create Activity detail"
-    Then I should see "some-file.jpg"
+    Then I should see "http://good_url.se/some-file.jpg"
     And I should see "Skiing in Aspen"
 
 
@@ -40,19 +40,19 @@ Feature: Activity has activity details
 
   Scenario: Delete activity details
     When I click on "Activity Details"
-    When I click on "Destroy" for activity detail "recording1.mp4" in "table"
+    When I click on "Destroy" for activity detail "http://good_url.se/recording1.mp4" in "table"
     Then there should be no activity detail with filename "recording1.mp4"
     And there should be an activity titled "Skiing in Aspen" in the system
 
   Scenario: Delete activity detail from activity show page
     When I click on "Show" for activity "Skiing in Aspen"
     Then I should see "recording1.mp4"
-    When I click on "Delete" for activity detail "recording1.mp4" in "list"
+    When I click on "Delete" for activity detail "http://good_url.se/recording1.mp4" in "list"
     Then there should be no activity detail with filename "recording1.mp4"
 
   Scenario: Filter by filename
     When I click on "Activity Details"
-    Then I should see "recording3.mp4"
-    Then I filter on "recording1.mp4" from "File_attachment"
+    Then I should see "http://good_url.se/recording3.mp4"
+    Then I filter on "http://good_url.se/recording1.mp4" from "File_attachment"
     And I click on "Filter"
-    Then I should not see "recording3.mp4"
+    Then I should not see "http://good_url.se/recording3.mp4"
