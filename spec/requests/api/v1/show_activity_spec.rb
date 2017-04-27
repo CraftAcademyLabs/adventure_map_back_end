@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Show Activity', type: :request do
 
   let!(:activity) { create(:activity, title: 'An Amazing Time on the Slopes') }
-  let!(:activity_detail) { create(:activity_detail, activity: activity, attachment_type: "Image" ) }
+  let!(:activity_detail) { create(:activity_detail, activity: activity, attachment_type: 'Image') }
   let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
   let!(:user2) { create(:user, email: 'email@another.com', password: 'password') }
   let!(:comment) { create(:comment, user: user, activity: activity) }
@@ -32,22 +32,22 @@ RSpec.describe 'Show Activity', type: :request do
   describe 'Comment' do
     it 'returns comments on response' do
       expect(response_json['data']['comments'][0]['activity_id'])
-        .to eq activity.id
+          .to eq activity.id
     end
 
     it 'includes comment user details' do
       expect(response_json['data']['comments'][0]['user']['image'])
-      .to eq user.image
+          .to eq user.image
       expect(response_json['data']['comments'][0]['user']['nickname'])
-      .to eq user.nickname
+          .to eq user.nickname
       expect(response_json['data']['comments'][0]['user']['name'])
-      .to eq user.name
+          .to eq user.name
     end
 
   end
 
   describe 'Followers' do
-    let!(:activity) { create(:activity, user_id: user2.id, title: 'Sailing at Marstrand')}
+    let!(:activity) { create(:activity, user_id: user2.id, title: 'Sailing at Marstrand') }
 
     before :each do
       user.follow user2
@@ -68,7 +68,7 @@ RSpec.describe 'Show Activity', type: :request do
     it 'included in response' do
       get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["images"][0]['activity_id'])
-      .to eq activity.id
+          .to eq activity.id
     end
 
     it 'not include in response if none exist' do
@@ -83,7 +83,7 @@ RSpec.describe 'Show Activity', type: :request do
       activity_detail.update_attribute(:attachment_type, "Waypoint")
       get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["waypoints"][0]['activity_id'])
-      .to eq activity.id
+          .to eq activity.id
     end
 
     it 'not included in response if none exists' do
@@ -97,7 +97,7 @@ RSpec.describe 'Show Activity', type: :request do
       activity_detail.update_attribute(:attachment_type, "Route")
       get "/api/v1/activities/#{activity.id}", headers: valid_auth_headers
       expect(response_json['data']["routes"][0]['activity_id'])
-      .to eq activity.id
+          .to eq activity.id
     end
 
     it 'not included in response if none exists' do

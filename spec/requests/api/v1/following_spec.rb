@@ -12,8 +12,8 @@ RSpec.describe 'Following users', type: :request do
   end
 
   it 'user can follow the other user' do
-    post "/api/v1/follows/", params: { user_id: other_user.id },
-      headers: valid_auth_headers
+    post "/api/v1/follows/", params: {user_id: other_user.id},
+         headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
     expect(user.following? other_user).to be true
@@ -27,7 +27,7 @@ RSpec.describe 'Following users', type: :request do
 
   it 'can view a list of people he follows' do
     user.follow other_user
-    get '/api/v1/follows', params: { request: 'followings' },
+    get '/api/v1/follows', params: {request: 'followings'},
         headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'
@@ -36,13 +36,12 @@ RSpec.describe 'Following users', type: :request do
 
   it 'can view a list of users following him' do
     user.follow other_user
-    get '/api/v1/follows', params: { request: 'followers' },
+    get '/api/v1/follows', params: {request: 'followers'},
         headers: other_user_auth_headers
 
     expect(response_json['status']).to eq 'success'
     expect(response_json['users'].first['id']).to eq user.id
   end
-
 
 
 end

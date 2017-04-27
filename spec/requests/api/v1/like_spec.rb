@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Liking activities', type: :request do
   let!(:user) { create(:user, email: 'email@email.com', password: 'password') }
   let!(:other_user) { create(:user, email: 'new@email.com', password: 'password') }
-  let!(:user_activity) { create(:activity, user: user)}
-  let!(:other_user_activity) { create(:activity, user: other_user)}
+  let!(:user_activity) { create(:activity, user: user) }
+  let!(:other_user_activity) { create(:activity, user: other_user) }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 
@@ -13,7 +13,7 @@ RSpec.describe 'Liking activities', type: :request do
   end
 
   it 'user can like an activity' do
-    post "/api/v1/likes/", params: { activity_id: other_user_activity.id,  },
+    post '/api/v1/likes/', params: {activity_id: other_user_activity.id, },
          headers: valid_auth_headers
 
     expect(response_json['status']).to eq 'success'

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Get a user's activities", type: :request do
   let!(:user) { create(:user) }
-  let!(:user2) { create(:user, email: 'another@email.com')}
-  let!(:activity) { create(:activity, user: user, title: 'A Fun Activity')}
-  let!(:activity2) { create(:activity, user: user2)}
+  let!(:user2) { create(:user, email: 'another@email.com') }
+  let!(:activity) { create(:activity, user: user, title: 'A Fun Activity') }
+  let!(:activity2) { create(:activity, user: user2) }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
   let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
 

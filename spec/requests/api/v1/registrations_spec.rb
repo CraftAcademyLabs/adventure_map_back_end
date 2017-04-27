@@ -27,8 +27,7 @@ RSpec.describe 'User Registration', type: :request do
                                       date_of_birth: '1971-01-24',
                                       gender: 'Male',
                                       city: 'Sigtuna',
-                                      description: 'Skiing is just the best'
-                                      }, headers: headers
+                                      description: 'Skiing is just the best'}, headers: headers
       end
 
       expect { request.call }.to change(User, :count).by(1)
