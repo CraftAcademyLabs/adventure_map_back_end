@@ -9,5 +9,19 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
                            })
   end
 
+  def render_data(message, data)
+    user = resource_class.find_by(email: data['email'])
+    @data = data.merge({
+                           message: message,
+                           interest_list: user.interest_list,
+                           counts: {
+                               followings: user.follow_count,
+                               followers: user.followers_count,
+                               my_activities: user.activities.count,
+                               my_saved_activities: user.my_saved_activities.count
+                           }
+                       })
+    render :layout => nil, :template => "devise_token_auth/omniauth_external_window"
+  end
 
 end

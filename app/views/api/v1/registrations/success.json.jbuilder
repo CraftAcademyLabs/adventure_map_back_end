@@ -10,6 +10,7 @@ json.data do |json|
       :date_of_birth,
       :provider,
       :description,
-      :city)
+      :city,
+      :interest_list)
   json.interest_list  current_api_v1_user.interest_list
 end

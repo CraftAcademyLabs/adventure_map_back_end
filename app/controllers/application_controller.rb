@@ -40,9 +40,12 @@ class ApplicationController < ActionController::Base
                   :nickname,
                   :image,
                   :date_of_birth,
-                  :gender, :city]
+                  :gender,
+                  :city,
+                  :interest_list]
     attributes.each do |attribute|
       permitted_parameters[:sign_up] << attribute
+      permitted_parameters[:sign_in] << attribute
       permitted_parameters[:account_update] << attribute
     end
 
