@@ -38,4 +38,20 @@ RSpec.describe 'View Activity Feed', type: :request do
       expect(response_json['data'][0]['user']['following']).to be true
     end
   end
+
+  describe 'likes' do
+    before :each do
+      user2.follow activity
+      get '/api/v1/activities',
+          headers: valid_auth_headers
+    end
+
+    it 'returns true if a user likes an activity' do
+      expect(response_json['data'][0]['user']['likes']).to be true
+    end
+    
+    it 'returns the number of likes for an activity' do
+      expect(response_json['data'][0]['likes_count']).to eq 1
+    end
+  end
 end

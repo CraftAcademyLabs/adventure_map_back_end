@@ -11,9 +11,18 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :activity_details, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :saved_activities, dependent: :destroy
   acts_as_followable
 
   def validate_category
     errors.add(:category) unless VALID_CATEGORIES.include? category
+  end
+
+  def active_saves
+    saves = []
+    self.saved_activities.each do |save|
+      saves << save if save.active == true
+    end
+    saves
   end
 end
