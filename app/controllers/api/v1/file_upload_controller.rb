@@ -23,6 +23,10 @@ class Api::V1::FileUploadController < ActionController::API
   end
 
   def filepath
-    "#{params[:type]}/#{params[:filename]}"
+    "#{params[:type]}/#{ts_filename}"
+  end
+
+  def ts_filename
+    "#{Time.now.strftime('%Y%m%d%H%M%S')}_#{params[:filename]}"
   end
 end
