@@ -9,6 +9,10 @@ json.data do
   json.comments_count @activity.comments.count
   json.likes_count @activity.followers_count
   json.saves_count @activity.active_saves.count
+  json.coords do
+    json.lat @activity.lat
+    json.lng @activity.lng
+  end
   json.user do
     json.id @activity.user.id
     json.name @activity.user.name

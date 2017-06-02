@@ -13,6 +13,8 @@ RSpec.describe Activity, type: :model do
     it { is_expected.to have_db_column :difficulty }
     it { is_expected.to have_db_column :created_at }
     it { is_expected.to have_db_column :updated_at }
+    it { is_expected.to have_db_column :lat }
+    it { is_expected.to have_db_column :lng }
   end
 
   describe 'Validations' do
