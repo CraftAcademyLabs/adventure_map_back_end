@@ -12,6 +12,11 @@ comments = YAML.load_file("#{seeds_root_path}/comments.yml")
 follows = YAML.load_file("#{seeds_root_path}/follows.yml")
 users = YAML.load_file("#{seeds_root_path}/users.yml")
 
+default_location = {lat: 57.708870, lng: 11.974560}
+activities.each do |activity|
+  activity.merge!(default_location)
+end
+
 puts '== Seeding Database   ==================================================='
 # Users
 admin_users.each { |au| AdminUser.create(au.merge(passwords)) }
@@ -27,10 +32,10 @@ Activity.create(activities)
 puts "#{Activity.count} Activities created."
 
 ActivityDetail.create(activity_details)
-puts "#{ActivityDetail.count} Activities created."
+puts "#{ActivityDetail.count} Activity Details created."
 
 Comment.create(comments)
-puts "#{Comment.count} Activities created"
+puts "#{Comment.count} Comments created"
 
 Follow.create(follows)
 puts "#{Follow.count} Follows created."
