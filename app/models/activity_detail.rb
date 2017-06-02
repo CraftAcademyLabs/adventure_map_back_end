@@ -9,4 +9,5 @@ class ActivityDetail < ApplicationRecord
             inclusion: { in: VALID_TYPE_VALUES,
                          message: '"%{value}" is not a valid type' },
             allow_nil: false
+  validates_format_of :file_attachment, with: URI::regexp
 end

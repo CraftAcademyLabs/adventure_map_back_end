@@ -18,7 +18,7 @@ RSpec.describe 'Create Activity', type: :request do
 
   context 'if oauth user is persisted' do
     let(:user) { User.last }
-    let(:headers) { { HTTP_ACCEPT: 'application/json' } }
+    let(:headers) { {HTTP_ACCEPT: 'application/json'} }
     let!(:valid_auth_headers) { headers.merge(user.create_new_auth_token) }
     let(:valid_category) { Activity::VALID_CATEGORIES.first }
     it 'the user exists' do
