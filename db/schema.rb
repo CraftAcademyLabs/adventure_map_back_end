@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170602044004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "lat"
-    t.integer  "lng"
+    t.float    "lat"
+    t.float    "lng"
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
 
