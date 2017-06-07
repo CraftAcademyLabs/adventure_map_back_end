@@ -36,7 +36,7 @@ class Api::V1::ActivitiesController < ActionController::API
   private
 
   def resource_params
-    params.permit(:title, :body, :user_id, :difficulty, :category)
+    params.permit(:title, :body, :user_id, :difficulty, :category, :lat, :lng)
   end
 
   protected
