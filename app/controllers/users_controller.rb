@@ -19,6 +19,7 @@ class UsersController < ApplicationController
                                  :date_of_birth,
                                  :interest_list,
                                  :description,
-                                 :city)
+                                 :city,
+                                 :image)
   end
 end

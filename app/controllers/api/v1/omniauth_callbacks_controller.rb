@@ -1,13 +1,22 @@
 class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksController
 
   def assign_provider_attrs(user, auth_hash)
-    user.assign_attributes({
-                               nickname: auth_hash['info']['first_name'],
-                               name: auth_hash['info']['name'],
-                               image: auth_hash['info']['image'],
-                               email: auth_hash['info']['email']
-                           })
+    oauth_attrs = {
+        name: auth_hash['info']['name'],
+        email: auth_hash['info']['email']
+    }
+
+    unless user.image
+      oauth_attrs.merge!({image: auth_hash['info']['image']})
+    end
+
+    unless user.nickname
+      oauth_attrs.merge!({nickname: auth_hash['info']['first_name']})
+    end
+
+    user.assign_attributes(oauth_attrs)
   end
+
 
   def render_data(message, data)
     user = resource_class.find_by(email: data['email'])
@@ -21,7 +30,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
                                my_saved_activities: user.my_saved_activities.count
                            }
                        })
-    render :layout => nil, :template => "devise_token_auth/omniauth_external_window"
+    render layout: nil, template: 'devise_token_auth/omniauth_external_window'
   end
 
 end
