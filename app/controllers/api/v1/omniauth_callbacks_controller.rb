@@ -21,7 +21,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
                                my_saved_activities: user.my_saved_activities.count
                            }
                        })
-    render :layout => nil, :template => "devise_token_auth/omniauth_external_window"
+    render layout: nil, template: 'devise_token_auth/omniauth_external_window'
   end
 
 end
