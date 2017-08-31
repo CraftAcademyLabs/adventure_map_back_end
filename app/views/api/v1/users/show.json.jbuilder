@@ -17,6 +17,7 @@ json.user do
     json.comments_count activity.comments.count
     json.likes_count activity.followers_count
     json.saves_count activity.active_saves.count
+    json.images activity.activity_details.collect { |detail| detail if detail.attachment_type == 'Image' }
     json.coords do
       json.lat activity.lat
       json.lng activity.lng
