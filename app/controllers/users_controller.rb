@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include Godmin::Resources::ResourceController
 
+
   private
 
   def resource_service

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
         resources :activity_details, only: [:create], shallow: true
       end
 
-      resources :users, only: [] do
+      resources :users, only: [:show] do
         resources :activities, only: [:index]
       end
 
