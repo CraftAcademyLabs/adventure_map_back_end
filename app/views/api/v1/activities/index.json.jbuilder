@@ -6,6 +6,10 @@ json.data @activities.each do |activity|
   json.difficulty activity.difficulty
   json.category activity.category
   json.created_at activity.created_at.strftime('%e %B, %Y')
+  json.coords do
+    json.lat activity.lat
+    json.lng activity.lng
+  end
   json.user do
     json.id activity.user.id
     json.name activity.user.name
