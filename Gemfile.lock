@@ -6,6 +6,14 @@ GIT
     acts_as_follower (0.2.1)
       activerecord (>= 4.0)
 
+PATH
+  remote: admin
+  specs:
+    admin (0.1.0)
+      godmin
+      godmin-tags
+      rails (~> 5.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -387,6 +395,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 4.0)
   acts_as_follower!
+  admin!
   apipie-rails
   awesome_print
   aws-sdk (~> 2)
@@ -403,7 +412,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
-  godmin
   godmin-tags
   haml-rails
   jbuilder (~> 2.5)

@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   apipie
-  resources :activities
-  resources :activity_details
-  resources :admin_users
-  resources :comments
-  resources :users, except: [:destroy]
 
-  resource :session, only: [:new, :create, :destroy]
-  root to: 'application#welcome'
+  namespace :admin do
+    mount Admin::Engine, at: 'admin'
+  end
+
+
 
   namespace :api do
     namespace :v1, defaults: { format: :json } do

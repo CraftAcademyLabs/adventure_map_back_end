@@ -1,4 +1,4 @@
-class ActivitiesController < ApplicationController
+class Admin::ActivitiesController < Admin::ApplicationController
   include Godmin::Resources::ResourceController
 
   def redirect_after_create
