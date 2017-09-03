@@ -1,4 +1,4 @@
-class CommentService
+class Admin::CommentService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :body, :user, :activity

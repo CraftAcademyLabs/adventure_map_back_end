@@ -1,4 +1,4 @@
-class ActivityService
+class Admin::ActivityService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :title, :category, :difficulty, :user

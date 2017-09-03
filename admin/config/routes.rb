@@ -1,6 +1,7 @@
 Admin::Engine.routes.draw do
 
 
+  resources :articles
   resources :activities
   resources :activity_details
   resources :admin_users

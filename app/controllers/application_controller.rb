@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       if devise_controller?
         authenticate_user!
       else
-        redirect_to new_admin_session_path, alert: 'Authentication needed'
+        redirect_to admin.new_session_path, alert: 'Authentication needed'
       end
     end
   end

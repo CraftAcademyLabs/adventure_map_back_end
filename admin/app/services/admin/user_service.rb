@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class UserService
+class Admin::UserService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :name, :nickname, :email, :created_at

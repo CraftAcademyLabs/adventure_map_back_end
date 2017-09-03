@@ -3,7 +3,7 @@ Given(/^an admin user exist$/) do
 end
 
 Given(/^I (?:navigate to the root page|access the application)$/) do
-  visit admin_root_path
+  visit admin.root_path
 end
 
 Given(/^I fill in the login form with my credentials$/) do

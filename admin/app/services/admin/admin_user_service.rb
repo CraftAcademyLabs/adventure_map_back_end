@@ -1,4 +1,4 @@
-class AdminUserService
+class Admin::AdminUserService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :name, :email, :created_at

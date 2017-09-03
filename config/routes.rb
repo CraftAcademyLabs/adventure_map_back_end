@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   apipie
 
-  namespace :admin do
-    mount Admin::Engine, at: 'admin'
-  end
-
+  mount Admin::Engine, at: 'admin'
 
 
   namespace :api do
-    namespace :v1, defaults: { format: :json } do
+    namespace :v1, defaults: {format: :json} do
       mount_devise_token_auth_for 'User', at: 'auth',
                                   controllers: {
                                       registrations: 'api/v1/registrations',

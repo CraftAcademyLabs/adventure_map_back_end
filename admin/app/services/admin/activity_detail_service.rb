@@ -1,4 +1,4 @@
-class ActivityDetailService
+class Admin::ActivityDetailService
   include Godmin::Resources::ResourceService
 
   attrs_for_index :activity, :file_attachment, :attachment_type
