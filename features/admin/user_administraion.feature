@@ -10,6 +10,8 @@ Feature: Administrate users
   Scenario: Add a user
     Given I click on "Users"
     And I click on "Create User"
+    And I fill in "First name" with "User"
+    And I fill in "Last name" with "Usersson"
     And I fill in "Email" with "user@random.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -40,14 +42,12 @@ Feature: Administrate users
     Then I should see "User was successfully updated"
     And there should be a user with email "new_email_user_1@ranom.com" in the system
 
-#  Disabled until we can solve the Froxen Hash issue on Destroy
-#  Scenario: Delete a user
-#    Given the user "user_2@ranom.com" has an account
-#    And I click on "Users"
-#    Then show me the page
-#    And I click on "Destroy" for user "user_2@ranom.com"
-#    Then I should see "User was successfully deleted"
-#    And there should no be a user with email "user_2@ranom.com" in the system
+  Scenario: Delete a user
+    Given the user "user_2@ranom.com" has an account
+    And I click on "Users"
+    And I click on "Destroy" for user "user_2@ranom.com"
+    Then I should see "User was successfully destroyed"
+    And there should no be a user with email "user_2@ranom.com" in the system
 
   Scenario: Show a user
     Given the user "user_2@ranom.com" has an account

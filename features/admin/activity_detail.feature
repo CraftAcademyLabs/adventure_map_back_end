@@ -5,8 +5,8 @@ Feature: Activity has activity details
 
   Background:
     Given the following users exist
-      | name | email            |
-      | Sigu | sigu@example.com |
+      | first_name | email            |
+      | Sigu       | sigu@example.com |
 
     And the following activities exist
       | title                | body            | difficulty | category | user             |

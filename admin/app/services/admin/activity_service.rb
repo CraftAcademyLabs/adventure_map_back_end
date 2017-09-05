@@ -11,7 +11,7 @@ class Admin::ActivityService
   filter :title
 
   def filter_user(resources, value)
-    User.where('name LIKE ?', "%#{value}%")
+    User.where('first_name LIKE ?', "%#{value}%")
   end
 
   def filter_title(resources, value)

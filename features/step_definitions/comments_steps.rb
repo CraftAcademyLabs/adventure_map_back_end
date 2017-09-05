@@ -9,7 +9,7 @@ end
 Given(/^the following comments exist$/) do |table|
   table.hashes.each do |hash|
     activity_name = hash.delete 'activity'
-    user = User.find_by_name( hash.delete('user') )
+    user = User.find_by(first_name: hash.delete('user') )
     activity = Activity.find_by(title: activity_name)
     hash.merge!(activity: activity)
     hash.merge!(user: user)

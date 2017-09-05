@@ -1,6 +1,6 @@
 class Admin::UserPolicy < Admin::ApplicationPolicy
 
   def destroy?
-    false
+    true
   end
 end

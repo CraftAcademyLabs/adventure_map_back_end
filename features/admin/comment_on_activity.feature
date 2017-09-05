@@ -1,10 +1,11 @@
 Feature: As a User
   in order to share my thoughts
   I would like to be able to comment on an Activity.
+
   Background:
     Given the following users exist
-      | name | email            |
-      | Sigu | sigu@example.com |
+      | first_name | email            |
+      | Sigu       | sigu@example.com |
 
     And the following activities exist
       | title                | body            | difficulty | category | user             |

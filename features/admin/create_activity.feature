@@ -6,9 +6,9 @@ Feature: Create Activity
 
   Background:
     Given the following users exist
-      | name   | email             |
-      | Thomas | thomas@random.com |
-      | Viktor | viktor@random.com |
+      | first_name | email             |
+      | Thomas     | thomas@random.com |
+      | Viktor     | viktor@random.com |
 
     And I access the application as an admin
     And I click on "Activities"

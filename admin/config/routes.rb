@@ -6,7 +6,7 @@ Admin::Engine.routes.draw do
   resources :activity_details
   resources :admin_users
   resources :comments
-  resources :users, except: [:destroy]
+  resources :users
 
   #resource :session, only: [:new, :create, :destroy]
   root to: 'application#welcome'
