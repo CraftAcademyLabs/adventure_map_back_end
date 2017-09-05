@@ -8,8 +8,8 @@ Admin::Engine.routes.draw do
   resources :comments
   resources :users, except: [:destroy]
 
-  resource :session, only: [:new, :create, :destroy]
-  root to: 'admin#welcome'
+  #resource :session, only: [:new, :create, :destroy]
+  root to: 'application#welcome'
 
 
 end

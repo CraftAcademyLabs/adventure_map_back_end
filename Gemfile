@@ -24,10 +24,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_follower', github: 'thepracticaldev/acts_as_follower', branch: 'master'
 gem 'aws-sdk', '~> 2'
+gem 'devise'
 gem 'devise_token_auth'
 #gem 'godmin' # administrative interface https://github.com/varvet/godmin
 gem 'admin', path: 'admin'
-gem 'godmin-tags'
+gem 'godmin-tags', '~> 1.0', '>= 1.0.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 

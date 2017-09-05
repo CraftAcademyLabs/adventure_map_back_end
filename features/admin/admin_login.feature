@@ -8,8 +8,9 @@ Feature: Admin can login into admin panel
     And I navigate to the root page
 
   Scenario: login into the admin panel
-    Then show me the page
     And I fill in the login form with my credentials
-    And I click on "Sign in"
+    And I click on "Log in"
     Then I should see "Welcome to AdventureMap"
+    Then show me the page
+
 

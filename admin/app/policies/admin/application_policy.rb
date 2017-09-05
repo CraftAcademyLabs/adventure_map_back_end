@@ -1,4 +1,4 @@
-class ApplicationPolicy < Godmin::Authorization::Policy
+class Admin::ApplicationPolicy < Godmin::Authorization::Policy
   attr_reader :user, :resource
 
   def initialize(user, resource)
@@ -29,6 +29,6 @@ class ApplicationPolicy < Godmin::Authorization::Policy
   private
 
   def admin_user?
-    @user.class == AdminUser
+    @user.class == User
   end
 end
