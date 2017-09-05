@@ -3,8 +3,9 @@ Then(/^I should see "([^"]*)"$/) do |content|
 end
 
 Then(/^there should be an admin user with email "([^"]*)" in the system$/) do |email|
-  new_admin_user = AdminUser.find_by(email: email)
+  new_admin_user = User.find_by(email: email)
   expect(new_admin_user.persisted?).to eq true
+  expect(new_admin_user.administrator).to eq true
 end
 
 And(/^there should be a user with email "([^"]*)" in the system$/) do |email|

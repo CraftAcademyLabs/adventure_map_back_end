@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     permitted_parameters = devise_parameter_sanitizer.instance_values['permitted']
-    attributes = [:name,
+    attributes = [:first_name,
+                  :last_name,
+                  :administrator,
                   :nickname,
                   :image,
                   :date_of_birth,

@@ -2,11 +2,11 @@
 class Admin::UserService
   include Godmin::Resources::ResourceService
 
-  attrs_for_index :name, :nickname, :email, :created_at
+  attrs_for_index :name, :nickname, :email, :created_at, :administrator
   attrs_for_form :name, :image, :nickname, :email, :date_of_birth, :gender, :city,
-                 :interest_list, :password, :password_confirmation
+                 :interest_list, :password, :password_confirmation, :administrator
   attrs_for_show :image, :name, :nickname, :email, :interest_list,
-                 :date_of_birth, :gender, :city, :created_at, :updated_at
+                 :date_of_birth, :gender, :city, :created_at, :updated_at, :administrator
 
   def update_resource(resource, params)
     if params[:password].blank?

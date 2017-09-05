@@ -11,6 +11,5 @@ Feature: Admin can login into admin panel
     And I fill in the login form with my credentials
     And I click on "Log in"
     Then I should see "Welcome to AdventureMap"
-    Then show me the page
 
 

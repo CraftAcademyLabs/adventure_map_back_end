@@ -11,7 +11,9 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def resource_params
-    params.require(:user).permit(:name,
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :administrator,
                                  :nickname,
                                  :email,
                                  :password,

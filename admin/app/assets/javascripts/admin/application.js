@@ -13,4 +13,5 @@
 //= require moment
 //= require moment/en-gb
 //= require godmin
+//= require godmin-tags
 //= require_tree .

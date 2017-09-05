@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it 'should have valid Factory' do
-    expect(FactoryGirl.create(:user)).to be_valid
+    expect(create(:user)).to be_valid
   end
 
   describe 'Database table' do
@@ -33,6 +33,17 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :city }
     it { is_expected.to have_db_column :description }
 
+    it { is_expected.to have_db_column :first_name }
+    it { is_expected.to have_db_column :last_name }
+    it { is_expected.to have_db_column :administrator }
+
+  end
+
+  describe '#name' do
+    subject { create(:user) }
+    it 'returns a name' do
+      expect(subject.name).to eq 'Email Emailsson'
+    end
   end
 
   describe 'Validations' do

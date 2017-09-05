@@ -19,3 +19,7 @@ Given(/^I access the application as an admin$/) do
     And I click on "Sign in"
   )
 end
+
+And(/^I check "([^"]*)" checkbox$/) do |input_field|
+  check input_field
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602044004) do
+ActiveRecord::Schema.define(version: 20170905224433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 20170602044004) do
     t.datetime "updated_at",      null: false
     t.string   "attachment_type"
     t.index ["activity_id"], name: "index_activity_details_on_activity_id", using: :btree
-  end
-
-  create_table "admin_users", force: :cascade do |t|
-    t.string   "email"
-    t.text     "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "first_name"
-    t.string   "last_name"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -119,7 +110,6 @@ ActiveRecord::Schema.define(version: 20170602044004) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "name"
     t.string   "nickname"
     t.string   "image"
     t.string   "email"
@@ -130,6 +120,9 @@ ActiveRecord::Schema.define(version: 20170602044004) do
     t.string   "gender"
     t.string   "city"
     t.text     "description"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "administrator",          default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

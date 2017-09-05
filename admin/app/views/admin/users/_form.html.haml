@@ -1,7 +1,9 @@
 = form_for @resource do |f|
-  = f.text_field :name
+  = f.text_field :first_name
+  = f.text_field :last_name
   = f.text_field :nickname
   = f.text_field :email
+  = f.check_box :administrator
   = f.select :gender, User::VALID_GENDER_VALUES, {}
   = f.date_field :date_of_birth
   = f.text_field :city
