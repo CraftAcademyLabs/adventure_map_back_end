@@ -1,5 +1,5 @@
 Given(/^an admin user exist$/) do
-  FactoryGirl.create(:user, email: 'admin@admin.com', password: 'password')
+  FactoryGirl.create(:user, email: 'admin@admin.com', password: 'password', administrator: true)
 end
 
 Given(/^I (?:navigate to the root page|access the application)$/) do

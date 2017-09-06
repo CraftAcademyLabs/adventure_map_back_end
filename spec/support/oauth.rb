@@ -3,7 +3,8 @@ OmniAuth.config.test_mode = true
 user = {provider: 'facebook',
         uid: '123545',
         info: {
-            name: 'Thomas Ochman',
+            first_name: 'Thomas',
+            last_name: 'Ochman',
             email: 'thomas@craft.com'
         },
         credentials: {
@@ -12,3 +13,4 @@ user = {provider: 'facebook',
         }}
 
 OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(user)
+

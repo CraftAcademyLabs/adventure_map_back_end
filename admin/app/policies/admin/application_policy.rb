@@ -29,6 +29,6 @@ class Admin::ApplicationPolicy < Godmin::Authorization::Policy
   private
 
   def admin_user?
-    @user.class == User
+    @user.administrator
   end
 end

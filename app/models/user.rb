@@ -24,7 +24,9 @@ class User < ActiveRecord::Base
 
   validate :valid_interests
 
-  def name
+  alias_attribute :name, :first_name
+
+  def full_name
     [self.first_name, self.last_name].join(' ')
   end
 

@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe ActivityPolicy do
+RSpec.describe Admin::ActivityPolicy do
 
-  let(:admin) { create(:admin_user) }
+  let(:admin) { create(:user, administrator: true) }
+  let(:non_admin) { create(:user, administrator: false) }
   let(:resource) { create(:activity) }
 
   describe 'For Admin' do
@@ -14,7 +15,7 @@ RSpec.describe ActivityPolicy do
   end
 
   describe 'For non Admin' do
-    subject { described_class.new(nil, resource) }
+    subject { described_class.new(non_admin, resource) }
 
     %w(index show update destroy create).each do |action|
       it { is_expected.to forbid_action action.to_sym }

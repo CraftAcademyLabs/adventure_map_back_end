@@ -16,10 +16,9 @@ RSpec.describe 'Comment on Activity', type: :request do
              body: 'looks like this was fun',
          },
          headers: valid_auth_headers
-
     expect(response_json['status']).to eq 'success'
     expect(response_json['data']['body']).to eq 'looks like this was fun'
-    expect(response_json['data']['user']['name']).to eq user.name
+    expect(response_json['data']['user']['first_name']).to eq user.name
     expect(response_json['data']['activity']['title']).to eq activity.title
   end
 
@@ -46,7 +45,7 @@ RSpec.describe 'Comment on Activity', type: :request do
   end
 
   it 'sends error message if there is no activity with given id' do
-    post "/api/v1/activities/r/comments/",
+    post '/api/v1/activities/r/comments/',
          params: {
              body: 'Body of comment',
          },
@@ -93,7 +92,7 @@ RSpec.describe 'Comment on Activity', type: :request do
           headers: second_user_headers
       expect(response_json['status']).to eq 'error'
       expect(response_json['message'])
-          .to eq "You are not allowed to perform this action"
+          .to eq 'You are not allowed to perform this action'
       comment.reload
       expect(comment.body).not_to eq 'New comment body'
     end

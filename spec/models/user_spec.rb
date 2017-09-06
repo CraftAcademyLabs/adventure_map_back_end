@@ -39,10 +39,10 @@ RSpec.describe User, type: :model do
 
   end
 
-  describe '#name' do
+  describe '#full_name' do
     subject { create(:user) }
-    it 'returns a name' do
-      expect(subject.name).to eq 'Email Emailsson'
+    it 'returns a combination of first_name and last_name' do
+      expect(subject.full_name).to eq 'Email Emailsson'
     end
   end
 
