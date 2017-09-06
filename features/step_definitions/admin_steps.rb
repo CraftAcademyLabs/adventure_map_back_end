@@ -1,9 +1,9 @@
 Given(/^an admin user exist$/) do
-  FactoryGirl.create(:admin_user)
+  FactoryGirl.create(:user, email: 'admin@admin.com', password: 'password', administrator: true)
 end
 
 Given(/^I (?:navigate to the root page|access the application)$/) do
-  visit root_path
+  visit admin.root_path
 end
 
 Given(/^I fill in the login form with my credentials$/) do
@@ -18,4 +18,8 @@ Given(/^I access the application as an admin$/) do
     And I fill in the login form with my credentials
     And I click on "Sign in"
   )
+end
+
+And(/^I check "([^"]*)" checkbox$/) do |input_field|
+  check input_field
 end

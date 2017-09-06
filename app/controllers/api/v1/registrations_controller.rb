@@ -29,6 +29,8 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,
+                                                       :first_name,
+                                                       :last_name,
                                                        :nickname,
                                                        :image,
                                                        :date_of_birth,
@@ -40,6 +42,8 @@ class Api::V1::RegistrationsController < DeviseTokenAuth::RegistrationsControlle
 
   def account_update_params
     params.permit(:name,
+                  :first_name,
+                  :last_name,
                   :nickname,
                   :image,
                   :date_of_birth,

@@ -24,6 +24,12 @@ class User < ActiveRecord::Base
 
   validate :valid_interests
 
+  alias_attribute :name, :first_name
+
+  def full_name
+    [self.first_name, self.last_name].join(' ')
+  end
+
 
   def valid_interests
     if self.interest_list.any?

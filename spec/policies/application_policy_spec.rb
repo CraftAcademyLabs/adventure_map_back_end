@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationPolicy do
+RSpec.describe Admin::ApplicationPolicy do
 
-  let(:admin) { create(:admin_user) }
-  let(:resource) { create(:admin_user, email: 'another_admin@admin.com') }
+  let(:admin) { create(:user, administrator: true) }
+  let(:non_admin) { create(:user, administrator: false) }
+  let(:resource) { create(:user, email: 'another_admin@admin.com') }
 
   describe 'For Admin' do
     subject { described_class.new(admin, resource) }
@@ -14,7 +15,7 @@ RSpec.describe ApplicationPolicy do
   end
 
   describe 'For non Admin' do
-    subject { described_class.new(nil, resource) }
+    subject { described_class.new(non_admin, resource) }
 
     %w(index show update destroy create).each do |action|
       it { is_expected.to forbid_action action.to_sym }

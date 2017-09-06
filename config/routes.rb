@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
   apipie
-  resources :activities
-  resources :activity_details
-  resources :admin_users
-  resources :comments
-  resources :users, except: [:destroy]
 
-  resource :session, only: [:new, :create, :destroy]
-  root to: 'application#welcome'
+  mount Admin::Engine, at: 'admin'
+
+  devise_for :users
+
 
   namespace :api do
-    namespace :v1, defaults: { format: :json } do
+    namespace :v1, defaults: {format: :json} do
       mount_devise_token_auth_for 'User', at: 'auth',
                                   controllers: {
                                       registrations: 'api/v1/registrations',

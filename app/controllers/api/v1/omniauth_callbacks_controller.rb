@@ -1,8 +1,10 @@
 class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksController
 
+
   def assign_provider_attrs(user, auth_hash)
     oauth_attrs = {
-        name: auth_hash['info']['name'],
+        first_name: auth_hash['info']['first_name'],
+        last_name: auth_hash['info']['last_name'],
         email: auth_hash['info']['email']
     }
 
@@ -11,7 +13,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
     end
 
     unless user.nickname
-      oauth_attrs.merge!({nickname: auth_hash['info']['first_name']})
+      oauth_attrs.merge!({nickname: auth_hash['info']['first_name'].downcase})
     end
 
     user.assign_attributes(oauth_attrs)

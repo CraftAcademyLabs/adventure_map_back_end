@@ -1,5 +1,10 @@
 Given(/^I click on "([^"]*)"$/) do |element|
-  click_link_or_button element
+  if element == 'Sign in'
+    button = 'Log in'
+  else
+    button = element
+  end
+  click_link_or_button button
 end
 
 And(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, content|
